@@ -9,11 +9,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body{
-            margin-left: 20px;
+            margin-left: 30%;
+            margin-right: 30%;
         }
     </style>
 </head>
 <body>
+<?php
+include "inc/loginFrom.php";
+include "inc/registerForm.php";
+?>
 
 </body>
 </html>

@@ -5,7 +5,7 @@ class DB
     private $dbname;
     function connect(){
         $this->dbname = "user";
-        return new mysqli("localhost","uebung11","cprn66ae","uebung11_teil2");
+        return new mysqli("localhost","webProjekt","cprn66ae","webProjekt");
     }
 
     //Gets and Returns User Array
