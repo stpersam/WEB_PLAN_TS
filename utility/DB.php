@@ -5,7 +5,7 @@ class DB
     private $dbname;
     function connect($name){
         $this->dbname = $name;
-        return new mysqli("localhost","webProjekt","cprn66ae","webProjekt");
+        return new mysqli("localhost","webProjekt","cprn66ae","webprojekt");
     }
 
     //Gets and Returns User Array
@@ -75,16 +75,32 @@ class DB
 
 
     //getArray of Pictures from database
-    function getPictureArray($name, $tag, $date){
+    function getPictureArray($name, $tag, $date, $state){
         $dbobjekt = $this->connect();
-        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . '');  
+        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . ' or capturedate = '. $date . ' or state = ' . $state . '');  
         $arraypictures = array();
+
 
         while($z = $result->fetch_object()){
             array_push($arraypictures,(object)$z);
         }
 
+        $arraypictures2 = array();
+        foreach ($arraypictures as $a){
+            $ab = new picture();
+            $ab->setName($a->Name);
+            $ab->setLatitude($a->latitude);
+            $ab->setLongitude($a->longitude);
+            $ab->setCapturedate($a->capturedate);
+            $ab->setChangedate($a->changedate);
+            $ab->setState($a->state);
+            $ab->setHref($a->href);
+            $ab->setTags($a->tags);
+
+            array_push($arraypictures2,$ab);
+        }
+
         $dbobjekt->close();
-        return $arraypictures;
+        return $arraypictures2;
     }
 }

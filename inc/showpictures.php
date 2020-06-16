@@ -3,13 +3,16 @@
 
 
 //set path & scan content of path into variable
-$dir = ;
-$a = scandir($dir);
+$gettable = new DB();
+$gettable->connect("pictures");
+
+
+$a = $gettable->getPictureArray($_POST["name"],$_POST["name"],$_POST["name"],$_POST["name"]);
 
 //loop to show fancybox pictures with
 foreach ($a as $ab) {
-    if (is_file($dir . "/" . $ab)) {
-        echo "<a href='pics/$ab' data-fancybox='mygallery'><img src='pics/$ab' class='img-thumbnail imgs'></img></a>";
-    }
+        $href = $ab->getHref();
+        echo "<a href='pictures/full/$href' data-fancybox='mygallery'><img src='pictures/thumbnail/$href' class='img-thumbnail imgs'></img></a>";
+    
 }
 ?>
