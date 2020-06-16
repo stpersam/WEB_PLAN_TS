@@ -85,7 +85,9 @@ class DB
         $dbobjekt = $this->connect("pictures");
 
         $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or state = ?");
-        $result = null;
+        $statement->bind_param('sssdds', $name, $tag, $date, $date, $state );
+        $result = $dbobjekt->query($statement);
+        
         /*
         $result = $dbobjekt->query('SELECT * from pictures 
         WHERE Name='". $name  ."' 
