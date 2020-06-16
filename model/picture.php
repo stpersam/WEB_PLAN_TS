@@ -2,7 +2,7 @@
 
 class Picture
 {
-    var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href;
+    var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href, $tags;
 
 
     /**
@@ -141,6 +141,26 @@ class Picture
     public function setHref($href)
     {
         $this->href = $href;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tags
+     */ 
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set the value of tags
+     *
+     * @return  self
+     */ 
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
 
         return $this;
     }

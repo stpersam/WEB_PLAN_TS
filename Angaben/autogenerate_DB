@@ -34,4 +34,4 @@ CREATE TABLE pictures(
     PRIMARY KEY(ID,Name)
 );
 
-Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Test','nn','ee','2015-12-17','2015-12-17','freigegeben','href','tag1,tag2');
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Test','nn','ee','2015-12-17','2015-12-17','freigegeben','test.png','test,klaus');

@@ -89,11 +89,13 @@ class DB
         foreach ($arraypictures as $a){
             $ab = new picture();
             $ab->setName($a->Name);
+            $ab->setLatitude($a->latitude);
+            $ab->setLongitude($a->longitude);
+            $ab->setCapturedate($a->capturedate);
+            $ab->setChangedate($a->changedate);
+            $ab->setState($a->state);
             $ab->setHref($a->href);
-            $ab->setHref($a->href);
-            $ab->setHref($a->href);
-            $ab->setHref($a->href);
-            $ab->setHref($a->href);
+            $ab->setTags($a->tags);
 
             array_push($arraypictures2,$ab);
         }
