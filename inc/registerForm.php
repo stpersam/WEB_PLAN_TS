@@ -15,13 +15,12 @@ if(isset($_GET["wrong"])){
 ?>
 
 <div class="formular">
-    <form name = "myForm" action="inc/registerForm.php" method="post">
+    <form name = "myForm" action="../index.php?reg=t" method="post">
         <div class="Formularfenster" Id="eltern">
             <div class="form-group">
                 <label for="anrede">Anrede:</label>
                 <select name="anrede" class="custom-select mb-3">
-                    <option selected>Anrede</option>
-                    <option value="herr">Herr</option>
+                    <option value="herr" selected>Herr</option>
                     <option value="frau">Frau</option>
                 </select>
             </div>
@@ -67,41 +66,38 @@ if(isset($_GET["wrong"])){
 </div>
 
 <?php
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!empty(filter_input(INPUT_POST,"username"))){
+if(!empty(filter_input(INPUT_POST,"username"))){
 
-        $anrede = (filter_input(INPUT_POST, "anrede"));
-        $vorname = (filter_input(INPUT_POST, "vorname"));
-        $nachname = (filter_input(INPUT_POST, "nachname"));
-        $adresse = (filter_input(INPUT_POST, "adresse"));
+    $anrede = (filter_input(INPUT_POST, "anrede"));
+    $vorname = (filter_input(INPUT_POST, "vorname"));
+    $nachname = (filter_input(INPUT_POST, "nachname"));
+    $adresse = (filter_input(INPUT_POST, "adresse"));
 
-        if(is_numeric($_POST["pls"])){
-            $temp = $_POST["pls"];
-            if($temp > 0 && $temp <= 9999){
-                $plz = (filter_input(INPUT_POST, "plz"));
-            }else{
-                header("Location: inc/registerForm?wrong=plz");
-            }
+    if(is_numeric($_POST["pls"])){
+        $temp = $_POST["pls"];
+        if($temp > 0 && $temp <= 9999){
+            $plz = (filter_input(INPUT_POST, "plz"));
         }else{
-            header("Location: inc/registerForm?wrong=plz");
+            header("Location: ../index.php?reg=t&wrong=plz");
         }
-
-        $ort = (filter_input(INPUT_POST, "ort"));
-
-
-        $username = (filter_input(INPUT_POST, "username"));
-
-        if($_POST["password"] == $_POST["passwordBest"]){
-            $password = (filter_input(INPUT_POST, "password"));
-        }else{
-            header("Location: inc/registerForm?wrong=pwns");
-        }
-
-        $email = (filter_input(INPUT_POST, "email"));
-
-        $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
-        $db = new DB();
-        $db->registerUser($user);
-        header("Location: ../index.php");
+    }else{
+        header("Location: ../index.php?reg=t&wrong=plz");
     }
+
+    $ort = (filter_input(INPUT_POST, "ort"));
+
+
+    $username = (filter_input(INPUT_POST, "username"));
+
+    if($_POST["password"] == $_POST["passwordBest"]){
+        $password = (filter_input(INPUT_POST, "password"));
+    }else{
+        header("Location: ../index.php?reg=t&wrong=pwns");
+    }
+
+    $email = (filter_input(INPUT_POST, "email"));
+
+    $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
+    $db = new DB();
+    $db->registerUser($user);
 }
