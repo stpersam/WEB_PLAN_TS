@@ -2,7 +2,7 @@
 
 class picture
 {
-    var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href, $tags;
+    var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href, $tags, $owner;
 
 
     public function __construct(){
@@ -165,6 +165,26 @@ class picture
     public function setTags($tags)
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of owner
+     */ 
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * Set the value of owner
+     *
+     * @return  self
+     */ 
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
 
         return $this;
     }

@@ -88,14 +88,13 @@ class DB
 
 
     //getArray of Pictures from database
-    
-    function getPictureArray($name, $tag, $date, $state)
+    function getPictureArray($name, $tag, $date, $state,$owner)
     {
         $dbobjekt = $this->connect("pictures");
 
-        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ?");
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ? or owner = ?");
         $tag = "%" . $tag . "%";
-        $statement->bind_param('ssdds', $name, $tag, $date, $date, $state);
+        $statement->bind_param('ssddss', $name, $tag, $date, $date, $state,$owner);
         $statement->execute();
         $result = $statement->get_result();
 
@@ -116,6 +115,7 @@ class DB
             $ab->setState($a->state);
             $ab->setHref($a->href);
             $ab->setTags($a->tags);
+            $ab->setOwner($a->owner);
 
             array_push($arraypictures2, $ab);
         }
@@ -123,4 +123,43 @@ class DB
         $dbobjekt->close();
         return $arraypictures2;
     }
+
+
+    //getArray of Pictures from database
+    function getrestrictedPictureArray($state,$owner)
+    {
+        $dbobjekt = $this->connect("pictures");
+
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE state = ? AND owner = ?");
+        $statement->bind_param('ss', $state,$owner);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        $arraypictures = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($arraypictures, (object) $row);
+            
+        }
+
+        $arraypictures2 = array();
+        foreach ($arraypictures as $a) {
+            $ab = new picture();
+            $ab->setName($a->Name);
+            $ab->setLatitude($a->latitude);
+            $ab->setLongitude($a->longitude);
+            $ab->setCapturedate($a->capturedate);
+            $ab->setChangedate($a->changedate);
+            $ab->setState($a->state);
+            $ab->setHref($a->href);
+            $ab->setTags($a->tags);
+            $ab->setOwner($a->owner);
+
+            array_push($arraypictures2, $ab);
+        }
+
+        $dbobjekt->close();
+        return $arraypictures2;
+    }
+
+
 }
