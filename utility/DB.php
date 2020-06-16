@@ -84,31 +84,20 @@ class DB
     {
         $dbobjekt = $this->connect("pictures");
 
-        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or state = ?");
-        $statement->bind_param('sssdds', $name, $tag, $date, $date, $state );
-        $result = $dbobjekt->query($statement);
-        
-        /*
-        $result = $dbobjekt->query('SELECT * from pictures 
-        WHERE Name='". $name  ."' 
-        or tags LIKE %'". $tag ."'% 
-        or capturedate = '". $date ."' 
-        or state = '". $state 
-        );
-        */
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ?");
+        $statement->bind_param('ssdds', $name, $tag, $date, $date, $state);
+        $statement->execute();
+        $result = $statement->get_result();
 
-        var_dump($name);
-        var_dump($result);
         $arraypictures = array();
-
-        if ($result == true) {
-            while ($z = $result->fetch_object()) {
-                array_push($arraypictures, (object) $z);
-            }
+        while ($row = $result->fetch_assoc()) {
+            array_push($arraypictures, (object) $row);
+            
         }
-        $arraypictures2 = array();
+
+        
         foreach ($arraypictures as $a) {
-            $ab = new picture();
+            $ab = new Picture();
             $ab->setName($a->Name);
             $ab->setLatitude($a->latitude);
             $ab->setLongitude($a->longitude);
