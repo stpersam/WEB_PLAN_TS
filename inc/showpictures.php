@@ -38,17 +38,36 @@ if ($searchtag != null || $userfilter != null || $state != null) {
         $href = $ab->getHref();
         echo "<div class='col-md-3'>";
         echo "<a href='pictures/full/$href' data-fancybox='mygallery'><img src='pictures/thumbnail/$href' class='img-thumbnail imgs'></img></a>";
+
         $name = $ab->getName();
         $state = $ab->getState();
         echo "<p>";
         echo "$name";
         echo " ($state)";
         echo "</p>";
+
         $owner = $ab->getOwner();
         echo "<p>";
         echo "Creator: $owner";
-      
         echo "</p>";
+
+        $capturedate = $ab->getCapturedate();
+        echo "<button onclick='MoreInfo($href)'>more..</button>";
+        echo "<div id='$href'><p>Created: $capturedate</p></div>";
+        
+        
         echo "</div>";
     }
 }
+?>
+
+<script>
+    function MoreInfo($id) {
+        var x = document.getElementById($id);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
