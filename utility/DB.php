@@ -80,13 +80,13 @@ class DB
 
     //getArray of Pictures from database
     
-    function getPictureArray($name, $tag, $date, $state)
+    function getPictureArray($name, $tag, $date, $state,$owner)
     {
         $dbobjekt = $this->connect("pictures");
 
-        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ?");
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ? or owner = ?");
         $tag = "%" . $tag . "%";
-        $statement->bind_param('ssdds', $name, $tag, $date, $date, $state);
+        $statement->bind_param('ssddss', $name, $tag, $date, $date, $state,$owner);
         $statement->execute();
         $result = $statement->get_result();
 

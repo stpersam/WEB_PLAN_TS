@@ -8,7 +8,7 @@ $gettable->connect("pictures");
 
 //initate searchtag and get array of fitting SELECT
 $searchtag = $_POST["searchtag"];
-$a = $gettable->getPictureArray($searchtag, $searchtag, $searchtag,$searchtag);
+$a = $gettable->getPictureArray($searchtag, $searchtag, $searchtag,$searchtag,$searchtag);
 
 //loop to show fancybox pictures with
 foreach ($a as $ab) {
