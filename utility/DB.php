@@ -3,32 +3,35 @@
 class DB
 {
     private $dbname;
-    function connect($name){
+    function connect($name)
+    {
         $this->dbname = $name;
-        return new mysqli("localhost","webProjekt","cprn66ae","webprojekt");
+        return new mysqli("localhost", "webProjekt", "cprn66ae", "webprojekt");
     }
 
     //Gets and Returns User Array
-    function getUserList(){
+    function getUserList()
+    {
         $dbobjekt = $this->connect("users");
         $result = $dbobjekt->query("Select * from login_2");
         $arrayuser = array();
 
-        while($z = $result->fetch_assoc()){
-            array_push($arrayuser,(object)$z);
+        while ($z = $result->fetch_assoc()) {
+            array_push($arrayuser, (object) $z);
         }
         $dbobjekt->close();
         return $arrayuser;
     }
 
     //Adds User to the Database
-    function registerUser($userObjekt){
+    function registerUser($userObjekt)
+    {
         $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("Insert INTO ? (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,E_Mail_Adresse) values (?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('sssssissss',$this->dbname,$userObjekt->getAnrede(),$userObjekt->getVorname(),$userObjekt->getNachname(),$userObjekt->getAdresse(),$userObjekt->getPlz(),$userObjekt->getOrt(),$userObjekt->getUsername(),$userObjekt->getPassword(),$userObjekt->getEmail());
-        if($statement){
+        $statement->bind_param('sssssissss', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail());
+        if ($statement) {
             $erg = true;
-        }else{
+        } else {
             $erg = false;
         }
         $statement->execute();
@@ -38,19 +41,20 @@ class DB
     }
 
     //Updates User From the Database
-    function updateUser($userObjekt){
+    function updateUser($userObjekt)
+    {
         $dbobjekt = $this->connect("users");
         $result = $dbobjekt->query("SELECT * FROM '$this->dbname' Where ID = " . $_GET["id"]);
 
-        if($result){
+        if ($result) {
             $erg = true;
-        }else{
+        } else {
             $erg = false;
         }
         $z = $result->fetch_object();
 
         $statement = $dbobjekt->prepare('UPDATE ? SET Anrede=?,Vorname=?,Nachname=?,Adresse=?,PLZ=?,Ort=?,Username=?,Password=?,E_Mail_Adresse=? WHERE ID=?');
-        $statement->bind_param('sssssissssi',$this->dbname,$userObjekt->getAnrede(),$userObjekt->getVorname(),$userObjekt->getNachname(),$userObjekt->getAdresse(),$userObjekt->getPlz(),$userObjekt->getOrt(),$userObjekt->getUsername(),$userObjekt->getPassword(),$userObjekt->getEmail(),$z->ID);
+        $statement->bind_param('sssssissssi', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $z->ID);
         $statement->execute();
         $statement->close();
         $dbobjekt->close();
@@ -58,13 +62,14 @@ class DB
     }
 
     //Deletes User From the Databased
-    function deleteUser($userID){
+    function deleteUser($userID)
+    {
         $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("DELETE FROM ? Where ID =?");
-        $statement->bind_param('si',$this->dbname,$userID);
-        if($statement){
+        $statement->bind_param('si', $this->dbname, $userID);
+        if ($statement) {
             $erg = true;
-        }else{
+        } else {
             $erg = false;
         }
         $statement->execute();
@@ -75,18 +80,33 @@ class DB
 
 
     //getArray of Pictures from database
-    function getPictureArray($name, $tag, $date, $state){
+    function getPictureArray($name, $tag, $date, $state)
+    {
         $dbobjekt = $this->connect("pictures");
-        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . ' or capturedate = '. $date . ' or state = ' . $state);
+
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or state = ?)";
+
+        /*
+        $result = $dbobjekt->query('SELECT * from pictures 
+        WHERE Name='". $name  ."' 
+        or tags LIKE %'". $tag ."'% 
+        or capturedate = '". $date ."' 
+        or state = '". $state 
+        );
+        */
+
+
+        var_dump($name);
+        var_dump($result);
         $arraypictures = array();
 
-
-        while($z = $result->fetch_object()){
-            array_push($arraypictures,(object)$z);
+        if ($result == true) {
+            while ($z = $result->fetch_object()) {
+                array_push($arraypictures, (object) $z);
+            }
         }
-
         $arraypictures2 = array();
-        foreach ($arraypictures as $a){
+        foreach ($arraypictures as $a) {
             $ab = new picture();
             $ab->setName($a->Name);
             $ab->setLatitude($a->latitude);
@@ -97,7 +117,7 @@ class DB
             $ab->setHref($a->href);
             $ab->setTags($a->tags);
 
-            array_push($arraypictures2,$ab);
+            array_push($arraypictures2, $ab);
         }
 
         $dbobjekt->close();
