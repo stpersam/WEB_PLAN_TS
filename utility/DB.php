@@ -26,8 +26,8 @@ class DB
     function registerUser($userObjekt)
     {
         $dbobjekt = $this->connect("users");
-        $statement = $dbobjekt->prepare("Insert INTO ? (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values (?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('sssssisssss', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle());
+        $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values (?,?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param('ssssisssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle());
         if ($statement) {
             $erg = true;
         } else {

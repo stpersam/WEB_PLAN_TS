@@ -1,4 +1,6 @@
 <?php
+include "../model/User.php";
+include "DB.php";
 if(!empty(filter_input(INPUT_POST,"username"))){
 
     $anrede = (filter_input(INPUT_POST, "anrede"));
@@ -6,8 +8,8 @@ if(!empty(filter_input(INPUT_POST,"username"))){
     $nachname = (filter_input(INPUT_POST, "nachname"));
     $adresse = (filter_input(INPUT_POST, "adresse"));
 
-    if(is_numeric($_POST["pls"])){
-        $temp = $_POST["pls"];
+    if(is_numeric($_POST["plz"])){
+        $temp = $_POST["plz"];
         if($temp > 0 && $temp <= 9999){
             $plz = (filter_input(INPUT_POST, "plz"));
         }else{
@@ -33,5 +35,6 @@ if(!empty(filter_input(INPUT_POST,"username"))){
     $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
     $db = new DB();
     $db->registerUser($user);
+    header("Location:../index.php");
 }
 

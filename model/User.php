@@ -1,7 +1,7 @@
 <?php
 
 class User{
-    var $anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email;
+    var $anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email,$rolle;
     /**
      * User constructor.
      * @param $anrede
@@ -25,6 +25,23 @@ class User{
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
+        $this->rolle = "user";
+    }
+
+    /**
+     * @return string
+     */
+    public function getRolle(): string
+    {
+        return $this->rolle;
+    }
+
+    /**
+     * @param string $rolle
+     */
+    public function setRolle(string $rolle): void
+    {
+        $this->rolle = $rolle;
     }
 
     /**
