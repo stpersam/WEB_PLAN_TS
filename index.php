@@ -26,6 +26,7 @@
     <?php
     include "utility/DB.php";
     include "model/User.php";
+    include "pictures.php";
 
     include "inc/loginFrom.php";
     include "inc/registerForm.php";
