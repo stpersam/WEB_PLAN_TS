@@ -107,6 +107,7 @@ class DB
             $ab->setState($a->state);
             $ab->setHref($a->href);
             $ab->setTags($a->tags);
+            $ab->setOwner($a->owner);
 
             array_push($arraypictures2, $ab);
         }
