@@ -48,6 +48,10 @@ include "DB.php";
     $temp = $db->registerUser($user);
 
     if($temp){
+        if(!array_key_exists("user",$_SESSION)){
+            $_SESSION["user"] = array();
+        }
+        array_push($_SESSION["user"],serialize($user));
         header("Location:../index.php");
     }
 
