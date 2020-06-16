@@ -73,4 +73,17 @@ class DB
         return $erg;
     }
 
+
+    //getArray of Pictures from database
+    function getPictureArray($tag){
+        $dbobjekt = $this->connect();
+        $result = $dbobjekt->query("Select * from login_2");
+        $arrayuser = array();
+
+        while($z = $result->fetch_assoc()){
+            array_push($arrayuser,(object)$z);
+        }
+        $dbobjekt->close();
+        return $arrayuser;
+    }
 }

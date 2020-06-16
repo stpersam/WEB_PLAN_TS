@@ -2,7 +2,7 @@
 
 class Picture
 {
-    var $name, $latitude, $longitude, $capturedate, $changedate, $state;
+    var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href;
 
 
     /**
@@ -121,6 +121,26 @@ class Picture
     public function setChangedate($changedate)
     {
         $this->changedate = $changedate;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of href
+     */ 
+    public function getHref()
+    {
+        return $this->href;
+    }
+
+    /**
+     * Set the value of href
+     *
+     * @return  self
+     */ 
+    public function setHref($href)
+    {
+        $this->href = $href;
 
         return $this;
     }
