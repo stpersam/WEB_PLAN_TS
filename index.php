@@ -21,6 +21,8 @@
 </head>
 
 <body>
+        <a href="index.php"><button>HOME</button></a>
+
     <?php
     include "utility/DB.php";
     include "model/User.php";
