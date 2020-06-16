@@ -12,7 +12,7 @@ class DB
     function getUserList()
     {
         $dbobjekt = $this->connect("users");
-        $result = $dbobjekt->query("Select * from login_2");
+        $result = $dbobjekt->query("Select * from users");
         $arrayuser = array();
 
         while ($z = $result->fetch_assoc()) {
@@ -20,6 +20,15 @@ class DB
         }
         $dbobjekt->close();
         return $arrayuser;
+    }
+
+    function countUser($username){
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT COUNT(*) AS c FROM users WHERE Username=?");
+        $statement->bind_param('s',$username);
+        $statement->execute();
+        $z = $statement->get_result()->fetch_assoc();
+        return $z['c'];
     }
 
     //Adds User to the Database

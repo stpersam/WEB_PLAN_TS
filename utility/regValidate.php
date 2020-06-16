@@ -1,8 +1,6 @@
 <?php
 include "../model/User.php";
 include "DB.php";
-if(!empty(filter_input(INPUT_POST,"username"))){
-
     $anrede = (filter_input(INPUT_POST, "anrede"));
     $vorname = (filter_input(INPUT_POST, "vorname"));
     $nachname = (filter_input(INPUT_POST, "nachname"));
@@ -21,8 +19,14 @@ if(!empty(filter_input(INPUT_POST,"username"))){
 
     $ort = (filter_input(INPUT_POST, "ort"));
 
+    $db = new DB();
+    $count = $db->countUser(filter_input(INPUT_POST, "username"));
 
-    $username = (filter_input(INPUT_POST, "username"));
+    if($count == 0){
+        $username = (filter_input(INPUT_POST, "username"));
+    }else{
+        header("Location: ../index.php?wrong=un");
+    }
 
     if($_POST["password"] == $_POST["passwordBest"]){
         $password = (filter_input(INPUT_POST, "password"));
@@ -36,5 +40,5 @@ if(!empty(filter_input(INPUT_POST,"username"))){
     $db = new DB();
     $db->registerUser($user);
     header("Location:../index.php");
-}
+
 

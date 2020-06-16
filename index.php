@@ -40,9 +40,12 @@
         } else if ($_GET["wrong"] == "plz") {
             $message = "Wrong PLZ";
             echo "<script type='text/javascript'>alert('$message');</script>";
+        }else if ($_GET["wrong"] == "un") {
+            $message = "Wrong Username";
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
-    
+
     include "inc/gallery.php";
     ?>
 
