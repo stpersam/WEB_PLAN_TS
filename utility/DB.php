@@ -10,7 +10,7 @@ class DB
 
     //Gets and Returns User Array
     function getUserList(){
-        $dbobjekt = $this->connect();
+        $dbobjekt = $this->connect("users");
         $result = $dbobjekt->query("Select * from login_2");
         $arrayuser = array();
 
@@ -23,7 +23,7 @@ class DB
 
     //Adds User to the Database
     function registerUser($userObjekt){
-        $dbobjekt = $this->connect();
+        $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("Insert INTO ? (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,E_Mail_Adresse) values (?,?,?,?,?,?,?,?,?)");
         $statement->bind_param('sssssissss',$this->dbname,$userObjekt->getAnrede(),$userObjekt->getVorname(),$userObjekt->getNachname(),$userObjekt->getAdresse(),$userObjekt->getPlz(),$userObjekt->getOrt(),$userObjekt->getUsername(),$userObjekt->getPassword(),$userObjekt->getEmail());
         if($statement){
@@ -39,7 +39,7 @@ class DB
 
     //Updates User From the Database
     function updateUser($userObjekt){
-        $dbobjekt = $this->connect();
+        $dbobjekt = $this->connect("users");
         $result = $dbobjekt->query("SELECT * FROM '$this->dbname' Where ID = " . $_GET["id"]);
 
         if($result){
@@ -59,7 +59,7 @@ class DB
 
     //Deletes User From the Databased
     function deleteUser($userID){
-        $dbobjekt = $this->connect();
+        $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("DELETE FROM ? Where ID =?");
         $statement->bind_param('si',$this->dbname,$userID);
         if($statement){
@@ -76,8 +76,8 @@ class DB
 
     //getArray of Pictures from database
     function getPictureArray($name, $tag, $date, $state){
-        $dbobjekt = $this->connect();
-        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . ' or capturedate = '. $date . ' or state = ' . $state . '');  
+        $dbobjekt = $this->connect("pictures");
+        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . ' or capturedate = '. $date . ' or state = ' . $state);
         $arraypictures = array();
 
 
