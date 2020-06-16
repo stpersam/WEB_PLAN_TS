@@ -1,0 +1,20 @@
+DROP TABLE users;
+
+CREATE TABLE users(
+    ID integer AUTO_INCREMENT,
+    Anrede varchar (255),
+    Vorname varchar (255),
+    Nachname varchar (255),
+    Adresse varchar (255),
+    PLZ integer ,
+    Ort varchar (255),
+    Username varchar (255) unique,
+    Password varchar (255),
+    Email varchar (255),
+    Rolle varchar (10),
+    PRIMARY Key(ID,Username)
+);
+
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','Admin','Admin','xx','1234','yy','admin','admin','admin@admin.com','admin');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','User','User','xx','1234','yy','user1','user1','user1@user1.com','user');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Frau','User','User','xx','1234','yy','user2','user2','user2@user2.com','user');
