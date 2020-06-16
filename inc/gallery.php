@@ -39,7 +39,7 @@
                         <br></br>
                 </nav>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <main id="content">
                     <?php
                     if (!empty($_GET['search'])) {
