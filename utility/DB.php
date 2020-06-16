@@ -75,16 +75,30 @@ class DB
 
 
     //getArray of Pictures from database
-    function getPictureArray($name, $tag, $date){
+    function getPictureArray($name, $tag, $date, $state){
         $dbobjekt = $this->connect();
-        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . '');  
+        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . ' or capturedate = '. $date . ' or state = ' . $state . '');  
         $arraypictures = array();
+
 
         while($z = $result->fetch_object()){
             array_push($arraypictures,(object)$z);
         }
 
+        $arraypictures2 = array();
+        foreach ($arraypictures as $a){
+            $ab = new picture();
+            $ab->setName($a->Name);
+            $ab->setHref($a->href);
+            $ab->setHref($a->href);
+            $ab->setHref($a->href);
+            $ab->setHref($a->href);
+            $ab->setHref($a->href);
+
+            array_push($arraypictures2,$ab);
+        }
+
         $dbobjekt->close();
-        return $arraypictures;
+        return $arraypictures2;
     }
 }
