@@ -18,6 +18,7 @@
 <?php
 include "inc/loginFrom.php";
 include "inc/registerForm.php";
+include "inc/gallery.php";
 ?>
 
 </body>
