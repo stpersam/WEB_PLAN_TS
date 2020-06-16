@@ -27,8 +27,21 @@
     include "utility/DB.php";
     include "model/User.php";
 
+
     include "inc/loginFrom.php";
     include "inc/registerForm.php";
+
+    if (isset($_GET["wrong"])) {
+        if ($_GET["wrong"] = "pwns") {
+            $message = "Passwords are not the same";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        } else if ($_GET["wrong"] = "plz") {
+            $message = "Wrong PLZ";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+    }
+
+
     include "inc/gallery.php";
     ?>
 
