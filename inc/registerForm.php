@@ -67,7 +67,6 @@ if(isset($_GET["wrong"])){
 </div>
 
 <?php
-include "../model/User.php";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!empty(filter_input(INPUT_POST,"username"))){
 
