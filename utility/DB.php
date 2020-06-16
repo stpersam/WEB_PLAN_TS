@@ -75,15 +75,16 @@ class DB
 
 
     //getArray of Pictures from database
-    function getPictureArray($tag){
+    function getPictureArray($name, $tag, $date){
         $dbobjekt = $this->connect();
-        $result = $dbobjekt->query("Select * from login_2");
-        $arrayuser = array();
+        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . '');  
+        $arraypictures = array();
 
-        while($z = $result->fetch_assoc()){
-            array_push($arrayuser,(object)$z);
+        while($z = $result->fetch_object()){
+            array_push($arraypictures,(object)$z);
         }
+
         $dbobjekt->close();
-        return $arrayuser;
+        return $arraypictures;
     }
 }
