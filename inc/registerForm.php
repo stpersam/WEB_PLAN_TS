@@ -15,7 +15,7 @@ if(isset($_GET["wrong"])){
 ?>
 
 <div class="formular">
-    <form name = "myForm" action="../utility/registerValidation.php" method="post">
+    <form name = "myForm" action="inc/registerForm.php" method="post">
         <div class="Formularfenster" Id="eltern">
             <div class="form-group">
                 <label for="anrede">Anrede:</label>
@@ -80,10 +80,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if($temp > 0 && $temp <= 9999){
                 $plz = (filter_input(INPUT_POST, "plz"));
             }else{
-                header("Location: registerForm?wrong=plz");
+                header("Location: inc/registerForm?wrong=plz");
             }
         }else{
-            header("Location: registerForm?wrong=plz");
+            header("Location: inc/registerForm?wrong=plz");
         }
 
         $ort = (filter_input(INPUT_POST, "ort"));
@@ -94,11 +94,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($_POST["password"] == $_POST["passwordBest"]){
             $password = (filter_input(INPUT_POST, "password"));
         }else{
-            header("Location: registerForm?wrong=pwns");
+            header("Location: inc/registerForm?wrong=pwns");
         }
 
         $email = (filter_input(INPUT_POST, "email"));
-        $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
 
+        $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
+        $db = new DB();
+        $db->registerUser($user);
+        header("Location: ../index.php");
     }
 }

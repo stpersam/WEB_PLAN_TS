@@ -27,8 +27,8 @@ class DB
     function registerUser($userObjekt)
     {
         $dbobjekt = $this->connect("users");
-        $statement = $dbobjekt->prepare("Insert INTO ? (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,E_Mail_Adresse) values (?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('sssssissss', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail());
+        $statement = $dbobjekt->prepare("Insert INTO ? (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values (?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param('sssssisssss', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle());
         if ($statement) {
             $erg = true;
         } else {
@@ -53,8 +53,8 @@ class DB
         }
         $z = $result->fetch_object();
 
-        $statement = $dbobjekt->prepare('UPDATE ? SET Anrede=?,Vorname=?,Nachname=?,Adresse=?,PLZ=?,Ort=?,Username=?,Password=?,E_Mail_Adresse=? WHERE ID=?');
-        $statement->bind_param('sssssissssi', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $z->ID);
+        $statement = $dbobjekt->prepare('UPDATE ? SET Anrede=?,Vorname=?,Nachname=?,Adresse=?,PLZ=?,Ort=?,Username=?,Password=?,Email=?,Rolle=? WHERE ID=?');
+        $statement->bind_param('sssssisssssi', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $z->ID);
         $statement->execute();
         $statement->close();
         $dbobjekt->close();
@@ -84,8 +84,8 @@ class DB
     {
         $dbobjekt = $this->connect("pictures");
 
-        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or state = ?)";
-
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or state = ?");
+        $result = null;
         /*
         $result = $dbobjekt->query('SELECT * from pictures 
         WHERE Name='". $name  ."' 
@@ -94,7 +94,6 @@ class DB
         or state = '". $state 
         );
         */
-
 
         var_dump($name);
         var_dump($result);
