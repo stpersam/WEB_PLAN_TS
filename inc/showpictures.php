@@ -47,13 +47,19 @@ if ($searchtag != null || $userfilter != null || $state != null) {
         echo "</p>";
 
         $owner = $ab->getOwner();
-        echo "<p>";
-        echo "Creator: $owner";
-        echo "</p>";
-
         $capturedate = $ab->getCapturedate();
-        echo "<button onclick='MoreInfo($href)'>more..</button>";
-        echo "<div id='$href'><p>Created: $capturedate</p></div>";
+        $changedate = $ab->getChangedate();
+        $latitude = $ab->getLatitude();
+        $longitude = $ab->getLongitude();
+        $newvar = '"' . $href . '"';
+        echo "<button onclick='MoreInfo($newvar)'>more..</button>";
+        echo "<div id='$href' style='display: none'>";
+        echo "<p>Creator: $owner</p>";
+        echo "<p>Created: $capturedate</p>";
+        echo "<p>Changed: $changedate</p>";
+        echo "<p>Latitude: $latitude</p>";
+        echo "<p>Longitude: $longitude</p>";
+        echo "</div>";
         
         
         echo "</div>";
@@ -62,8 +68,8 @@ if ($searchtag != null || $userfilter != null || $state != null) {
 ?>
 
 <script>
-    function MoreInfo($id) {
-        var x = document.getElementById($id);
+    function MoreInfo(id) {
+        var x = document.getElementById(id);
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
