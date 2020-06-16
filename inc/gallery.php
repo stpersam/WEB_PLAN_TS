@@ -13,16 +13,19 @@
         <div class="row">
             <div class="col-md-3">
                 <nav>
-                    
-                        <input type="text">
-                    
+                    <form method="POST" action="index.php?search=true">
+
+                        <input type="text" name="name">
+                        <input type="submit">
+                    </form>
                 </nav>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <main id="content">
                     <?php
-
-                    include("inc/showpictures.php");
+                    if (!empty($_GET['search'])) {
+                        include("inc/showpictures.php");
+                    }
 
                     ?>
                 </main>

@@ -7,4 +7,4 @@ Datenbank File mit SQL befehlen -> autogenerate_DB
     Host: localhost
     User: webProjekt
     Password: cprn66ae
-    DBName: webProjekt
+    DBName: webprojekt
