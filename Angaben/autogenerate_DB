@@ -35,3 +35,5 @@ CREATE TABLE pictures(
 );
 
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Test','nn','ee','2015-12-17','2015-12-17','freigegeben','test.png','test,klaus');
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Scissors and Clips','434','321','2015-12-17','2015-12-17','freigegeben','composition-of-scissors-and-clip.jpg','scissors,clip,beige');
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Coffes and Diary','654','765','2015-12-17','2015-12-17','freigegeben','cup-of-coffee-and-colorful-diary.jpg','coffee,cup,diary,beige');

@@ -85,6 +85,7 @@ class DB
         $dbobjekt = $this->connect("pictures");
 
         $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name=? or tags LIKE ? or capturedate = ? or changedate = ? or state = ?");
+        $tag = "%" . $tag . "%";
         $statement->bind_param('ssdds', $name, $tag, $date, $date, $state);
         $statement->execute();
         $result = $statement->get_result();
@@ -95,7 +96,7 @@ class DB
             
         }
 
-        
+        $arraypictures2 = array();
         foreach ($arraypictures as $a) {
             $ab = new picture();
             $ab->setName($a->Name);
