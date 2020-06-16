@@ -13,6 +13,10 @@
                 <label for="password">Password:</label>
                 <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
+            <div class="form-group form-check">
+                <input type="checkbox" name="stayLoggedIn" value="yes" class="form-check-input" id="stayLoggedIn">
+                <label class="form-check-lable" for="stayLoggedIn">Stay Logged in</label>
+            </div>
         <button type="submit" name="login" id="login" class="btn btn-primary">Login</button>
     </form>
 </div>
