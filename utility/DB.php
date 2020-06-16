@@ -3,8 +3,8 @@
 class DB
 {
     private $dbname;
-    function connect(){
-        $this->dbname = "user";
+    function connect($name){
+        $this->dbname = $name;
         return new mysqli("localhost","webProjekt","cprn66ae","webProjekt");
     }
 
