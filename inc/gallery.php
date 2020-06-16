@@ -14,9 +14,13 @@
             <div class="col-md-3">
                 <nav>
                     <form method="POST" action="index.php?search=true">
-
-                        <input type="text" name="name" ></input>
-                        <input type="submit" name="show" value="Show">
+                        <p>Filter by searchtag:</p>
+                        <input type="text" name="searchtag" ></input>
+                        <input class="btn" type="submit" name="show" value="Show">
+                        <br></br>
+                    </form>
+                    <form method="POST" action="index.php?search=true">
+                    
                     </form>
                 </nav>
             </div>
