@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-md-3">
                 <nav>
-                    <?php
-
-                    ?>
+                    
+                        <input type="text">
+                    
                 </nav>
             </div>
             <div class="col-md-9">

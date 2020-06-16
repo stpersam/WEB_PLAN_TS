@@ -73,4 +73,18 @@ class DB
         return $erg;
     }
 
+
+    //getArray of Pictures from database
+    function getPictureArray($name, $tag, $date){
+        $dbobjekt = $this->connect();
+        $result = $dbobjekt->query('SELECT * from pictures WHERE Name=' . $name . ' or tags=' . $tag . '');  
+        $arraypictures = array();
+
+        while($z = $result->fetch_object()){
+            array_push($arraypictures,(object)$z);
+        }
+
+        $dbobjekt->close();
+        return $arraypictures;
+    }
 }
