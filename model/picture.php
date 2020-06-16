@@ -1,9 +1,13 @@
 <?php
 
-class Picture
+class picture
 {
     var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href, $tags;
 
+
+    public function __construct(){
+
+    }
 
     /**
      * Get the value of name

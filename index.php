@@ -24,9 +24,10 @@
         <a href="index.php"><button>HOME</button></a>
 
     <?php
+    include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
-    include "pictures.php";
+    
 
 
     include "inc/loginFrom.php";

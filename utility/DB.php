@@ -1,5 +1,4 @@
 <?php
-
 class DB
 {
     private $dbname;
@@ -80,6 +79,7 @@ class DB
 
 
     //getArray of Pictures from database
+    
     function getPictureArray($name, $tag, $date, $state)
     {
         $dbobjekt = $this->connect("pictures");
@@ -97,7 +97,7 @@ class DB
 
         
         foreach ($arraypictures as $a) {
-            $ab = new Picture();
+            $ab = new picture();
             $ab->setName($a->Name);
             $ab->setLatitude($a->latitude);
             $ab->setLongitude($a->longitude);
