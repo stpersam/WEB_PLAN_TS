@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $ort = (filter_input(INPUT_POST, "ort"));
 
 
-        $username = (filter_input(INPUT_POST, "username"))
+        $username = (filter_input(INPUT_POST, "username"));
 
         if($_POST["password"] == $_POST["passwordBest"]){
             $password = (filter_input(INPUT_POST, "password"));
