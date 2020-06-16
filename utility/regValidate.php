@@ -1,6 +1,7 @@
 <?php
 include "../model/User.php";
 include "DB.php";
+
     $anrede = (filter_input(INPUT_POST, "anrede"));
     $vorname = (filter_input(INPUT_POST, "vorname"));
     $nachname = (filter_input(INPUT_POST, "nachname"));
@@ -12,33 +13,47 @@ include "DB.php";
             $plz = (filter_input(INPUT_POST, "plz"));
         }else{
             header("Location: ../index.php?wrong=plz");
+            die();
         }
     }else{
         header("Location: ../index.php?wrong=plz");
+        die();
     }
 
     $ort = (filter_input(INPUT_POST, "ort"));
 
     $db = new DB();
     $count = $db->countUser(filter_input(INPUT_POST, "username"));
+    echo gettype($count);
+    echo $count;
 
     if($count == 0){
         $username = (filter_input(INPUT_POST, "username"));
     }else{
         header("Location: ../index.php?wrong=un");
+        die();
     }
 
     if($_POST["password"] == $_POST["passwordBest"]){
         $password = (filter_input(INPUT_POST, "password"));
     }else{
         header("Location: ../index.php?wrong=pwns");
+        die();
     }
 
     $email = (filter_input(INPUT_POST, "email"));
 
     $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
     $db = new DB();
-    $db->registerUser($user);
-    header("Location:../index.php");
+    $temp = $db->registerUser($user);
+
+    if($temp){
+        if(!array_key_exists("user",$_SESSION)){
+            $_SESSION["user"] = array();
+        }
+        array_push($_SESSION["user"],serialize($user));
+        header("Location:../index.php");
+    }
+
 
 
