@@ -15,13 +15,28 @@
                 <nav>
                     <form method="POST" action="index.php?search=true">
                         <p>Filter by searchtag:</p>
-                        <input type="text" name="searchtag" ></input>
+                        <input type="text" name="searchtag"></input>
                         <input class="btn" type="submit" name="show" value="Show">
-                        <br></br>
+
+                    </form>
+
+                    <form method="POST" action="index.php?search=true">
+                        <p>My pictures:</p>
+                        <input type="text" name="user" value="Franz" hidden>
+                        <input class="btn" type="submit" name="show" value="Show">
+                    </form>
+
+                    <form method="POST" action="index.php?search=true">
+                        <p>My published pictures:</p>
+                        <input type="text" name="userstate" value="Franz" hidden>
+                        <input class="btn" type="submit" name="show" value="Show">
                     </form>
                     <form method="POST" action="index.php?search=true">
-                    
-                    </form>
+                        <p>All published pictures:</p>
+                        <input type="text" name="state" value="freigegeben" hidden>
+                        <input class="btn" type="submit" name="show" value="Show">
+                        </form>
+                        <br></br>
                 </nav>
             </div>
             <div class="col-md-6">
