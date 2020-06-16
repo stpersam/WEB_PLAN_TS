@@ -22,6 +22,14 @@ class DB
         return $arrayuser;
     }
 
+    function getUser($username) {
+
+    }
+
+    function getPassword($username){
+
+    }
+
     function countUser($username){
         $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("SELECT COUNT(*) AS c FROM users WHERE Username=?");

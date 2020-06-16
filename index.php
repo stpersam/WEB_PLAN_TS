@@ -28,7 +28,6 @@
     include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
-    
 
 
     include "inc/loginFrom.php";

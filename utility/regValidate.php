@@ -24,8 +24,6 @@ include "DB.php";
 
     $db = new DB();
     $count = $db->countUser(filter_input(INPUT_POST, "username"));
-    echo gettype($count);
-    echo $count;
 
     if($count == 0){
         $username = (filter_input(INPUT_POST, "username"));

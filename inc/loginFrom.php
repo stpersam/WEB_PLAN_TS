@@ -3,7 +3,7 @@
 </div>
 
 <div class="formular">
-    <form name = "myForm" action="" method="post">
+    <form name = "myForm" action="./utility/login.php" method="post">
         <div class="Formularfenster" Id="eltern">
             <div class="form-group">
                 <label for="username">Username:</label>
