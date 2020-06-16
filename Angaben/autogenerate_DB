@@ -15,6 +15,23 @@ CREATE TABLE users(
     PRIMARY Key(ID,Username)
 );
 
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','Admin','Admin','xx','1234','yy','admin','admin','admin@admin.com','admin');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','User','User','xx','1234','yy','user1','user1','user1@user1.com','user');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Frau','User','User','xx','1234','yy','user2','user2','user2@user2.com','user');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','Admin','Admin','xx',1234,'yy','admin','admin','admin@admin.com','admin');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Herr','User','User','xx',1234,'yy','user1','user1','user1@user1.com','user');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values ('Frau','User','User','xx',1234,'yy','user2','user2','user2@user2.com','user');
+
+DROP TABLE pictures;
+
+CREATE TABLE pictures(
+    ID integer AUTO_INCREMENT,
+    Name varchar (255) unique ,
+    latitude varchar (255),
+    longitude varchar (255),
+    capturedate date,
+    changedate date ,
+    state varchar (255),
+    href varchar (255) unique,
+    tags varchar(255),
+    PRIMARY KEY(ID,Name)
+);
+
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags) values ('Test','nn','ee','2015-12-17','2015-12-17','freigegeben','href','tag1,tag2');
