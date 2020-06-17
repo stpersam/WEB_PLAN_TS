@@ -3,7 +3,7 @@
 
 
 //connect to db/pictures
-$gettable = new DB();
+$gettable = new DataBase();
 $gettable->connect("pictures");
 
 //initate searchtag and get array of fitting SELECT

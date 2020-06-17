@@ -29,8 +29,33 @@
     include "utility/DB.php";
     include "model/User.php";
 
+    $isLoggedIn = false;
 
-    include "inc/loginFrom.php";
+    if($isLoggedIn){
+        ?>
+        <form method="post" action="../index.php">
+            <button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>
+        </form>
+        <?php
+        echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
+        $_SESSION["isLoggedIn"] = $isLoggedIn;
+
+        if(filter_has_var(INPUT_POST, "stayLoggedIn")){
+            setcookie("cookieLIn", filter_input(INPUT_POST,"username"),time()+600);
+        }
+        if(isset($_SESSION["users"])){
+            if($_SESSION["users"]["Rolle"] == "admin"){
+                echo "adminsite";
+            }elseif ($_SESSION["users"]["Rolle"] == "user"){
+                echo "usersite";
+            }
+        }
+    }else{
+        include "inc/loginForm.php";
+        $isLoggedIn = login($isLoggedIn);
+    }
+
+
     include "inc/registerForm.php";
 
     if (isset($_GET["wrong"])) {
