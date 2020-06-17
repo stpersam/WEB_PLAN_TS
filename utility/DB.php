@@ -22,12 +22,13 @@ class DB
         return $arrayuser;
     }
 
-    function getUser($username) {
-
-    }
-
     function getPassword($username){
-
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT 'Password' AS c FROM users WHERE Username=?");
+        $statement->bind_param('s',$username);
+        $statement->execute();
+        $z = $statement->get_result()->fetch_assoc();
+        return $z['c'];
     }
 
     function countUser($username){

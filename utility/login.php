@@ -1,7 +1,7 @@
 <?php
 include "DB.php";
 
-function login($isLoggedIn){
+
     if(isset($_COOKIE["cookieLIn"])){
         $isLoggedIn = true;
     }
@@ -34,5 +34,4 @@ function login($isLoggedIn){
             }
         }
     }
-    return $isLoggedIn;
-}
+

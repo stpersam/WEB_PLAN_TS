@@ -52,9 +52,9 @@
         }
     }else{
         include "inc/loginForm.php";
+        include "utility/login.php";
         $isLoggedIn = login($isLoggedIn);
     }
-
 
     include "inc/registerForm.php";
 
