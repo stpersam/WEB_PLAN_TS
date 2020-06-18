@@ -37,13 +37,13 @@
             break;
         } case "":{
             include "inc/loginForm.php";
-            echo "<a href='index.php?use=reg' class='btn btn-primary'>Registrieren</a>";
+            echo "<a href='index.php?use=reg' class='btn btn-primary'>Register</a>";
             break;
         }case "log":{
             echo '<form method="post" action="utility/login.php">';
-            echo '<button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>';
+            echo '<button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
             echo '</form>';
-            echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
+            echo "Welcome ".$_SESSION["users"]["Username"]."<br><br>";
             if($_SESSION["users"]["Rolle"] == "admin"){
                 echo "adminsite";
             }else if($_SESSION["users"]["Rolle"] == "user") {
