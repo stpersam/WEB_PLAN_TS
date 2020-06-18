@@ -1,4 +1,5 @@
 <?php
+include "../utility/DB.php";
 
 $isLoggedIn = false;
 
@@ -22,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
         if($db->countUser(filter_input(INPUT_POST,"username")) != 0){
-            if($db->getPassword(filter_input(INPUT_POST,"username")) == $_SESSION["users"]["Password"] || $db->getPassword(filter_input(INPUT_POST,"username")) == filter_input(INPUT_POST,"password")){
+            if($db->getPassword(filter_input(INPUT_POST,"username")) == filter_input(INPUT_POST,"password")){
                 $isLoggedIn = true;
             }else{
                 echo "<h3>Wrong Password!</h3>";
@@ -55,6 +56,6 @@ if($isLoggedIn){
         }
     }
 }else{
-    include "inc/loginForm.php";
+    include "../inc/loginForm.php";
 }
 
