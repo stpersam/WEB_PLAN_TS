@@ -1,6 +1,6 @@
 <?php
 include "../model/User.php";
-include "Datenbank.php";
+include "DB.php";
 
     $anrede = (filter_input(INPUT_POST, "anrede"));
     $vorname = (filter_input(INPUT_POST, "vorname"));
@@ -22,7 +22,7 @@ include "Datenbank.php";
 
     $ort = (filter_input(INPUT_POST, "ort"));
 
-    $db = new Datenbank();
+    $db = new DB();
     $count = $db->countUser(filter_input(INPUT_POST, "username"));
 
     if($count == 0){
@@ -42,7 +42,7 @@ include "Datenbank.php";
     $email = (filter_input(INPUT_POST, "email"));
 
     $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
-    $db = new Datenbank();
+    $db = new DB();
     $temp = $db->registerUser($user);
 
     if($temp){

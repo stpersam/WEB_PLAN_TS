@@ -1,7 +1,7 @@
 <?php
 
 
-class Datenbank
+class DB
 {
     private $dbname;
     function connect($name)
