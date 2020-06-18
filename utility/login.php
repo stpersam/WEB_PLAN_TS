@@ -56,6 +56,6 @@ if($isLoggedIn){
         }
     }
 }else{
-    include "../inc/loginForm.php";
+    header("Location:../index.php?use=log");
 }
 

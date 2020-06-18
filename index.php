@@ -29,20 +29,17 @@
     include "utility/DB.php";
     include "model/User.php";
 
-    if(filter_has_var(INPUT_GET, "use")){
-        switch (filter_input(INPUT_GET,"use",FILTER_SANITIZE_SPECIAL_CHARS)){
-            case "home":{
-                include 'home.php';
-                break;
-            }
-            default:{
-                include 'inc/loginForm.php';
-            }
+
+    switch (filter_input(INPUT_GET,"use",FILTER_SANITIZE_SPECIAL_CHARS)){
+        case "reg":{
+            include "inc/registerForm.php";
+            break;
+        }
+        default:{
+            include 'inc/loginForm.php';
         }
     }
 
-    include "inc/loginForm.php";
-    include "inc/registerForm.php";
 
     if (isset($_GET["wrong"])) {
         if ($_GET["wrong"] == "pwns") {
