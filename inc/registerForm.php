@@ -48,7 +48,7 @@
                 <label for="email">E-Mail:</label>
                 <input type="email" name="email" class="form-control" placeholder="email">
             </div>
-            <button type="submit" name="registrieren" id="registrieren" class="btn btn-primary">Registrieren</button>
+            <button type="submit" name="registrieren" id="registrieren" class="btn btn-outline-secondary btn-secondary">Registrieren</button>
     </form>
 </div>
 </div>

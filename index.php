@@ -24,6 +24,7 @@
 <body>
         <a href="index.php"><button>HOME</button></a>
 
+
     <?php
     include "model/picture.php";
     include "utility/DB.php";
@@ -34,9 +35,15 @@
         case "reg":{
             include "inc/registerForm.php";
             break;
-        }
-        default:{
-            include 'inc/loginForm.php';
+        } case "":{
+            include "inc/loginForm.php";
+            echo "<a href='index.php?use=reg' class='btn btn-primary'>Registrieren</a>";
+            break;
+        }case "log":{
+            echo '<form method="post" action="utility/login.php">';
+            echo '<button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>';
+            echo '</form>';
+            echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
         }
     }
 

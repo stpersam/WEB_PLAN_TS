@@ -30,7 +30,20 @@ class DB
         $statement->bind_param('s',$username);
         $statement->execute();
         $z = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
         return $z['c'];
+    }
+
+    function getUser($username){
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT * FROM users WHERE Username=?");
+        $statement->bind_param('s',$username);
+        $statement->execute();
+        $z = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $z;
     }
 
     function countUser($username){
@@ -39,6 +52,7 @@ class DB
         $statement->bind_param('s',$username);
         $statement->execute();
         $z = $statement->get_result()->fetch_assoc();
+        $dbobjekt->close();
         return $z['c'];
     }
 
@@ -130,7 +144,7 @@ class DB
 
             array_push($arraypictures2, $ab);
         }
-
+        $statement->close();
         $dbobjekt->close();
         return $arraypictures2;
     }
@@ -167,7 +181,7 @@ class DB
 
             array_push($arraypictures2, $ab);
         }
-
+        $statement->close();
         $dbobjekt->close();
         return $arraypictures2;
     }

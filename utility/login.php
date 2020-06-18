@@ -1,6 +1,6 @@
 <?php
 include "../utility/DB.php";
-
+session_start();
 $isLoggedIn = false;
 
 if(isset($_COOKIE["cookieLIn"])){
@@ -19,9 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         setcookie("cookieLIn","",time()-100);
     }else{
-            $db = new DB();
-
-
+        $db = new DB();
         if($db->countUser(filter_input(INPUT_POST,"username")) != 0){
             if($db->getPassword(filter_input(INPUT_POST,"username")) == filter_input(INPUT_POST,"password")){
                 $isLoggedIn = true;
@@ -37,26 +35,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 if($isLoggedIn){
-    ?>
-    <form method="post" action="../index.php">
-        <button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>
-    </form>
-    <?php
-
-    echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
+    $user = $db->getUser(filter_input(INPUT_POST,"username"));
+    $_SESSION["users"] = $user;
     $_SESSION["isLoggedIn"] = $isLoggedIn;
 
     if(filter_has_var(INPUT_POST, "stayLoggedIn")){
         setcookie("cookieLIn", filter_input(INPUT_POST,"username"),time()+600);
     }
-    if(isset($_SESSION["users"])){
-        if($_SESSION["users"]["Rolle"] == "admin"){
-            echo "adminsite";
-        }elseif ($_SESSION["users"]["Rolle"] == "user"){
-            echo "usersite";
-        }
-    }
-}else{
     header("Location:../index.php?use=log");
+} else{
+    header("Location:../index.php?use=");
 }
 
