@@ -26,7 +26,7 @@
 
     <?php
     include "model/picture.php";
-    include "utility/DB.php";
+    include "utility/Datenbank.php";
     include "model/User.php";
 
     $isLoggedIn = false;

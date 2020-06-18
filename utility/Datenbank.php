@@ -1,5 +1,7 @@
 <?php
-class DB
+
+
+class Datenbank
 {
     private $dbname;
     function connect($name)
@@ -110,7 +112,7 @@ class DB
         $arraypictures = array();
         while ($row = $result->fetch_assoc()) {
             array_push($arraypictures, (object) $row);
-            
+
         }
 
         $arraypictures2 = array();
@@ -147,7 +149,7 @@ class DB
         $arraypictures = array();
         while ($row = $result->fetch_assoc()) {
             array_push($arraypictures, (object) $row);
-            
+
         }
 
         $arraypictures2 = array();

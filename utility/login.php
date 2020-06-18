@@ -1,5 +1,5 @@
 <?php
-include "DB.php";
+include "Datenbank.php";
 
 
     if(isset($_COOKIE["cookieLIn"])){
@@ -18,7 +18,7 @@ include "DB.php";
             }
             setcookie("cookieLIn","",time()-100);
         }else{
-                $db = new DB();
+                $db = new Datenbank();
 
 
             if($db->countUser(filter_input(INPUT_POST,"username")) != 0){
