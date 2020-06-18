@@ -24,12 +24,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if($db->getPassword(filter_input(INPUT_POST,"username")) == filter_input(INPUT_POST,"password")){
                 $isLoggedIn = true;
             }else{
-                echo "<h3>Wrong Password!</h3>";
                 $isLoggedIn = false;
+                header("Location: ../index.php?wrong=pw");
+                die();
             }
         }else{
-            echo "<h3>Wrong Username!</h3>";
             $isLoggedIn = false;
+            header("Location: ../index.php?wrong=un");
+            die();
         }
     }
 }

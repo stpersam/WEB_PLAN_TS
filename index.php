@@ -44,9 +44,13 @@
             echo '<button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>';
             echo '</form>';
             echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
+            if($_SESSION["users"]["Rolle"] == "admin"){
+                echo "adminsite";
+            }else if($_SESSION["users"]["Rolle"] == "user") {
+                echo "usersite";
+            }
         }
     }
-
 
     if (isset($_GET["wrong"])) {
         if ($_GET["wrong"] == "pwns") {
@@ -57,6 +61,9 @@
             echo "<script type='text/javascript'>alert('$message');</script>";
         }else if ($_GET["wrong"] == "un") {
             $message = "Wrong Username";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }else if ($_GET["wrong"] == "pw") {
+            $message = "Wrong Password";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
