@@ -26,7 +26,7 @@ class DB
 
     function getPassword($username){
         $dbobjekt = $this->connect("users");
-        $statement = $dbobjekt->prepare("SELECT 'Password' AS c FROM users WHERE Username=?");
+        $statement = $dbobjekt->prepare("SELECT Password AS c FROM users WHERE Username=?");
         $statement->bind_param('s',$username);
         $statement->execute();
         $z = $statement->get_result()->fetch_assoc();

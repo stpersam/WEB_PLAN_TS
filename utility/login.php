@@ -42,6 +42,7 @@ if($isLoggedIn){
         <button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">LogOut</button>
     </form>
     <?php
+
     echo "Willkommen ".$_SESSION["users"]["Username"]."<br><br>";
     $_SESSION["isLoggedIn"] = $isLoggedIn;
 
