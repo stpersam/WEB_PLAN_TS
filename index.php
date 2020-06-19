@@ -22,31 +22,53 @@
 </head>
 
 <body>
+<div class="container">
+    <ul class="nav nav-pills nav-fill mt-5">
+        <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=home">Home</a></li>
+        <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=imp">Impressum</a></li>
+    </ul>
+
     <?php
     include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
 
-    echo '<br><br><a href="index.php" class="btn btn-outline-secondary btn-primary">Home</a>';
-
     switch (filter_input(INPUT_GET,"use",FILTER_SANITIZE_SPECIAL_CHARS)){
-        case "reg":{
+        case "home":{
+            header("Location: index.php");
+            break;
+        } case "gallery":{
+            include "inc/gallery.php";
+            break;
+        }case "reg":{
             include "inc/registerForm.php";
             break;
-        } case "":{
-            include "inc/loginForm.php";
-            echo "<a href='index.php?use=reg' class='btn btn-primary'>Register</a>";
+        }case "imp":{
+            include "inc/impressum.php";
             break;
         }case "log":{
             echo '<form method="post" action="utility/login.php">';
-            echo '<button type="submit" name="Logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
+            echo '<button type="submit" name="logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
             echo '</form>';
-            echo "Welcome ".$_SESSION["users"]["Username"]."<br><br>";
+
+            echo "<h1>Welcome ".$_SESSION["users"]["Username"]."</h1><br><br>";
+
             if($_SESSION["users"]["Rolle"] == "admin"){
-                echo "adminsite";
+                echo "<h1>Adminsite</h1>";
+
             }else if($_SESSION["users"]["Rolle"] == "user") {
-                echo "usersite";
+
+                echo "<h1>Usersite</h1>";
+                echo '<form method="post" action="index.php">';
+                echo '<button type="submit" name="ep" id="ep" class="btn btn-outline-secondary btn-secondary" style="float: right">Edit Profile</button>';
+                echo '</form>';
             }
+            break;
+        }default :{
+            include "inc/loginForm.php";
+            echo "<a href='index.php?use=reg' class='btn btn-primary'>Register</a>";
+            break;
         }
     }
 
@@ -66,9 +88,8 @@
         }
     }
 
-    include "inc/gallery.php";
     ?>
-
+</div>
 </body>
 
 </html>

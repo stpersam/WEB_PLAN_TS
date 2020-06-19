@@ -9,7 +9,6 @@ if(isset($_COOKIE["cookieLIn"])){
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(filter_has_var(INPUT_POST, "logout")){
-        echo "Sucessfully logged out";
         $isLoggedIn = false;
 
         if(isset($_COOKIE[session_name()])){
@@ -18,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             session_destroy();
         }
         setcookie("cookieLIn","",time()-100);
+        header("Location: ../index.php");
+        die();
     }else{
         $db = new DB();
         if($db->countUser(filter_input(INPUT_POST,"username")) != 0){
