@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-3">
                 <nav>
-                    <form method="POST" action="index.php?search=true">
+                    <form method="POST" action="index.php?use=gallery&search=true">
                         <p>Filter by searchtag:</p>
                         <input type="text" name="searchtag"></input>
                         <input class="btn" type="submit" name="show" value="Show">
