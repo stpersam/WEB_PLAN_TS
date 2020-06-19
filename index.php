@@ -55,7 +55,8 @@
             echo "<h1>Welcome ".$_SESSION["users"]["Username"]."</h1><br><br>";
 
             if($_SESSION["users"]["Rolle"] == "admin"){
-                echo "<h1>Adminsite</h1>";
+                echo "<h1>Adminsite</h1><br><br>";
+                include "inc/userVerwaltung.php";
 
             }else if($_SESSION["users"]["Rolle"] == "user") {
 
