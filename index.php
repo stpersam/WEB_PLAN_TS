@@ -26,6 +26,7 @@
     <ul class="nav nav-pills nav-fill mt-5">
         <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=home">Home</a></li>
         <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=help">Hilfe</a></li>
         <li class="nav-item"><a class="nav-link btn-primary" href="index.php?use=imp">Impressum</a></li>
     </ul>
 
@@ -46,6 +47,9 @@
             break;
         }case "imp":{
             include "inc/impressum.php";
+            break;
+        }case "help":{
+            include "inc/hilfe.php";
             break;
         }case "log":{
             echo '<form method="post" action="utility/login.php">';
