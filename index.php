@@ -22,14 +22,12 @@
 </head>
 
 <body>
-        <a href="index.php"><button>HOME</button></a>
-
-
     <?php
     include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
 
+    echo '<br><br><a href="index.php" class="btn btn-outline-secondary btn-primary">Home</a>';
 
     switch (filter_input(INPUT_GET,"use",FILTER_SANITIZE_SPECIAL_CHARS)){
         case "reg":{
