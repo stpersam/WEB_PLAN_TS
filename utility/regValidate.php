@@ -40,7 +40,7 @@ include "DB.php";
     }
 
     $email = (filter_input(INPUT_POST, "email"));
-
+    $password = hash('sha256',$password);
     $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
     $db = new DB();
     $temp = $db->registerUser($user);

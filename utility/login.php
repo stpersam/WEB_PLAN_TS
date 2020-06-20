@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{
         $db = new DB();
         if($db->countUser(filter_input(INPUT_POST,"username")) != 0){
-            if($db->getPassword(filter_input(INPUT_POST,"username")) == filter_input(INPUT_POST,"password")){
+            if($db->getPassword(filter_input(INPUT_POST,"username")) === hash('sha256',filter_input(INPUT_POST,"password"))){
                 $isLoggedIn = true;
             }else{
                 $isLoggedIn = false;
