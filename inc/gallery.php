@@ -22,7 +22,7 @@
 
                     <form method="POST" action="index.php?use=gallery&search=true">
                         <p>My pictures:</p>
-                        <input type="text" name="user" value="Franz" hidden>
+                        <input type="text" name="user" value="<?php $_SESSION['users']['Username']?>" hidden>
                         <input class="btn" type="submit" name="show" value="Show">
                     </form>
 
