@@ -52,6 +52,7 @@
             include "inc/hilfe.php";
             break;
         }case "log":{
+
             if(isset($_SESSION["users"]["Username"])) {
                 echo '<form method="post" action="utility/login.php">';
                 echo '<button type="submit" name="logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
@@ -72,6 +73,7 @@
                 }
             }else{
                 header("Location: index.php");
+                break;
             }
             break;
         }default :{
