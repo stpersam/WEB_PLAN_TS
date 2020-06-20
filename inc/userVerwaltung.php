@@ -33,8 +33,8 @@
         echo "<td>$z->Username</td>";
         echo "<td>$z->Password</td>";
         echo "<td>$z->Email</td>";
-        echo "<td><a href='utility/loeschenDB.php?id=$z->ID'>Löschen</a></td>";
-        echo "<td><a href='utility/bearbeitenDB.php?id=$z->ID'>Bearbeiten</a></td>";
+        echo "<td><a href=''>Löschen</a></td>";
+        echo "<td><a href=''>Bearbeiten</a></td>";
         echo "</tr>";
     }
     ?>

@@ -8,8 +8,8 @@
             <div class="form-group">
                 <label for="anrede">Salutation:</label>
                 <select name="anrede" class="custom-select mb-3">
-                    <option value="herr" selected>Mr</option>
-                    <option value="frau">Mrs</option>
+                    <option value="Mr" selected>Mr</option>
+                    <option value="Mrs">Mrs</option>
                 </select>
             </div>
             <div class="form-group">

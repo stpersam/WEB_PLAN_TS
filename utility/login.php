@@ -1,6 +1,6 @@
 <?php
 include "../utility/DB.php";
-session_start();
+
 $isLoggedIn = false;
 
 if(isset($_COOKIE["cookieLIn"])){

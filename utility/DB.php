@@ -76,18 +76,22 @@ class DB
     //Updates User From the Database
     function updateUser($userObjekt)
     {
+        $username = $userObjekt->getUsername();
         $dbobjekt = $this->connect("users");
-        $result = $dbobjekt->query("SELECT * FROM '$this->dbname' Where ID = " . $_GET["id"]);
+        $stmt = $dbobjekt->prepare("SELECT * FROM users WHERE Username=?");
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
 
-        if ($result) {
+        if ($stmt) {
             $erg = true;
         } else {
             $erg = false;
         }
-        $z = $result->fetch_object();
+        $z = $stmt->get_result()->fetch_object();
+        $stmt->close();
 
-        $statement = $dbobjekt->prepare('UPDATE ? SET Anrede=?,Vorname=?,Nachname=?,Adresse=?,PLZ=?,Ort=?,Username=?,Password=?,Email=?,Rolle=? WHERE ID=?');
-        $statement->bind_param('sssssisssssi', $this->dbname, $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $z->ID);
+        $statement = $dbobjekt->prepare('UPDATE users SET Anrede=?,Vorname=?,Nachname=?,Adresse=?,PLZ=?,Ort=?,Username=?,Password=?,Email=?,Rolle=? WHERE ID=?');
+        $statement->bind_param('ssssisssssi',$userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $z->ID);
         $statement->execute();
         $statement->close();
         $dbobjekt->close();
