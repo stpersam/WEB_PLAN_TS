@@ -20,18 +20,18 @@
 
                     </form>
 
-                    <form method="POST" action="index.php?search=true">
+                    <form method="POST" action="index.php?use=gallery&search=true">
                         <p>My pictures:</p>
                         <input type="text" name="user" value="Franz" hidden>
                         <input class="btn" type="submit" name="show" value="Show">
                     </form>
 
-                    <form method="POST" action="index.php?search=true">
+                    <form method="POST" action="index.php?use=gallery&search=true">
                         <p>My published pictures:</p>
-                        <input type="text" name="userstate" value="Franz" hidden>
+                        <input type="text" name="userstate" value="$_SESSION['user']['username']" hidden>
                         <input class="btn" type="submit" name="show" value="Show">
                     </form>
-                    <form method="POST" action="index.php?search=true">
+                    <form method="POST" action="index.php?use=gallery&search=true">
                         <p>All published pictures:</p>
                         <input type="text" name="state" value="freigegeben" hidden>
                         <input class="btn" type="submit" name="show" value="Show">
