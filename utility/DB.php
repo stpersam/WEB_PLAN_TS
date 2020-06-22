@@ -133,8 +133,8 @@ class DB
     function deleteUser($userID)
     {
         $dbobjekt = $this->connect("users");
-        $statement = $dbobjekt->prepare("DELETE FROM ? Where ID =?");
-        $statement->bind_param('si', $this->dbname, $userID);
+        $statement = $dbobjekt->prepare("DELETE FROM users Where ID =?");
+        $statement->bind_param('i', $userID);
         if ($statement) {
             $erg = true;
         } else {

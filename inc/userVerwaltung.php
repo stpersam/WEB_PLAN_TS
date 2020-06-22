@@ -14,17 +14,17 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Anrede</th>
-        <th>Vorname</th>
-        <th>Nachname</th>
-        <th>Adresse</th>
+        <th>Salutation</th>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>Adress</th>
         <th>PLZ</th>
-        <th>Ort</th>
+        <th>Place</th>
         <th>Username</th>
         <th>E-Mail</th>
         <th>Status</th>
-        <th>Löschen</th>
-        <th>Bearbeiten</th>
+        <th>Pictures</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -45,8 +45,8 @@
             echo "<td>$z->Username</td>";
             echo "<td>$z->Email</td>";
             echo "<td><button class='btn btn-light' id='st-$z->ID' onclick='showStatus($z->ID)'>$z->Status</button></td>";
-            echo "<td><button class='btn btn-light'><a href='../utility/userAdministration.php?do=del&id=$z->ID'>Löschen</a></button></td>";
-            echo "<td><button class='btn btn-light'><a href='../utility/userAdministration.php?do=bea&username=$z->Username'>Bearbeiten</a></button></td>";
+            echo "<td><button class='btn btn-light'>Pictures</button></td>";
+            echo "<td><button class='btn btn-light'><a href='./utility/userAdministration.php?do=del&id=$z->ID'>Delete</a></button></td>";
             echo "</tr>";
         }
     }
