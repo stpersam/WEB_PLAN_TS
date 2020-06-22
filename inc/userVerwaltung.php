@@ -1,3 +1,14 @@
+<script>
+    function showStatus(id) {
+        $.post("/WEB_SS2020/WebProjekt2020/inc/changeStatus.php",
+            {
+                id: id,
+            },
+            function(data){
+               $("#st-"+id).html(data)
+            });
+    }
+</script>
 <h2>User Administration</h2>
 <table class="table">
     <thead>
@@ -12,6 +23,7 @@
         <th>Username</th>
         <th>Passwort</th>
         <th>E-Mail</th>
+        <th>Status</th>
         <th>Löschen</th>
         <th>Bearbeiten</th>
     </tr>
@@ -33,8 +45,9 @@
         echo "<td>$z->Username</td>";
         echo "<td>$z->Password</td>";
         echo "<td>$z->Email</td>";
-        echo "<td><a href=''>Löschen</a></td>";
-        echo "<td><a href=''>Bearbeiten</a></td>";
+        echo "<td><button class='btn btn-light' id='st-$z->ID' onclick='showStatus($z->ID)'>$z->Status</button></td>";
+        echo "<td><button class='btn btn-light'><a href='../utility/userAdministration.php?do=del'>Löschen</a></button></td>";
+        echo "<td><button class='btn btn-light'><a href='../utility/userAdministration.php?do=bea'>Bearbeiten</a></button></td>";
         echo "</tr>";
     }
     ?>

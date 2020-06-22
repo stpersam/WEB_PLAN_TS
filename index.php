@@ -52,27 +52,31 @@
             include "inc/hilfe.php";
             break;
         }case "log":{
-
-            if(isset($_SESSION["users"]["Username"])) {
-                echo '<form method="post" action="utility/login.php">';
-                echo '<button type="submit" name="logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
-                echo '</form>';
-
-                echo "<h1>Welcome " . $_SESSION["users"]["Username"] . "</h1><br><br>";
-
-                if ($_SESSION["users"]["Rolle"] == "admin") {
-                    echo "<h1>Adminsite</h1><br><br>";
-                    include "inc/userVerwaltung.php";
-
-                } else if ($_SESSION["users"]["Rolle"] == "user") {
-
-                    echo "<h1>Usersite</h1>";
-                    echo '<form method="post" action="inc/profilbearbeiten.php">';
-                    echo '<button type="submit" name="ep" id="ep" class="btn btn-outline-secondary btn-secondary" style="float: right">Edit Profile</button>';
+            if($_SESSION["users"]["Status"] == "aktive"){
+                if(isset($_SESSION["users"]["Username"])) {
+                    echo '<form method="post" action="utility/login.php">';
+                    echo '<button type="submit" name="logout" id="logout" class="btn btn-outline-secondary btn-secondary" style="float: right">Logout</button>';
                     echo '</form>';
+
+                    echo "<h1>Welcome " . $_SESSION["users"]["Username"] . "</h1><br><br>";
+
+                    if ($_SESSION["users"]["Rolle"] == "admin") {
+                        echo "<h1>Adminsite</h1><br><br>";
+                        include "inc/userVerwaltung.php";
+
+                    } else if ($_SESSION["users"]["Rolle"] == "user") {
+
+                        echo "<h1>Usersite</h1>";
+                        echo '<form method="post" action="inc/profilbearbeiten.php">';
+                        echo '<button type="submit" name="ep" id="ep" class="btn btn-outline-secondary btn-secondary" style="float: right">Edit Profile</button>';
+                        echo '</form>';
+                    }
+                }else{
+                    header("Location: index.php");
+                    break;
                 }
             }else{
-                header("Location: index.php");
+                header("Location: index.php?wrong=st");
                 break;
             }
             break;
@@ -95,6 +99,9 @@
             echo "<script type='text/javascript'>alert('$message');</script>";
         }else if ($_GET["wrong"] == "pw") {
             $message = "Wrong Password";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }else if ($_GET["wrong"] == "st") {
+            $message = "The Status of this User is set to inaktive";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }

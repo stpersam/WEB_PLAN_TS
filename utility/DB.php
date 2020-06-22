@@ -46,6 +46,36 @@ class DB
         return $z;
     }
 
+    function getUsername($id){
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT Username AS c FROM users WHERE ID=?");
+        $statement->bind_param('i',$id);
+        $statement->execute();
+        $username = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $username['c'];
+    }
+
+    function getStatus($username){
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT Status AS c FROM users WHERE Username=?");
+        $statement->bind_param('s',$username);
+        $statement->execute();
+        $status = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $status['c'];
+    }
+    function changeStatus($id,$status){
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("UPDATE users SET Status=? Where ID=?");
+        $statement->bind_param('si',$status,$id);
+        $statement->execute();
+        $statement->close();
+        $dbobjekt->close();
+    }
+
     function countUser($username){
         $dbobjekt = $this->connect("users");
         $statement = $dbobjekt->prepare("SELECT COUNT(*) AS c FROM users WHERE Username=?");
@@ -60,8 +90,9 @@ class DB
     function registerUser($userObjekt)
     {
         $dbobjekt = $this->connect("users");
-        $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle) values (?,?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('ssssisssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle());
+        $status = "aktive";
+        $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values (?,?,?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param('ssssissssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(),$status);
         if ($statement) {
             $erg = true;
         } else {
