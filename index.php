@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>UE11</title>
+    <title>PictureCloud</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,8 +43,9 @@
         include "model/picture.php";
         include "utility/DB.php";
         include "model/User.php";
-        $currentuser = $_SESSION['users']['Username'];
-
+        if (isset($_SESSION['users']['Username'])) {
+            $currentuser = $_SESSION['users']['Username'];
+        }
         switch (filter_input(INPUT_GET, "use", FILTER_SANITIZE_SPECIAL_CHARS)) {
             case "home": {
                     header("Location: index.php?use=log");

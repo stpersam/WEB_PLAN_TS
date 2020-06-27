@@ -10,58 +10,56 @@
     <div class="">
         <header class="page-header">
             <h1>Gallery</h1>
+            <div class="d-flex flex-row-reverse">
+            <form method="POST" action="index.php?use=gallery">
+                <input type="text" name="searchtag" placeholder="Searchterm.."></input>
+                <input class="btn btn-secondary" type="submit" name="show" value="Search">
+               
+            </form>
+            </div>
         </header>
         <div class="row">
-
+            
             <div class="col-md-3">
-                <nav>
-                    <form method="POST" action="index.php?use=gallery&search=true">
-                        <p>Filter by searchtag:</p>
-                        <input type="text" name="searchtag"></input>
-                        <input class="btn btn-secondary" type="submit" name="show" value="Show">
-
-                    </form>
-
-                    <form method="POST" action="index.php?use=gallery&search=true">
-                        <p>My pictures:</p>
+            Choose option:
+            <br></br>
+                    <form method="POST" action="index.php?use=gallery">
                         <input type="text" name="user" value="<?php echo $currentuser; ?>" hidden>
-                        <input class="btn btn-secondary" type="submit" name="show" value="Show">
+                        <input class="btn btn-light" type="submit" name="show" value="My pictures">
                     </form>
-
-                    <form method="POST" action="index.php?use=gallery&search=true">
-                        <p>My published pictures:</p>
+                    <br>
+                    <form method="POST" action="index.php?use=gallery">
                         <input type="text" name="userstate" value="<?php echo $currentuser; ?>" hidden>
-                        <input class="btn btn-secondary" type="submit" name="show" value="Show">
+                        <input class="btn btn-light" type="submit" name="show" value="My published pictures">
                     </form>
-                    <form method="POST" action="index.php?use=gallery&search=true">
-                        <p>All published pictures:</p>
+                    <br>
+                    <form method="POST" action="index.php?use=gallery">
                         <input type="text" name="state" value="freigegeben" hidden>
-                        <input class="btn btn-secondary" type="submit" name="show" value="Show">
+                        <input class="btn btn-light" type="submit" name="show" value="All published pictures">
                     </form>
                     <br></br>
-                </nav>
+                
             </div>
-
-
+            
             <div class="col-md-9">
                 <main id="content">
                     <div class="row">
-                    <?php
-                    if (!empty($_GET['search'])) {
-                        include("inc/showpictures.php");
-                    }
-                    ?>
+                        <?php
+                            include("inc/showpictures.php");
+                        ?>
                     </div>
                 </main>
 
             </div>
         </div>
 
+        <br></br>
 
         <div class="">
             <header class="page-header">
                 <h1>View on Google Maps</h1>
             </header>
+            <br>
             <div class="cold-md-12" id="map" style="width: 100%; height: 450px">
 
             </div>
