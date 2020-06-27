@@ -18,10 +18,18 @@ if (isset($_POST["searchtag"]) && !empty($_POST["searchtag"])) {
     $a = $gettable->getrestrictedPictureArray($state, $userfilter);
 } else if (isset($_POST["state"])) {
     $a = $gettable->getPictureArrayAll($_POST["state"]);
-}
-else {
+} else {
     $a = $gettable->getPictureArrayAll($state);
 }
+
+function sortbydate($p1, $p2){
+    if ($p1->getCapturedate() == $p2->getCapturedate()) {
+        return 0;
+    }
+    return ($p1->getCapturedate() > $p2->getCapturedate()) ? +1 : -1;
+}
+
+usort($a, "sortbydate");
 
 
 //loop to show fancybox pictures with
@@ -50,6 +58,7 @@ foreach ($a as $ab) {
     echo "<p>Changed: $changedate</p>";
     echo "<p>Latitude: $latitude</p>";
     echo "<p>Longitude: $longitude</p>";
+    echo "<a href='' id='deletepic'>delete</a>";
     echo "</div>";
 
     echo "</div>";
@@ -66,4 +75,15 @@ foreach ($a as $ab) {
             x.style.display = "none";
         }
     }
+
+    
+
+    window.onload = function() {
+        var a = document.getElementById("deletepic");
+        a.onclick = function() {
+            //todo function that deletes picture from DB (if picture.owner == currentuser) 
+            
+        }
+    }
+
 </script>
