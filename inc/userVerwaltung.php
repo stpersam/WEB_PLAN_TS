@@ -1,6 +1,6 @@
 <script>
     function showStatus(id) {
-        $.post("/WEB_SS2020/WebProjekt2020/utility/changeStatus.php",
+        $.post("/WebProjekt/WebProjekt2020/utility/changeStatus.php",
             {
                 id: id,
             },
