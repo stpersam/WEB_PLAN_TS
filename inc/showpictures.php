@@ -37,7 +37,7 @@ if ($searchtag != null || $userfilter != null || $state != null) {
     foreach ($a as $ab) {
         $href = $ab->getHref();
         echo "<div class='col-md-3'>";
-        echo "<a href='pictures/full/$href' data-fancybox='mygallery'><img src='pictures/thumbnail/$href' class='img-thumbnail imgs'></img></a>";
+        echo "<a href='pictures/full/$href' data-fancybox='mygallery'><img src='pictures/thumbnail/$href' class='imgs'></img></a>";
 
         $name = $ab->getName();
         $state = $ab->getState();
@@ -52,7 +52,7 @@ if ($searchtag != null || $userfilter != null || $state != null) {
         $latitude = $ab->getLatitude();
         $longitude = $ab->getLongitude();
         $newvar = '"' . $href . '"';
-        echo "<button onclick='MoreInfo($newvar)'>more..</button>";
+        echo "<button class='btn btn-secondary' onclick='MoreInfo($newvar)'>more..</button>";
         echo "<div id='$href' style='display: none'>";
         echo "<p>Creator: $owner</p>";
         echo "<p>Created: $capturedate</p>";
@@ -60,7 +60,6 @@ if ($searchtag != null || $userfilter != null || $state != null) {
         echo "<p>Latitude: $latitude</p>";
         echo "<p>Longitude: $longitude</p>";
         echo "</div>";
-        
         
         echo "</div>";
     }
