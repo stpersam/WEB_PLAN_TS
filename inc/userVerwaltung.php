@@ -62,5 +62,4 @@
         ?>
     </tbody>
 </table>
-<div id="divPictures">
-</div>
+<div id="divPictures"></div>

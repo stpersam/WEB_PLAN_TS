@@ -1,5 +1,5 @@
 <?php
-include "DB.php";
+include "../utility/DB.php";
 include "../model/picture.php";
 
 $db = new DB();

@@ -1,5 +1,5 @@
 <?php
-include "DB.php";
+include "../utility/DB.php";
 
 $db = new DB();
 $db->connect("users");
