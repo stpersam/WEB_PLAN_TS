@@ -22,14 +22,34 @@ if (isset($_POST["searchtag"]) && !empty($_POST["searchtag"])) {
     $a = $gettable->getPictureArrayAll($state);
 }
 
-function sortbydate($p1, $p2){
+function sortbycreatedate($p1, $p2)
+{
     if ($p1->getCapturedate() == $p2->getCapturedate()) {
         return 0;
     }
     return ($p1->getCapturedate() > $p2->getCapturedate()) ? +1 : -1;
 }
+function sortbychangedate($p1, $p2)
+{
+    if ($p1->getChangedate() == $p2->getChangedate()) {
+        return 0;
+    }
+    return ($p1->getChangedate() > $p2->getChangedate()) ? +1 : -1;
+}
 
-usort($a, "sortbydate");
+
+switch ($_POST["picsort"]) {
+    case "createdate":
+        usort($a, "sortbycreatedate");
+        break;
+    case "changedate":
+        usort($a, "sortbychangedate");
+        break;
+    default:
+        usort($a, "sortbycreatedate");
+}
+
+
 
 
 //loop to show fancybox pictures with
@@ -76,14 +96,13 @@ foreach ($a as $ab) {
         }
     }
 
-    
+
 
     window.onload = function() {
         var a = document.getElementById("deletepic");
         a.onclick = function() {
             //todo function that deletes picture from DB (if picture.owner == currentuser) 
-            
+
         }
     }
-
 </script>
