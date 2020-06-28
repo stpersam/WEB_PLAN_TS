@@ -94,16 +94,16 @@
     <br></br>
 
     <div>
-        <header class="page-header">    
+        <header class="page-header">
             <div class="row justify-content-between">
-            <h1>View on Google Maps</h1>
-            <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
+                <h1>View on Google Maps</h1>
+                <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
             </div>
         </header>
         <br>
         <div id="googlemaps" style="block">
-        <div class="cold-md-12" id="map" style="width: 100%; height: 450px">
-        </div>
+            <div class="cold-md-12" id="map" style="width: 100%; height: 450px">
+            </div>
         </div>
     </div>
     <script type="text/javascript">
