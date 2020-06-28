@@ -49,11 +49,6 @@ if($isLoggedIn){
     $state = $db->getState($_SESSION["users"]["Username"]);
     if($state == "offline"){
         $db->changeState($_SESSION["users"]["Username"],"online");;
-        $dbobject = $db->connect("login_details");
-        $sub_query = "INSERT INTO login_details (user_id) VALUES ('".$_SESSION["users"]["ID"]."')";
-        $statement = $dbobject->prepare($sub_query);
-        $statement->execute();
-        $_SESSION['login_details_id'] = $_SESSION["users"]["ID"];
     }
 
     if(filter_has_var(INPUT_POST, "stayLoggedIn")){
