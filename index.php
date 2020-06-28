@@ -29,7 +29,8 @@
         <a class="navbar-brand" href="index.php?use=home">Home</a>
         <div class="">
             <ul class="navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="index.php?use=gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php?use=log">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php?use=gallery">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?use=help">Hilfe</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?use=imp">Impressum</a></li>
             </ul>
@@ -46,7 +47,7 @@
         }
         switch (filter_input(INPUT_GET, "use", FILTER_SANITIZE_SPECIAL_CHARS)) {
             case "home": {
-                    header("Location: index.php?use=log");
+                    echo "<h1>Welcome at our Page </h1>";
                     break;
                 }
             case "gallery": {

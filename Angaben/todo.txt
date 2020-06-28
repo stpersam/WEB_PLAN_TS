@@ -4,8 +4,8 @@ TO-DO Next:
 Samuel:
 
 First:
-- User Verwaltung fertig + Pictures
-- User Verwaltungsseiten - erreichbar unterschiedliche Seiten
+- User Verwaltung fertig + Pictures --> erledigt
+- User Verwaltungsseiten - erreichbar unterschiedliche Seiten --> erledigt
 - Chat Funktion (19)
 
 
