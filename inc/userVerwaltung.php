@@ -1,6 +1,6 @@
 <script>
     function showStatus(id) {
-        $.post("./utility/changeStatus.php", {
+        $.post("./ajax/changeStatus.php", {
             id: id,
         },
         function(data) {
@@ -9,7 +9,7 @@
     }
 
     function showPictures(id) {
-        $.post("./utility/showUserpictures.php", {
+        $.post("./ajax/showUserpictures.php", {
             id: id,
         },
         function(data) {
