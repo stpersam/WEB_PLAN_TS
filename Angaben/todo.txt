@@ -21,9 +21,9 @@ Franz:
 First:
 - File Upload (9)
 - Hilfe & Impressum (7)
-- Bilder Sortierung (4)
+- Bilder Sortierung (4) - DONE (minimum)
 - Bilder löschen (nur eigene) (2)
-- Google Maps ausbleden/einblenden (3)
+- Google Maps ausbleden/einblenden (3) - DONE
 - Bilder freigeben (15)
 
 Second:

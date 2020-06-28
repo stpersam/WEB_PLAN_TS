@@ -93,13 +93,17 @@
 
     <br></br>
 
-    <div class="">
+    <div>
         <header class="page-header">
-            <h1>View on Google Maps</h1>
+            <div class="row justify-content-between">
+                <h1>View on Google Maps</h1>
+                <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
+            </div>
         </header>
         <br>
-        <div class="cold-md-12" id="map" style="width: 100%; height: 450px">
-
+        <div id="googlemaps" style="block">
+            <div class="cold-md-12" id="map" style="width: 100%; height: 450px">
+            </div>
         </div>
     </div>
     <script type="text/javascript">
@@ -110,6 +114,16 @@
         };
 
         var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+
+        function CollapseMaps() {
+            var x = document.getElementById("googlemaps");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
 
 
