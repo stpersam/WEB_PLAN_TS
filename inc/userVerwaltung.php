@@ -1,12 +1,12 @@
 <script>
     function showStatus(id) {
-        $.post("/WebProjekt/WebProjekt2020/utility/changeStatus.php",
-            {
-                id: id,
-            },
-            function(data){
-               $("#st-"+id).html(data)
-            });
+        $.post("./utility/changeStatus.php",
+        {
+            id: id,
+        },
+        function(data){
+           $("#st-"+id).html(data)
+        });
     }
 </script>
 <h2>User Administration</h2>

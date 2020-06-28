@@ -17,7 +17,7 @@
                 <input type="checkbox" name="stayLoggedIn" value="yes" class="form-check-input" id="stayLoggedIn">
                 <label class="form-check-lable" for="stayLoggedIn">Stay Logged in</label>
             </div>
-        <button type="submit" name="login" id="login" class="btn btn-outline-secondary btn-secondary">Login</button>
+        <button type="submit" name="login" id="login" class="btn btn-primary">Login</button>
     </form>
 </div>
 </div>
