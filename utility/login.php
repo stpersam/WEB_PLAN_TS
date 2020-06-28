@@ -11,7 +11,8 @@ if(isset($_COOKIE["cookieLIn"])){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(filter_has_var(INPUT_POST, "logout")){
         $isLoggedIn = false;
-
+        $db = new DB();
+        $db->changeState($_SESSION['users']['Username'],"offline");
         if(isset($_COOKIE[session_name()])){
             setcookie(session_name(),"",time-3600,"");
             $_SESSION = array();
@@ -39,9 +40,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 if($isLoggedIn){
+    $db = new DB();
     $user = $db->getUser(filter_input(INPUT_POST,"username"));
+
     $_SESSION["users"] = $user;
     $_SESSION["isLoggedIn"] = $isLoggedIn;
+
+    $state = $db->getState($_SESSION["users"]["Username"]);
+    if($state == "offline"){
+        $db->changeState($_SESSION["users"]["Username"],"online");
+    }
 
     if(filter_has_var(INPUT_POST, "stayLoggedIn")){
         setcookie("cookieLIn", filter_input(INPUT_POST,"username"),time()+600);

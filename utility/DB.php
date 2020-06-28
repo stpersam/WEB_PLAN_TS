@@ -81,6 +81,28 @@ class DB
         $dbobjekt->close();
     }
 
+    function getState($username)
+    {
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("SELECT State AS c FROM users WHERE Username=?");
+        $statement->bind_param('s', $username);
+        $statement->execute();
+        $status = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $status['c'];
+    }
+
+    function changeState($username, $status)
+    {
+        $dbobjekt = $this->connect("users");
+        $statement = $dbobjekt->prepare("UPDATE users SET State=? Where Username=?");
+        $statement->bind_param('ss', $status, $username);
+        $statement->execute();
+        $statement->close();
+        $dbobjekt->close();
+    }
+
     function countUser($username)
     {
         $dbobjekt = $this->connect("users");

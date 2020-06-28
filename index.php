@@ -31,6 +31,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.php?use=log">Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?use=gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php?use=chat">Chat</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?use=help">Hilfe</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?use=imp">Impressum</a></li>
             </ul>
@@ -94,6 +95,11 @@
                     }
                     break;
                 }
+            case "chat": {
+                echo "<h1>Welcome at our Chat </h1>";
+                include "inc/chat.php";
+                break;
+            }
             default: {
                     include "inc/loginForm.php";
                     echo "<a href='index.php?use=reg' class='btn btn-primary'>Register</a>";

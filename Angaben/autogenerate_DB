@@ -13,21 +13,22 @@ CREATE TABLE users(
     Email varchar (255),
     Rolle varchar (10),
     Status varchar (10),
+    State varchar(10),
     PRIMARY Key(ID,Username)
 );
 
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values ('Mr','Admin','Admin','xx',1234,'yy','admin',SHA2('admin',256),'admin@admin.com','admin','aktive');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values ('Mr','User','User','xx',1234,'yy','user1',SHA2('user1',256),'user1@user1.com','user','aktive');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values ('Mrs','User','User','xx',1234,'yy','user2',SHA2('user2',256),'user2@user2.com','user','aktive');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values ('Mr','Franz','S','xx',1234,'yy','Franz',SHA2('123',256),'user1@user1.com','user','aktive');
-Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values ('Mrs','Samuel','P','xx',1234,'yy','Samuel',SHA2('123',256),'user2@user2.com','user','aktive');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values ('Mr','Admin','Admin','xx',1234,'yy','admin',SHA2('admin',256),'admin@admin.com','admin','aktive','offline');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values ('Mr','User','User','xx',1234,'yy','user1',SHA2('user1',256),'user1@user1.com','user','aktive','offline');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values ('Mrs','User','User','xx',1234,'yy','user2',SHA2('user2',256),'user2@user2.com','user','aktive','offline');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values ('Mr','Franz','S','xx',1234,'yy','Franz',SHA2('123',256),'user1@user1.com','user','aktive','offline');
+Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values ('Mrs','Samuel','P','xx',1234,'yy','Samuel',SHA2('123',256),'user2@user2.com','user','aktive','offline');
 
 
 DROP TABLE pictures;
 
 CREATE TABLE pictures(
     ID integer AUTO_INCREMENT,
-    Name varchar (255) unique ,
+    Name varchar (255) unique,
     latitude varchar (255),
     longitude varchar (255),
     capturedate date,
