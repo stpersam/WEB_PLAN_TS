@@ -1,10 +1,7 @@
 <script>
     $(document).ready(function(){
-
         fetch_user();
-
         setInterval(function(){
-            update_last_activity();
             fetch_user();
         }, 5000);
 
@@ -18,20 +15,9 @@
                 }
             })
         }
-
-        function update_last_activity()
-        {
-            $.ajax({
-                url:"./utility/update_last_activity.php",
-                success:function()
-                {
-
-                }
-            })
-        }
-
     });
 </script>
+
 <div class="container">
     <br />
 
@@ -43,8 +29,6 @@
         <form method="post" action="utility/login.php">
             <button type="submit" name="logout" id="logout" class="btn btn-primary" style="float: right">Logout</button>
         </form>
-        <?php
-            include "./utility/fetch_user.php";
-        ?>
+        <div id="user_details"></div>
     </div>
 </div>
