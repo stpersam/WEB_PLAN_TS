@@ -1,0 +1,39 @@
+TO-DO Next:
+
+
+Samuel:
+
+First:
+- User Verwaltung fertig + Pictures
+- User Verwaltungsseiten - erreichbar unterschiedliche Seiten
+- Chat Funktion (19)
+
+
+Second:
+- Einbinden Grafik CSS Template (5)
+- Ajax Bilder(load ohne Seite neu laden) (8)
+- Continuous Search Filter Ajax (5)
+
+
+
+Franz:
+
+First:
+- File Upload (9)
+- Hilfe & Impressum (7)
+- Bilder Sortierung (4)
+- Bilder löschen (nur eigene) (2)
+- Google Maps ausbleden/einblenden (3)
+- Bilder freigeben (15)
+
+Second:
+-
+
+
+
+Unassigned:
+- Geo / Google Maps Einbindung (10)
+- File Upload Drag&Drop (4)
+- File Upload Thumbnails (5)
+- Bilder Tagging (11)
+- Bilder Tagging Zuordnung drag / drop (4)
