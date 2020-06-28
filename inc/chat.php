@@ -1,3 +1,37 @@
+<script>
+    $(document).ready(function(){
+
+        fetch_user();
+
+        setInterval(function(){
+            update_last_activity();
+            fetch_user();
+        }, 5000);
+
+        function fetch_user()
+        {
+            $.ajax({
+                url:"./utility/fetch_user.php",
+                method:"POST",
+                success:function(data){
+                    $('#user_details').html(data);
+                }
+            })
+        }
+
+        function update_last_activity()
+        {
+            $.ajax({
+                url:"./utility/update_last_activity.php",
+                success:function()
+                {
+
+                }
+            })
+        }
+
+    });
+</script>
 <div class="container">
     <br />
 
@@ -10,9 +44,7 @@
             <button type="submit" name="logout" id="logout" class="btn btn-primary" style="float: right">Logout</button>
         </form>
         <?php
-            include "../utility/fetch_user.php";
+            include "./utility/fetch_user.php";
         ?>
     </div>
 </div>
-</body>
-</html>

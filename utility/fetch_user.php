@@ -1,14 +1,7 @@
 <?php
-include "DB.php";
-session_start();
-
-
 $db = new DB();
 $db->connect("users");
 $result = $db->getUserList();
-
-//ausgabe aller User mit status on/offline und Action
-
 ?>
 <table class="table table-bordered table-striped">
     <thead>
@@ -24,7 +17,7 @@ $result = $db->getUserList();
             if($row->Username != $_SESSION['users']['Username']){
                 echo "<tr>";
                 echo "<td>$row->Username</td>";
-                echo "<td></td>";
+                echo "<td><p id='user-details'>$row->State</p></td>";
                 echo "<td><button type='button' class='btn btn-info btn-xs start_chat' data-touserid = '$row->ID' data-tousername='$row->Username'>Start Chat</button></td>";
                 echo "</tr>";
             }

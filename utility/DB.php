@@ -10,7 +10,6 @@ class DB
         return new mysqli("localhost", "webProjekt", "cprn66ae", "webprojekt");
     }
 
-    //Gets and Returns User Array
     function getUserList()
     {
         $dbobjekt = $this->connect("users");
