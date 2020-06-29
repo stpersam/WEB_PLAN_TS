@@ -1,5 +1,8 @@
 <?php
 
+include("C:/xampp/htdocs/WebProjekt2020/model/picture.php");
+include("C:/xampp/htdocs/WebProjekt2020/utility/DB.php");
+
 //connect to db/pictures
 $gettable = new DB();
 $gettable->connect("pictures");

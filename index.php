@@ -30,20 +30,20 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
-        <a class="navbar-brand" href="index.php?use=home">Home</a>
-        <div class="">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.php?use=log">Profil</a></li>
-                <li class="nav-item"><a class="nav-link" onclick="showgallery()">GalleryAJAX</a></li>
-                <li class="nav-item"><a class="nav-link" onclick="removegallery()">GalleryAJAXRE</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?use=gallery">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?use=chat">Chat</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?use=help">Hilfe</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?use=imp">Impressum</a></li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
+            <a class="navbar-brand" href="index.php?use=home">Home</a>
+            <div class="">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.php?use=log">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showgallery()">GalleryAJAX</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="removegallery()">GalleryAJAXRE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?use=gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?use=chat">Chat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?use=help">Hilfe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?use=imp">Impressum</a></li>
+                </ul>
+            </div>
+        </nav>
     <div class="container">
 
         <?php

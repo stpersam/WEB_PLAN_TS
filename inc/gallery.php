@@ -2,13 +2,32 @@
 <html>
 
 <head>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#includegallerycontent").load("inc/showpictures.php");
+        });
+
+        function showgallerycontent($id) {
+            switch ($id) {
+                case "showpictures":
+                    $("#includegallerycontent").load("inc/showpictures.php");
+                    break;
+                case "pictureupload":
+                    $("#includegallerycontent").load("inc/pictureupload.php");
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+     
 </head>
 
 <body>
     <div>
         <header class="page-header">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
-                <a class="navbar-brand" href="">Gallery</a>
+                <a class="navbar-brand" onclick="showcontent('gallery')" href="">Gallery</a>
                 <div class="">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
@@ -18,23 +37,35 @@
                                 <a class="dropdown-item" href="#">All published pictures</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" onclick="sort()">Sort</a></li>
-                        <li class="nav-item"><a class="nav-link" onclick="upload()">Upload</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" onclick="sort()">Sort</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="show()" href="#">by Create Date</a>
+                                <a class="dropdown-item" href="#">by Change Date</a>
+                                <a class="dropdown-item" href="#">by else</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" onclick="showgallerycontent('pictureupload')">Upload</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
 
         <div class="container">
-            <!-- TBD with ajax -> do fileupload -->
-            <div class="row justify-content-between">
-                <h5>Upload new file:</h5>
-                <form action="index.php?use=gallery" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="myfile">
-                    <input type="submit" name="submitfile">
-                </form>
-            </div>
 
+            <!-- Content -->
+            <section id="gallerycontent">
+
+                <body>
+                    <div id="includegallerycontent">
+
+                    </div>
+
+
+                </body>
+            </section>
+
+
+<!--
             <div class="row justify-content-between">
                 <div class="col-md-6">
                     <div class="row">
@@ -61,8 +92,12 @@
 
                             </div>
                         </div>
+ -->
+
 
                         <!-- TBD with ajax -> use usort() in showpictures with picsort POST value determening which sort -->
+
+ <!--
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort by:
@@ -90,20 +125,7 @@
                     </form>
                 </div>
             </div>
-
-
-
-            <br></br>
-
-            <div class="col-md-12">
-                <main id="content">
-                    <div class="row">
-                        <?php
-                        include("inc/showpictures.php");
-                        ?>
-                    </div>
-                </main>
-            </div>
+-->
 
 
             <br></br>
