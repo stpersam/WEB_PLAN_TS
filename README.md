@@ -11,3 +11,4 @@ Datenbank File mit SQL befehlen -> autogenerate_DB
 
 
 Farb Schema: #56435B
+https://color.adobe.com/de/create/color-wheel
