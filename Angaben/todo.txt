@@ -6,7 +6,7 @@ Samuel:
 First:
 - User Verwaltung fertig + Pictures --> erledigt
 - User Verwaltungsseiten - erreichbar unterschiedliche Seiten --> erledigt
-- Chat Funktion (19)
+- Chat Funktion (19) --> fast alles erledigt
 
 
 Second:
