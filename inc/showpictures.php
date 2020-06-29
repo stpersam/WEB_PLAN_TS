@@ -9,6 +9,11 @@ $gettable->connect("pictures");
 $state = "freigegeben";
 
 
+if (isset($_GET["user"]) || isset($_GET["userstate"])) {
+    $currentuser = $_SESSION['users']['Username'];
+    echo $currentuser;
+}
+
 
 if (isset($_GET["searchtag"]) && !empty($_GET["searchtag"])) {
     $searchtag = $_GET["searchtag"];

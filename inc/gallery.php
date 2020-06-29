@@ -6,14 +6,12 @@
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
-        if (isset($_SESSION['users']['Username'])) {
-            $currentuser = $_SESSION['users']['Username'];
-        }
+
 
         function showgallerycontent($id) {
             switch ($id) {
                 case "showmypicture":
-                    $("#includegallerycontent").load("inc/showpictures.php?user=<?php echo $currentuser; ?>");
+                    $("#includegallerycontent").load("inc/showpictures.php?user=set");
                     break;
                 case "showpictures":
                     $("#includegallerycontent").load("inc/showpictures.php?picsort=changedate");
