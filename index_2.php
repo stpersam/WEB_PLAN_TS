@@ -15,7 +15,7 @@
     <noscript>
         <link rel="stylesheet" href="res/assets/css/noscript.css" /></noscript>
 
-   
+
     <!-- Fancybox/Fancyapps-->
     <!-- 1. Add latest jQuery and fancybox files -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -95,7 +95,7 @@
         <section id="content">
 
             <body>
-                <div id="includecontent">
+                <div id="includecontent" class="wrapper style2">
 
                 </div>
 
@@ -103,6 +103,9 @@
             </body>
         </section>
 
+        <footer class="text-center ">
+            <a href="#header" class=""><i class="fa fa-arrow-up"></i>To the top</a>
+        </footer>
         <!-- Carousel 
         <section class="carousel">
             <div class="reel">
