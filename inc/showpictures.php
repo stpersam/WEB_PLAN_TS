@@ -1,26 +1,30 @@
 <?php
+include "../model/picture.php";
+include "../utility/DB.php";
 
-include("C:/xampp/htdocs/WebProjekt2020/model/picture.php");
-include("C:/xampp/htdocs/WebProjekt2020/utility/DB.php");
 
 //connect to db/pictures
 $gettable = new DB();
 $gettable->connect("pictures");
 $state = "freigegeben";
 
-if (isset($_POST["searchtag"]) && !empty($_POST["searchtag"])) {
-    $searchtag = $_POST["searchtag"];
+
+
+if (isset($_GET["searchtag"]) && !empty($_GET["searchtag"])) {
+    $searchtag = $_GET["searchtag"];
     $a = $gettable->getPictureArray($searchtag, $searchtag, $searchtag, $state, $searchtag);
-} else if (isset($_POST["user"]) || isset($_POST["userstate"])) {
-    if (isset($_POST["user"]) && !empty($_POST["user"])) {
+} else if (isset($_GET["user"]) || isset($_GET["userstate"])) {
+    if (isset($_GET["user"]) && !empty($_GET["user"])) {
         $state = "%";
-        $userfilter = $_POST["user"];
-    } else if (isset($_POST["userstate"]) && !empty($_POST["userstate"])) {
-        $userfilter = $_POST["userstate"];
+        $userfilter = $_GET["user"];
+       
+    } else if (isset($_GET["userstate"]) && !empty($_GET["userstate"])) {
+        $userfilter = $_GET["userstate"];
     }
+    echo $userfilter;
     $a = $gettable->getrestrictedPictureArray($state, $userfilter);
-} else if (isset($_POST["state"])) {
-    $a = $gettable->getPictureArrayAll($_POST["state"]);
+} else if (isset($_GET["state"])) {
+    $a = $gettable->getPictureArrayAll($_GET["state"]);
 } else {
     $a = $gettable->getPictureArrayAll($state);
 }
@@ -40,8 +44,15 @@ function sortbychangedate($p1, $p2)
     return ($p1->getChangedate() > $p2->getChangedate()) ? +1 : -1;
 }
 
+if (isset($_GET["picsort"])){
+    $picsort = $_GET["picsort"]; 
+}
+else 
+$picsort = "";
 
-switch ($_POST["picsort"]) {
+
+
+switch ($picsort) {
     case "createdate":
         usort($a, "sortbycreatedate");
         break;
@@ -54,8 +65,10 @@ switch ($_POST["picsort"]) {
 
 
 
+echo "<div class='row'>";
 
 //loop to show fancybox pictures with
+
 foreach ($a as $ab) {
     $href = $ab->getHref();
     echo "<div class='col-md-3'>";
@@ -86,6 +99,7 @@ foreach ($a as $ab) {
 
     echo "</div>";
 }
+echo "</div>";
 
 ?>
 

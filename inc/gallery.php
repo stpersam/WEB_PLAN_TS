@@ -6,11 +6,17 @@
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
+        if (isset($_SESSION['users']['Username'])) {
+            $currentuser = $_SESSION['users']['Username'];
+        }
 
         function showgallerycontent($id) {
             switch ($id) {
+                case "showmypicture":
+                    $("#includegallerycontent").load("inc/showpictures.php?user=<?php echo $currentuser; ?>");
+                    break;
                 case "showpictures":
-                    $("#includegallerycontent").load("inc/showpictures.php");
+                    $("#includegallerycontent").load("inc/showpictures.php?picsort=changedate");
                     break;
                 case "pictureupload":
                     $("#includegallerycontent").load("inc/pictureupload.php");
@@ -20,7 +26,7 @@
             }
         }
     </script>
-     
+
 </head>
 
 <body>
@@ -32,7 +38,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="show()" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypicture')" href="#">My Pictures</a>
                                 <a class="dropdown-item" href="#">My published Pictures</a>
                                 <a class="dropdown-item" href="#">All published pictures</a>
                             </div>
@@ -65,7 +71,7 @@
             </section>
 
 
-<!--
+            <!--
             <div class="row justify-content-between">
                 <div class="col-md-6">
                     <div class="row">
@@ -95,9 +101,9 @@
  -->
 
 
-                        <!-- TBD with ajax -> use usort() in showpictures with picsort POST value determening which sort -->
+            <!-- TBD with ajax -> use usort() in showpictures with picsort POST value determening which sort -->
 
- <!--
+            <!--
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort by:
