@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<?php session_start(); ?>
 <!--
 	Helios by HTML5 UP
 	html5up.net | @ajlkn
@@ -13,6 +14,14 @@
     <noscript><link rel="stylesheet" href="res/assets/css/noscript.css" /></noscript>
 </head>
 <body class="homepage is-preload">
+<?php
+include "model/picture.php";
+include "utility/DB.php";
+include "model/User.php";
+if (isset($_SESSION['users']['Username'])) {
+    $currentuser = $_SESSION['users']['Username'];
+}?>
+
 <div id="page-wrapper">
 
     <!-- Header -->
@@ -34,24 +43,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="index_2.php">Home</a></li>
-                <li>
-                    <a href="#">Dropdown</a>
-                    <ul>
-                        <li><a href="#">Lorem ipsum dolor</a></li>
-                        <li><a href="#">Magna phasellus</a></li>
-                        <li><a href="#">Etiam dolore nisl</a></li>
-                        <li>
-                            <a href="#">And a submenu &hellip;</a>
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor</a></li>
-                                <li><a href="#">Phasellus consequat</a></li>
-                                <li><a href="#">Magna phasellus</a></li>
-                                <li><a href="#">Etiam dolore nisl</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Veroeros feugiat</a></li>
-                    </ul>
-                </li>
+                <li><a href="chat_front.php">Chat</a></li>
                 <li><a href="left-sidebar.html">Left Sidebar</a></li>
                 <li><a href="right-sidebar.html">Right Sidebar</a></li>
                 <li><a href="no-sidebar.html">No Sidebar</a></li>
