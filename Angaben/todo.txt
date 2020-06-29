@@ -10,8 +10,8 @@ First:
 
 
 Second:
-- Einbinden Grafik CSS Template (5)
-- Ajax Bilder(load ohne Seite neu laden) (8)
+- Einbinden Grafik CSS Template (5) --> erledigt
+- Ajax Bilder(load ohne Seite neu laden) (8) --> erledigt
 - Continuous Search Filter Ajax (5)
 
 
