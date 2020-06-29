@@ -43,3 +43,12 @@ CREATE TABLE pictures(
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Test','nn','ee','2018-12-17','2019-12-17','freigegeben','test.png','test,klaus','Samuel');
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Scissors and Clips','434','321','2013-12-17','2015-12-17','freigegeben','composition-of-scissors-and-clip.jpg','scissors,clip,beige','Franz');
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Coffes and Diary','654','765','2020-12-17','2015-12-17','freigegeben','cup-of-coffee-and-colorful-diary.jpg','coffee,cup,diary,beige','Franz');
+
+CREATE TABLE `chat_message` (
+  `chat_message_id` int(11) NOT NULL  PRIMARY KEY AUTO_INCREMENT,
+  `to_user_id` int(11) NOT NULL,
+  `from_user_id` int(11) NOT NULL,
+  `chat_message` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB
