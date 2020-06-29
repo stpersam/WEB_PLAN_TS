@@ -96,8 +96,6 @@ foreach ($a as $ab) {
         }
     }
 
-
-
     window.onload = function() {
         var a = document.getElementById("deletepic");
         a.onclick = function() {
