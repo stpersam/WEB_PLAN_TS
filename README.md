@@ -8,3 +8,6 @@ Datenbank File mit SQL befehlen -> autogenerate_DB
     User: webProjekt
     Password: cprn66ae
     DBName: webprojekt
+
+
+Farb Schema: #56435B

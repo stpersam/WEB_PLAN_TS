@@ -93,13 +93,9 @@
 
         <!-- Content -->
         <section id="content">
-
             <body>
                 <div id="includecontent" class="wrapper style2">
-
                 </div>
-
-
             </body>
         </section>
 
