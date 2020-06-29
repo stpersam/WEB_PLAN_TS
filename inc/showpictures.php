@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../model/picture.php";
 include "../utility/DB.php";
 
