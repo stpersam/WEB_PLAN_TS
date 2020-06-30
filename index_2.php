@@ -38,6 +38,7 @@
     include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
+
     if (isset($_SESSION['users']['Username'])) {
         $currentuser = $_SESSION['users']['Username'];
     } ?>

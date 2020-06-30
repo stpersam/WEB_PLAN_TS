@@ -1,6 +1,7 @@
 <?php
 include "../model/User.php";
 include "DB.php";
+session_start();
 
     $anrede = (filter_input(INPUT_POST, "anrede"));
     $vorname = (filter_input(INPUT_POST, "vorname"));

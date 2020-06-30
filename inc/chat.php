@@ -1,3 +1,4 @@
+<?php session_start();?>
 <script>
     $(document).ready(function(){
         fetch_user();

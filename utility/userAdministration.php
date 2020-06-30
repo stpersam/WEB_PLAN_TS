@@ -1,5 +1,6 @@
 <?php
 include "DB.php";
+session_start();
 $db = new DB();
 
 if($_GET["do"] == "del"){

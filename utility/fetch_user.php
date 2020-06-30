@@ -1,10 +1,14 @@
 <?php
 include "DB.php";
+include "../model/picture.php";
+include "../model/User.php";
 session_start();
+
 $db = new DB();
 $db->connect("users");
 $result = $db->getUserList();
 $output = '
+
 <table class="table table-bordered table-striped">
  <tr>
   <td>Username</td>
@@ -14,7 +18,7 @@ $output = '
 ';
 foreach($result as $row)
 {
-    if($row->Username != $_SESSION["users"]["Username"]){
+    if($row->Username != $_SESSION['users']['Username']){
         $output .= '
                      <tr>
                       <td>'.$row->Username.'</td>
