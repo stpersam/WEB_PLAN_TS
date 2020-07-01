@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             session_destroy();
         }
         setcookie("cookieLIn","",time()-100);
-        header("Location: ../index_2.php");
+        header("Location: ../index.php");
         die();
     }else{
         $db = new DB();
@@ -28,12 +28,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $isLoggedIn = true;
             }else{
                 $isLoggedIn = false;
-                header("Location:../index_2.php");
+                header("Location:../index.php");
                 die();
             }
         }else{
             $isLoggedIn = false;
-            header("Location:../index_2.php");
+            header("Location:../index.php");
             die();
         }
     }
@@ -54,8 +54,8 @@ if($isLoggedIn){
     if(filter_has_var(INPUT_POST, "stayLoggedIn")){
         setcookie("cookieLIn", filter_input(INPUT_POST,"username"),time()+600);
     }
-    header("Location:../index_2.php");
+    header("Location:../index.php");
 } else{
-    header("Location:../index_2.php");
+    header("Location:../index.php");
 }
 

@@ -51,15 +51,15 @@ if(isset($_GET["bearbeitet"])) {
 
                             $bd = new DB();
                             $bd->updateUser($user);
-                            header("Location: ../index.php?use=log&");
+                            header("Location: ../index_old.php?use=log&");
                         }else{
-                            header("Location: ../index.php?use=log&wrong=pwns");
+                            header("Location: ../index_old.php?use=log&wrong=pwns");
                             die();
                         }
                     }
 
                 }else{
-                    header("Location: ../index.php?use=log&wrong=pw");
+                    header("Location: ../index_old.php?use=log&wrong=pw");
                     die();
                 }
             }
