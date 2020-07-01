@@ -92,6 +92,7 @@ if (isset($_SESSION['users']['Username'])) {
 
             <br></br>
 
+            <!-- Google Maps -->
             <div>
                 <header class="page-header">
                     <div class="row justify-content-between">
@@ -116,7 +117,7 @@ if (isset($_SESSION['users']['Username'])) {
 
                 var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
-
+                // Toggle Map
                 function CollapseMaps() {
                     var x = document.getElementById("googlemaps");
                     if (x.style.display === "none" || x.style.display === "") {
@@ -124,6 +125,31 @@ if (isset($_SESSION['users']['Username'])) {
                     } else {
                         x.style.display = "none";
                     }
+                }
+
+                // Marker erstellen mit position, Text und Bild;
+                var myLatLng = {lat: 48.20, lng: 16.36};
+                var myLatLng2 = {lat: 48.50, lng: 16.50};
+                setMarkers(myLatLng,"Marker",'./pictures/thumbnail/test.png');
+                setMarkers(myLatLng2,"Marker2",'./pictures/thumbnail/test.png');
+
+                // set marker
+                function setMarkers(myLatLng,text,url) {
+                    var contentString = '<img src="'+url+'">';
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString<
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        title: text
+                    });
+
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker);
+                    });
                 }
             </script>
         </div>
