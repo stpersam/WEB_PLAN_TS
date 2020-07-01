@@ -22,32 +22,6 @@ if (isset($_SESSION['users']['Username'])) {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
     </script>
-
-
-    <?php
-    global $array;
-    $array = array();
-    function getarrayofpictures($user, $state, $searchtag, $sort)
-    {
-        //connect to db/pictures
-        $gettable = new DB();
-        $gettable->connect("pictures");
-
-        if (isset($searchtag) && !empty($searchtag)) {
-            $searchtag = $searchtag;
-            $a = $gettable->getPictureArray($searchtag, $searchtag, $searchtag, $state, $searchtag);
-        } else if (isset($user) && !empty($user)) {
-            $userfilter = $user;
-            $a = $gettable->getrestrictedPictureArray($state, $userfilter);
-        } else {
-            $a = $gettable->getPictureArrayAll($state);
-        }
-        foreach ($a as $ab){
-            array_push($GLOBALS['array'],$ab);
-        }
-        return $a;
-    }
-    ?>
 </head>
 <body>
     <div>
@@ -77,10 +51,35 @@ if (isset($_SESSION['users']['Username'])) {
         </header>
 
         <div class="container">
+            <script>
+                function showHint(str) {
+                    var xhttp;
+                    if (str.length == 0) {
+                        document.getElementById("includegallerycontent").innerHTML = "";
+                        return;
+                    }
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var path = "./pictures/full/" + this.responseText;
+                            var text = "<img src='"+path+"'>";
+                            document.getElementById("includegallerycontent").innerHTML = text;
+                        }
+                    };
+                    xhttp.open("GET", "./utility/gethint.php?q="+str, true);
+                    xhttp.send();
+                }
+            </script>
+
+            <form action="">
+                Search Name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
+            </form>
             <!-- Content -->
             <section id="gallerycontent">
                 <body>
-                    <div id="includegallerycontent"></div>
+                    <div id="includegallerycontent">
+
+                    </div>
                 </body>
             </section>
             <br>
