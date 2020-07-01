@@ -22,6 +22,9 @@ function showcontents($id, $currentuser) {
         case "registrieren":
             $("#includecontent").load("inc/registerForm.php");
             break;
+        case "admin":
+            $("#includecontent").load("inc/userVerwaltung.php");
+            break;
         default:
             $("#includecontent").load("inc/home.php");
             break;
