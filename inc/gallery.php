@@ -25,6 +25,8 @@ if (isset($_SESSION['users']['Username'])) {
 
 
     <?php
+    global $array;
+    $array = array();
     function getarrayofpictures($user, $state, $searchtag, $sort)
     {
         //connect to db/pictures
@@ -34,15 +36,17 @@ if (isset($_SESSION['users']['Username'])) {
         if (isset($searchtag) && !empty($searchtag)) {
             $searchtag = $searchtag;
             $a = $gettable->getPictureArray($searchtag, $searchtag, $searchtag, $state, $searchtag);
-        } else if (isset($user)) {
+        } else if (isset($user) && !empty($user)) {
             $userfilter = $user;
             $a = $gettable->getrestrictedPictureArray($state, $userfilter);
         } else {
             $a = $gettable->getPictureArrayAll($state);
         }
+        foreach ($a as $ab){
+            array_push($GLOBALS['array'],$ab);
+        }
         return $a;
     }
-
     ?>
 
 
@@ -86,7 +90,7 @@ if (isset($_SESSION['users']['Username'])) {
     
 
                     </div>
-                    <div><?php var_dump(getarrayofpictures($currentuser, '%', '', '')); ?></div>
+                    <div><?php var_dump(getarrayofpictures('','', '%','', ''));?></div>
                 </body>
             </section>
 
@@ -127,18 +131,35 @@ if (isset($_SESSION['users']['Username'])) {
                     }
                 }
 
+                var passedArray = <?php echo json_encode($array); ?>;
+                if(passedArray !== null)
+                    arrayMarker(passedArray);
+
+                function arrayMarker(array){
+                    for(var i = 0; i < array.length; i++){
+                        lat = parseFloat(array[i]['latitude']);
+                        lng = parseFloat(array[i]['longitude']);
+                        text = array[i]['name'];
+                        href = "./pictures/thumbnail/"
+                        href += array[i]['href'];
+
+                        initMarkers(lat,lng,text,href);
+                    }
+                }
+               // initMarkers(48.20,16.36,"Marker",'./pictures/thumbnail/test.png')
+
                 // Marker erstellen mit position, Text und Bild;
-                var myLatLng = {lat: 48.20, lng: 16.36};
-                var myLatLng2 = {lat: 48.50, lng: 16.50};
-                setMarkers(myLatLng,"Marker",'./pictures/thumbnail/test.png');
-                setMarkers(myLatLng2,"Marker2",'./pictures/thumbnail/test.png');
+                function initMarkers(latitude,longitude,text,href) {
+                    var myLatLng = {lat:latitude, lng:longitude};
+                    setMarkers(myLatLng,text,href)
+                }
 
                 // set marker
                 function setMarkers(myLatLng,text,url) {
                     var contentString = '<img src="'+url+'">';
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: contentString<
+                        content: contentString
                     });
 
                     var marker = new google.maps.Marker({
