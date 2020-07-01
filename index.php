@@ -15,7 +15,6 @@
     <noscript>
         <link rel="stylesheet" href="res/assets/css/noscript.css" /></noscript>
 
-
     <!-- Fancybox/Fancyapps-->
     <!-- 1. Add latest jQuery and fancybox files -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -31,7 +30,6 @@
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="utility/showcontents.js"></script>
-
 
 
 </head>

@@ -3,11 +3,14 @@ function showgallerycontent($id, $currentuser, $sort) {
     var sort = $sort;
 
     switch ($id) {
-        case "showmypicture":
-            $("#includegallerycontent").load("inc/showpictures.php?user="+user);
+        case "showmypictures":
+            $("#includegallerycontent").load("inc/showpictures.php?user=" + user + "&sort=" + sort);
             break;
-        case "showpictures":
-            $("#includegallerycontent").load("inc/showpictures.php?picsort="+sort);
+        case "showmypublishedpictures":
+            $("#includegallerycontent").load("inc/showpictures.php?state=freigegeben&user=" + user + "&sort=" + sort);
+            break;
+        case "showallpublishedpictures":
+            $("#includegallerycontent").load("inc/showpictures.php?state=freigegeben" + "&sort=" + sort);
             break;
         case "pictureupload":
             $("#includegallerycontent").load("inc/pictureupload.php");
@@ -16,3 +19,8 @@ function showgallerycontent($id, $currentuser, $sort) {
             break;
     }
 }
+/*
+function showarray($array){
+    $("#includegallerycontent").load("inc/showpictures.php");
+}
+*/
