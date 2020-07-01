@@ -24,9 +24,15 @@
     h2 {
         text-align: center;
     }
+
+    .alignit {
+        text-align: center;
+    }
 </style>
 <div class="container">
-    <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {echo $_SESSION['users']['Username'];}?> to our Picture Cloud</h2>
+    <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {
+                    echo $_SESSION['users']['Username'];
+                } ?> to our Picture Cloud</h2>
     <div class="row">
         <div id="content" class="col-md-12">
             <p>
@@ -39,22 +45,22 @@
                 culpa qui officia deserunt mollit anim id est laborum.
             </p>
         </div>
-        <div class="row">
-            <div class="container">
-                <div id="login" class="col-md-12">
-                    <?php
-                    
-                    if (isset($_SESSION['users']['Username'])) {
-                        echo '<form method="post" action="utility/login.php">';
-                        echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
-                        echo '</form>';
-                    } else {
-                        include "loginForm.php";
-                        $tmp = '"registrieren"';
-                        echo "<div class='container'><button class='btn btn-color container' onclick='showcontents($tmp)'>Registrieren</button></div>";
-                    }
-                    ?>
-                </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div id="login" class="col-md-12">
+                <?php
+                if (isset($_SESSION['users']['Username'])) {
+                    echo '<form method="post" action="utility/login.php">';
+                    echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
+                    echo '</form>';
+                } else {
+                    include "loginForm.php";
+                    $tmp = '"registrieren"';
+                    echo "<div class='container alignit'><button class='btn btn-color' onclick='showcontents($tmp)'>Registrieren</button></div>";
+                }
+                ?>
+
             </div>
         </div>
     </div>
