@@ -28,12 +28,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $isLoggedIn = true;
             }else{
                 $isLoggedIn = false;
-                header("Location: ../index_2.php?wrong=pw");
+                header("Location:../index_2.php");
                 die();
             }
         }else{
             $isLoggedIn = false;
-            header("Location: ../index_2.php?wrong=un");
+            header("Location:../index_2.php");
             die();
         }
     }
