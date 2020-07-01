@@ -72,7 +72,7 @@ if (isset($_SESSION['users']['Username'])) {
             </script>
 
             <form action="">
-                Tags: <input type="text" id="txt1" onkeyup="showHint(this.value)">
+                Search Name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
             </form>
             <!-- Content -->
             <section id="gallerycontent">
