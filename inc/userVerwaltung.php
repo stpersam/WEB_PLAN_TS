@@ -20,6 +20,10 @@
 </script>
 <div class="container">
     <br>
+    <form method="post" action="utility/login.php">
+        <button type="submit" name="logout" id="logout" class="btn btn-primary" style="float: right">Logout</button>
+    </form>
+    <br>
     <h2>User Administration</h2>
     <table class="table">
         <thead>

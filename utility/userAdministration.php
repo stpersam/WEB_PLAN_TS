@@ -8,6 +8,6 @@ if($_GET["do"] == "del"){
         $db->connect("users");
         $db->deleteUser($_GET["id"]);
     }
-    header("Location: ../index_old.php?use=log");
+    header("Location: ../index.php");
     die();
 }
