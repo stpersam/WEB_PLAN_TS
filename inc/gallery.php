@@ -20,13 +20,6 @@ if (isset($_SESSION['users']['Username'])) {
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
-
-        function showarray($user,$sort){
-            var user = $user;
-            var sort = $sort;
-            $("#includegallerycontent").load("inc/showpictures.php?user=" + user + "&sort=" + sort);
-            <?php getarrayofpictures($currentuser,'', '%','', '');?>
-        }
     </script>
 
 
@@ -97,83 +90,6 @@ if (isset($_SESSION['users']['Username'])) {
 
             <br></br>
 
-            <!-- Google Maps -->
-            <div>
-                <header class="page-header">
-                    <div class="row justify-content-between">
-                        <h1>View on Google Maps</h1>
-                        <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
-                    </div>
-                </header>
-                <br>
-                <div id="googlemaps" style="display: block">
-                    <div class="cold-md-12" id="map" style="width: 100%; height: 450px"></div>
-                </div>
-            </div>
-
-
-
-            <script type="text/javascript">
-                var myOptions = {
-                    zoom: 8,
-                    center: new google.maps.LatLng(48.20, 16.36),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-
-                var map = new google.maps.Map(document.getElementById("map"), myOptions);
-
-                // Toggle Map
-                function CollapseMaps() {
-                    var x = document.getElementById("googlemaps");
-                    if (x.style.display === "none" || x.style.display === "") {
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
-                    }
-                }
-
-                var passedArray = <?php echo json_encode($array); ?>;
-                if(passedArray !== null)
-                    arrayMarker(passedArray);
-
-                function arrayMarker(array){
-                    for(var i = 0; i < array.length; i++){
-                        lat = parseFloat(array[i]['latitude']);
-                        lng = parseFloat(array[i]['longitude']);
-                        text = array[i]['name'];
-                        href = "./pictures/thumbnail/"
-                        href += array[i]['href'];
-
-                        initMarkers(lat,lng,text,href);
-                    }
-                }
-               // initMarkers(48.20,16.36,"Marker",'./pictures/thumbnail/test.png')
-
-                // Marker erstellen mit position, Text und Bild;
-                function initMarkers(latitude,longitude,text,href) {
-                    var myLatLng = {lat:latitude, lng:longitude};
-                    setMarkers(myLatLng,text,href)
-                }
-
-                // set marker
-                function setMarkers(myLatLng,text,url) {
-                    var contentString = '<img src="'+url+'">';
-
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-
-                    var marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        title: text
-                    });
-
-                    marker.addListener('click', function () {
-                        infowindow.open(map, marker);
-                    });
-                }
-            </script>
         </div>
     </div>
 </body>
