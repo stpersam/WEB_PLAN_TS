@@ -36,6 +36,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index_old.php?use=log">Profil</a></li>
                     <li class="nav-item"><a class="nav-link" onclick="showgallery()">GalleryAJAX</a></li>
+                        <?php if (isset($_SESSION['users']['Username'])) {
+                            echo'<li class="nav-item"><a class="nav-link" onclick="showgallery()">Test</a></li>';
+                        }?>
                     <li class="nav-item"><a class="nav-link" onclick="removegallery()">GalleryAJAXRE</a></li>
                     <li class="nav-item"><a class="nav-link" href="index_old.php?use=gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="index_old.php?use=chat">Chat</a></li>
