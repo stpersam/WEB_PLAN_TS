@@ -1,8 +1,8 @@
 <script type="text/javascript" src="./utility/showcontents.js"></script>
-<div class="container-fluid">
+<div class="container">
     <h1>Welcome to our Picture Cloud</h1>
     <div class="row">
-        <div id="content" class="col-md-2">
+        <div id="content" class="col-md-10">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
