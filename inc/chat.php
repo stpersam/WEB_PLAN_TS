@@ -85,9 +85,6 @@
 
     <div class="table-responsive">
         <h4 align="center">Online User</h4>
-        <form method="post" action="utility/login.php">
-            <button type="submit" name="logout" id="logout" class="btn btn-primary" style="float: right">Logout</button>
-        </form>
         <div id="user_details"></div>
         <div id="user_model_details"></div>
     </div>

@@ -48,10 +48,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#includecontent").load("inc/loginForm.php");
+            $("#includecontent").load("inc/home.php");
         });
 
-        function showcontent($id, $testuser) {
+        function showcontent($id) {
             switch ($id) {
                 case "gallery":
                     $("#includecontent").load("inc/gallery.php");
@@ -63,12 +63,11 @@
                     $("#includecontent").load("inc/hilfe.php");
                     break;
 
+                case "registrieren":
+                    $("#includecontent").load("inc/registerForm.php");
+                    break;
                 case "chat":
-                    if (typeof testuser !== "undefined")
-                        $("#includecontent").load("inc/chat.php");
-                    else {
-                        $("#includecontent").load("inc/loginForm.php");
-                    }
+                    $("#includecontent").load("inc/chat.php");
                     break;
                 default:
                     $("#includecontent").load("inc/home.php");
