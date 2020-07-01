@@ -41,14 +41,17 @@
 
     if (isset($_SESSION['users']['Username'])) {
         $currentuser = $_SESSION['users']['Username'];
-    } ?>
+    } else {
+        $currentuser = "";
+    }
+    ?>
 
     <script type="text/javascript">
         $(document).ready(function() {
             $("#includecontent").load("inc/loginForm.php");
         });
 
-        function showcontent($id) {
+        function showcontent($id, $testuser) {
             switch ($id) {
                 case "gallery":
                     $("#includecontent").load("inc/gallery.php");
@@ -59,10 +62,16 @@
                 case "help":
                     $("#includecontent").load("inc/hilfe.php");
                     break;
+
                 case "chat":
-                    $("#includecontent").load("inc/chat.php");
+                    if (typeof testuser !== "undefined")
+                        $("#includecontent").load("inc/chat.php");
+                    else {
+                        $("#includecontent").load("inc/loginForm.php");
+                    }
                     break;
                 default:
+                    $("#includecontent").load("inc/home.php");
                     break;
             }
         }
@@ -83,7 +92,7 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li><a href="index_2.php">Home</a></li>
+                    <li><a href="" onclick="showcontent('')">Home</a></li>
                     <li><a href="" onclick="showcontent('gallery')">Gallery</a></li>
                     <li><a href="" onclick="showcontent('chat')">Chat</a></li>
                     <li><a href="" onclick="showcontent('help')">Help</a></li>
@@ -94,6 +103,7 @@
 
         <!-- Content -->
         <section id="content">
+
             <body>
                 <div id="includecontent" class="wrapper style2">
                 </div>
@@ -113,4 +123,5 @@
         <script src="res/assets/js/util.js"></script>
         <script src="res/assets/js/main.js"></script>
 </body>
+
 </html>
