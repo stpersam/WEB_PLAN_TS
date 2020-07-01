@@ -1,34 +1,20 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start();
+if (isset($_SESSION['users']['Username'])) {
+    $currentuser = $_SESSION['users']['Username'];
+} else {
+    $currentuser = "";
+}
+?>
 <html>
 
 <head>
+    <script type="text/javascript" src="./utility/showcontents.js"></script>
+    <script type="text/javascript" src="./utility/showgallerycontent.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
-
-
-        function showgallerycontent($id) {
-            var currentuser = "'" + <?php
-                                if (isset($_SESSION['users']['Username'])) {
-                                    echo '"testing"';
-                                    //echo $_SESSION['users']['Username'];
-                                } ?> + "'";
-            switch ($id) {
-                case "showmypicture":
-                    $("#includegallerycontent").load("inc/showpictures.php?user=#currentuser");
-                    break;
-                case "showpictures":
-                    $("#includegallerycontent").load("inc/showpictures.php?picsort=changedate");
-                    break;
-                case "pictureupload":
-                    $("#includegallerycontent").load("inc/pictureupload.php");
-                    break;
-                default:
-                    break;
-            }
-        }
     </script>
 
 </head>
@@ -37,12 +23,12 @@
     <div>
         <header class="page-header">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
-                <a class="navbar-brand" onclick="showcontent('gallery')" href="">Gallery</a>
+                <a class="navbar-brand" href="" onclick="showcontents('gallery')">Gallery</a>
                 <div class="">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypicture')" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypicture', '<?php echo $currentuser; ?>')" href="#">My Pictures</a>
                                 <a class="dropdown-item" href="#">My published Pictures</a>
                                 <a class="dropdown-item" href="#">All published pictures</a>
                             </div>
@@ -67,10 +53,7 @@
 
                 <body>
                     <div id="includegallerycontent">
-
                     </div>
-
-
                 </body>
             </section>
 
