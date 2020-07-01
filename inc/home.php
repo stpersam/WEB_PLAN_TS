@@ -1,3 +1,4 @@
+<script type="text/javascript" src="./utility/showcontents.js"></script>
 <div class="container-fluid">
     <h1>Welcome to our Picture Cloud</h1>
     <div class="row">
@@ -23,15 +24,9 @@
                 }else{
                     include "loginForm.php";
                     $tmp = "registrieren";
-                    echo "<button class='btn btn-primary' onclick='showreg()'>Registrieren</button>";
+                    echo "<button class='btn btn-primary' onclick='showcontents($tmp)'>Registrieren</button>";
                 }
             ?>
-            <script type="text/javascript">
-                function showreg() {
-                    $("#includecontent").load("inc/registerForm.php");
-                }
-            </script>
-
         </div>
     </div>
 </div>
