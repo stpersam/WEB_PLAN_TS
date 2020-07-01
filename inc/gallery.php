@@ -21,6 +21,12 @@ if (isset($_SESSION['users']['Username'])) {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
 
+        function showarray($user,$sort){
+            var user = $user;
+            var sort = $sort;
+            $("#includegallerycontent").load("inc/showpictures.php?user=" + user + "&sort=" + sort);
+            <?php getarrayofpictures($currentuser,'', '%','', '');?>
+        }
     </script>
 
 
@@ -48,10 +54,7 @@ if (isset($_SESSION['users']['Username'])) {
         return $a;
     }
     ?>
-
-
 </head>
-
 <body>
     <div>
         <header class="page-header">
@@ -61,7 +64,7 @@ if (isset($_SESSION['users']['Username'])) {
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="arraygetset('<?php echo $currentuser; ?>', '%', '', '')" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showarray('<?php echo $currentuser; ?>')" href="#">My Pictures</a>
                                 <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>')" href="#">My Pictures</a>
                                 <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>')" href="#">My published Pictures</a>
                                 <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>')" href="#">All published pictures</a>
@@ -90,7 +93,6 @@ if (isset($_SESSION['users']['Username'])) {
     
 
                     </div>
-                    <div><?php var_dump(getarrayofpictures('','', '%','', ''));?></div>
                 </body>
             </section>
 
