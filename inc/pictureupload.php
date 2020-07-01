@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <link rel="stylesheet" href="./utility/dropzone-5.7.0/dist/dropzone.css" />
 
@@ -10,7 +11,6 @@
     <script type="text/javascript" src="./utility/showcontents.js"></script>
     <script type="text/javascript" src="./utility/showgallerycontent.js"></script>
     <script src="./utility/dropzone-5.7.0/dist/dropzone.js"></script>
-
 
     <script type="text/javascript">
         function refreshi() {
@@ -29,7 +29,8 @@
 
 <body>
     <!-- TBD with ajax -> do fileupload -->
-    <div class="container alignit">
+    <form action="/upload-target" class="dropzone"></form>
+    <div class="container alignit dropzone">
         <h5>Upload new file:</h5>
         <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="myfile" id="myfile" accept="image/*">
@@ -40,8 +41,14 @@
                 <button class="dz-button" type="button">Upload</button>
             </div>
         </form>
+        <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
     </div>
-
+    <div>
+        <form action="/upload-target" class="dropzone dz-clickable">
+            <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
+        </form>
+        <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+    </div>
     <?php
     if (isset($_FILES['myfile']['type'])) {
         $tmpfile = $_FILES['myfile']['type'];
