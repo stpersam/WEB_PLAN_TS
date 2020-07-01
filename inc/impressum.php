@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <html>
 
 <head>

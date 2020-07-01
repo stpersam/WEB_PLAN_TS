@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <?php
 session_start();
 include "../model/picture.php";
@@ -149,7 +150,7 @@ echo "</div>";
         <br>
         <div class="row justify-content-between">
             <h1>View on Google Maps</h1>
-            <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
+            <a onclick="CollapseMaps()"><button class="btn-color btn-sm">toggle</button></a>
         </div>
     </header>
     <br>
