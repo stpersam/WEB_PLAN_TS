@@ -1,8 +1,4 @@
 
-$(document).ready(function () {
-    $("#includecontent").load("inc/home.php");
-});
-
 function showcontents($id, $currentuser) {
     var user = $currentuser;
 
