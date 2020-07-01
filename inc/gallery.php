@@ -138,7 +138,7 @@ if (isset($_SESSION['users']['Username'])) {
                     var contentString = '<img src="'+url+'">';
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: contentString<
+                        content: contentString
                     });
 
                     var marker = new google.maps.Marker({
