@@ -17,13 +17,14 @@ if ($q !== "") {
         if (stristr($q, substr($name->getName(), 0, $len))) {
             if ($hint === "") {
                 $hint = $name->getHref();
+                echo $hint;
+                die();
             } else {
                 $hint .= ", $name";
             }
         }
     }
 }
-
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
-?> 
+$hint ="no suggestion";
+echo $hint ;
+?>
