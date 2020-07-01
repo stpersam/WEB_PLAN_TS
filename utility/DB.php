@@ -1,6 +1,5 @@
 <?php
 
-
 class DB
 {
     private $dbname;
@@ -118,8 +117,9 @@ class DB
     {
         $dbobjekt = $this->connect("users");
         $status = "aktive";
-        $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status) values (?,?,?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('ssssissssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $status);
+        $state = "offline";
+        $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param('ssssisssssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $status,$state);
         if ($statement) {
             $erg = true;
         } else {
