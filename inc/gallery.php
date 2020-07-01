@@ -76,20 +76,13 @@ if (isset($_SESSION['users']['Username'])) {
         </header>
 
         <div class="container">
-
             <!-- Content -->
             <section id="gallerycontent">
-
                 <body>
-                    <div id="includegallerycontent">
-    
-
-                    </div>
+                    <div id="includegallerycontent"></div>
                 </body>
             </section>
-
-            <br></br>
-
+            <br>
         </div>
     </div>
 </body>
