@@ -4,39 +4,26 @@
 
 <head>
     <link rel="stylesheet" href="res/assets/css/main.css" />
-    <link rel="stylesheet" href="./utility/dropzone-5.7.0/dist/dropzone.css" />
-    <script src="./utility/dropzone-5.7.0/dist/dropzone.js"></script>
+
     <style>
         .alignit {
             text-align: center;
         }
     </style>
+
 </head>
 
 
 <body>
-    <form action="/upload-target" class="dropzone"></form>
     <div class="container alignit dropzone">
         <h5>Upload new file:</h5>
         <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="myfile" id="myfile" accept="image/*">
+            <br>
             <input type="submit" class="btn btn-color" name="submitfile">
         </form>
-        <form action="inc/pictureupload.php" class="dropzone dz-clickable">
-            <div class="dz-default dz-message">
-                <button class="dz-button" type="button">Upload</button>
-            </div>
-        </form>
-        <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+        <a href="testdropzone.html"><button class="btn-color">to drag and drop area</button></a>
     </div>
-
-
-
-    <form action="/upload-target" class="dropzone dz-clickable">
-        <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
-    </form>
-    <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
-
 
 
     <?php

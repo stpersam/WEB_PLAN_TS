@@ -71,7 +71,7 @@ if (isset($_SESSION['users']['Username'])) {
                 }
             </script>
 
-            <form action="">
+            <form action="" style="display: none">
                 Search Name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
             </form>
             <!-- Content -->
