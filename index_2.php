@@ -52,15 +52,12 @@
         });
 
         function showcontent($id) {
-<<<<<<< HEAD
             var currentuser = "'" + <?php
                                 if (isset($_SESSION['users']['Username'])) {
                                     echo '"testing"';
                                     //echo $_SESSION['users']['Username'];
                                 } ?> + "'";
             
-=======
->>>>>>> 1d8c41e28e0673af8c3aa6b843da470d17ddb9e8
             switch ($id) {
                 case "gallery":
                     $("#includecontent").load("inc/gallery.php");
@@ -76,15 +73,11 @@
                     $("#includecontent").load("inc/registerForm.php");
                     break;
                 case "chat":
-<<<<<<< HEAD
                     if (currentuser !== "''")
                         $("#includecontent").load("inc/chat.php");
                     else {
                         $("#includecontent").load("inc/loginForm.php");
                     }
-=======
-                    $("#includecontent").load("inc/chat.php");
->>>>>>> 1d8c41e28e0673af8c3aa6b843da470d17ddb9e8
                     break;
                 default:
                     $("#includecontent").load("inc/home.php");
