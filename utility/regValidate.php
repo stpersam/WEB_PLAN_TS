@@ -13,11 +13,11 @@ session_start();
         if($temp > 0 && $temp <= 9999){
             $plz = (filter_input(INPUT_POST, "plz"));
         }else{
-            header("Location: ../index.php?wrong=plz");
+            header("Location: ../index_2.php?wrong=plz");
             die();
         }
     }else{
-        header("Location: ../index.php?wrong=plz");
+        header("Location: ../index_2.php?wrong=plz");
         die();
     }
 
@@ -36,7 +36,7 @@ session_start();
     if($_POST["password"] == $_POST["passwordBest"]){
         $password = (filter_input(INPUT_POST, "password"));
     }else{
-        header("Location: ../index.php?wrong=pwns");
+        header("Location: ../index_2.php?wrong=pwns");
         die();
     }
 
@@ -51,7 +51,7 @@ session_start();
             $_SESSION["user"] = array();
         }
         array_push($_SESSION["user"],serialize($user));
-        header("Location:../index.php");
+        header("Location:../index_2.php");
     }
 
 
