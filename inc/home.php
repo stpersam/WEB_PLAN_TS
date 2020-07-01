@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <script type="text/javascript" src="./utility/showcontents.js"></script>
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <style>
@@ -11,11 +12,23 @@
         /* Green */
         color: white;
     }
+
+    p {
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
 </style>
 <div class="container">
-    <h1>Welcome to our Picture Cloud</h1>
+    <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {echo $_SESSION['users']['Username'];}?> to our Picture Cloud</h2>
     <div class="row">
-        <div id="content" class="col-md-10">
+        <div id="content" class="col-md-12">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -26,20 +39,23 @@
                 culpa qui officia deserunt mollit anim id est laborum.
             </p>
         </div>
-        <div id="login" class="col-md-2">
-            <?php
-            session_start();
-            if (isset($_SESSION['users']['Username'])) {
-                echo "<h3>Welcome " . $_SESSION['users']['Username'] . "</h3>";
-                echo '<form method="post" action="utility/login.php">';
-                echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
-                echo '</form>';
-            } else {
-                include "loginForm.php";
-                $tmp = '"registrieren"';
-                echo "<button class='btn btn-color' onclick='showcontents($tmp)'>Registrieren</button>";
-            }
-            ?>
+        <div class="row">
+            <div class="container">
+                <div id="login" class="col-md-12">
+                    <?php
+                    
+                    if (isset($_SESSION['users']['Username'])) {
+                        echo '<form method="post" action="utility/login.php">';
+                        echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
+                        echo '</form>';
+                    } else {
+                        include "loginForm.php";
+                        $tmp = '"registrieren"';
+                        echo "<div class='container'><button class='btn btn-color container' onclick='showcontents($tmp)'>Registrieren</button></div>";
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>

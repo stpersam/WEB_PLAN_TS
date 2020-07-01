@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <?php
 include "DB.php";
 include "../model/picture.php";
 include "../model/User.php";
+
 session_start();
 
 $db = new DB();
@@ -23,7 +25,7 @@ foreach($result as $row)
                      <tr>
                       <td>'.$row->Username.'</td>
                       <td>'.$row->State.'</td>
-                      <td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row->ID.'" data-tousername="'.$row->Username.'">Start Chat</button></td>
+                      <td><button type="button" class="btn btn-color btn-xs start_chat" data-touserid="'.$row->ID.'" data-tousername="'.$row->Username.'">Start Chat</button></td>
                      </tr>
                      ';
     }
