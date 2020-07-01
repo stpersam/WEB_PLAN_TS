@@ -51,7 +51,13 @@
             $("#includecontent").load("inc/loginForm.php");
         });
 
-        function showcontent($id, $testuser) {
+        function showcontent($id) {
+            var currentuser = "'" + <?php
+                                if (isset($_SESSION['users']['Username'])) {
+                                    echo '"testing"';
+                                    //echo $_SESSION['users']['Username'];
+                                } ?> + "'";
+            
             switch ($id) {
                 case "gallery":
                     $("#includecontent").load("inc/gallery.php");
@@ -64,7 +70,7 @@
                     break;
 
                 case "chat":
-                    if (typeof testuser !== "undefined")
+                    if (currentuser !== "''")
                         $("#includecontent").load("inc/chat.php");
                     else {
                         $("#includecontent").load("inc/loginForm.php");
