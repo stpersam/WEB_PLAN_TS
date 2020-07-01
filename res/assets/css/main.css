@@ -2848,10 +2848,32 @@ input, select, textarea {
 			input[type="reset"],
 			button,
 			.button {
+				
 				display: block;
+				color: #734F6F;
 				padding: 0;
 				line-height: 3em;
 				width: 100%;
+			}
+
+			
+			input[type="button"],
+			input[type="submit"],
+			input[type="reset"],
+			button,
+			.btn-color {
+				background-color: #734F6F;
+				color: #FFFFFF;
+			}
+			
+			input[type="button"],
+			input[type="submit"],
+			input[type="reset"],
+			button,
+			.btn-color:hover {
+				background-color: #56435B;
+				/* Green */
+				color: white;
 			}
 
 		/* Nav */

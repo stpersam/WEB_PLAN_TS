@@ -1,4 +1,5 @@
 <?php include "../utility/DB.php"?>
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <script>
     function showStatus(id) {
         $.post("./ajax/changeStatus.php", {
@@ -21,7 +22,7 @@
 <div class="container">
     <br>
     <form method="post" action="utility/login.php">
-        <button type="submit" name="logout" id="logout" class="btn btn-primary" style="float: right">Logout</button>
+        <button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>
     </form>
     <br>
     <h2>User Administration</h2>
@@ -60,9 +61,9 @@
                     echo "<td>$z->Ort</td>";
                     echo "<td>$z->Username</td>";
                     echo "<td>$z->Email</td>";
-                    echo "<td><button class='btn btn-light' id='st-$z->ID' onclick='showStatus($z->ID)'>$z->Status</button></td>";
-                    echo "<td><button class='btn btn-light' onclick='showPictures($z->ID)'>Pictures</button></td>";
-                    echo "<td><button class='btn btn-light'><a href='./utility/userAdministration.php?do=del&id=$z->ID'>Delete</a></button></td>";
+                    echo "<td><button class='btn btn-color' id='st-$z->ID' onclick='showStatus($z->ID)'>$z->Status</button></td>";
+                    echo "<td><button class='btn btn-color' onclick='showPictures($z->ID)'>Pictures</button></td>";
+                    echo "<td><button class='btn btn-color'><a href='./utility/userAdministration.php?do=del&id=$z->ID'>Delete</a></button></td>";
                     echo "</tr>";
                 }
             }

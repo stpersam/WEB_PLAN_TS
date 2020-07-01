@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <?php
 include "../utility/DB.php";
 include "../model/User.php";
@@ -105,7 +106,7 @@ if(isset($_GET["bearbeitet"])) {
                     <label for="email">E-Mail:</label>
                     <input type="email" name="email" class="form-control" value="<?php echo $z["Email"]?>">
                 </div>
-                <button type="submit" name="bearbeiten" id="bearbeiten" class="btn btn-primary">Edit</button>
+                <button type="submit" name="bearbeiten" id="bearbeiten" class="btn btn-color">Edit</button>
         </form>
     </div>
     </div>
