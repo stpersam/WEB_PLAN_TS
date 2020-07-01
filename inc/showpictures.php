@@ -10,11 +10,11 @@ $gettable->connect("pictures");
 $state = "freigegeben";
 
 
-if (isset($_GET["user"]) || isset($_GET["userstate"])) {
+/*if (isset($_GET["user"]) || isset($_GET["userstate"])) {
     $currentuser = $_SESSION['users']['Username'];
     echo $currentuser;
 }
-
+*/
 
 if (isset($_GET["searchtag"]) && !empty($_GET["searchtag"])) {
     $searchtag = $_GET["searchtag"];
@@ -23,7 +23,6 @@ if (isset($_GET["searchtag"]) && !empty($_GET["searchtag"])) {
     if (isset($_GET["user"]) && !empty($_GET["user"])) {
         $state = "%";
         $userfilter = $_GET["user"];
-       
     } else if (isset($_GET["userstate"]) && !empty($_GET["userstate"])) {
         $userfilter = $_GET["userstate"];
     }

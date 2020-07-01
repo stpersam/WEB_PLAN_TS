@@ -1,13 +1,13 @@
-function showgallerycontent($id, $currentuser) {
+function showgallerycontent($id, $currentuser, $sort) {
     var user = $currentuser;
+    var sort = $sort;
 
-    
     switch ($id) {
         case "showmypicture":
-            $("#includegallerycontent").load("inc/showpictures.php?user=#currentuser");
+            $("#includegallerycontent").load("inc/showpictures.php?user="+user);
             break;
         case "showpictures":
-            $("#includegallerycontent").load("inc/showpictures.php?picsort=changedate");
+            $("#includegallerycontent").load("inc/showpictures.php?picsort="+sort);
             break;
         case "pictureupload":
             $("#includegallerycontent").load("inc/pictureupload.php");
