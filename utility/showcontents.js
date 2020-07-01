@@ -5,7 +5,6 @@ $(document).ready(function () {
 
 function showcontents($id, $currentuser) {
     var user = $currentuser;
-    alert(user);
 
     switch ($id) {
         case "gallery":
@@ -17,12 +16,11 @@ function showcontents($id, $currentuser) {
         case "help":
             $("#includecontent").load("inc/hilfe.php");
             break;
-
         case "registrieren":
             $("#includecontent").load("inc/registerForm.php");
             break;
         case "chat":
-            if ($currentuser != null)
+            if (user != "")
                 $("#includecontent").load("inc/chat.php");
             else {
                 $("#includecontent").load("inc/loginForm.php");

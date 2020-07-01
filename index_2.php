@@ -51,39 +51,6 @@
             $("#includecontent").load("inc/home.php");
         });
 
-        function showcontent($id) {
-            var currentuser = "'" + <?php
-                                if (isset($_SESSION['users']['Username'])) {
-                                    echo '"testing"';
-                                    //echo $_SESSION['users']['Username'];
-                                } ?> + "'";
-            
-            switch ($id) {
-                case "gallery":
-                    $("#includecontent").load("inc/gallery.php");
-                    break;
-                case "impressum":
-                    $("#includecontent").load("inc/impressum.php");
-                    break;
-                case "help":
-                    $("#includecontent").load("inc/hilfe.php");
-                    break;
-
-                case "registrieren":
-                    $("#includecontent").load("inc/registerForm.php");
-                    break;
-                case "chat":
-                    if (currentuser !== "''")
-                        $("#includecontent").load("inc/chat.php");
-                    else {
-                        $("#includecontent").load("inc/loginForm.php");
-                    }
-                    break;
-                default:
-                    $("#includecontent").load("inc/home.php");
-                    break;
-            }
-        }
     </script>
 
     <div id="page-wrapper">
@@ -102,11 +69,11 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li><a href="" onclick="showcontent('')">Home</a></li>
-                    <li><a href="" onclick="showcontent('gallery')">Gallery</a></li>
+                    <li><a href="" onclick="showcontents('')">Home</a></li>
+                    <li><a href="" onclick="showcontents('gallery')">Gallery</a></li>
                     <li><a href="" onclick="showcontents('chat',  '<?php echo $currentuser; ?>')">Chat</a></li>
-                    <li><a href="" onclick="showcontent('help')">Help</a></li>
-                    <li><a href="" onclick="showcontent('impressum')">Impressum</a></li>
+                    <li><a href="" onclick="showcontents('help')">Help</a></li>
+                    <li><a href="" onclick="showcontents('impressum')">Impressum</a></li>
                 </ul>
             </nav>
         </div>
