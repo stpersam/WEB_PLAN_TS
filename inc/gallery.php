@@ -28,9 +28,9 @@ if (isset($_SESSION['users']['Username'])) {
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypicture', '<?php echo $currentuser; ?>')" href="#">My Pictures</a>
-                                <a class="dropdown-item" href="#">My published Pictures</a>
-                                <a class="dropdown-item" href="#">All published pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>')" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>')" href="#">My published Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>')" href="#">All published pictures</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" onclick="sort()">Sort</a>
@@ -53,7 +53,10 @@ if (isset($_SESSION['users']['Username'])) {
 
                 <body>
                     <div id="includegallerycontent">
+
+                    
                     </div>
+                    <div><?php echo $a;?></div>
                 </body>
             </section>
 
