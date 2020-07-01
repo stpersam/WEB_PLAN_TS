@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <html>
 
 <head>
@@ -13,17 +14,23 @@
         }
     </script>
 
-
+    <style>
+        .alignit {
+            text-align: center;
+        }
+    </style>
 </head>
 
 
 <body>
     <!-- TBD with ajax -> do fileupload -->
-    <h5>Upload new file:</h5>
-    <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="myfile" id="myfile" accept="image/*">
-        <input type="submit" class="btn-color" name="submitfile">
-    </form>
+    <div class="container alignit">
+        <h5>Upload new file:</h5>
+        <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="myfile" id="myfile" accept="image/*">
+            <input type="submit" class="btn btn-color" name="submitfile">
+        </form>
+    </div>
 
     <?php
     if (isset($_FILES['myfile']['type'])) {

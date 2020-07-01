@@ -63,7 +63,7 @@ if (isset($_SESSION['users']['Username'])) {
                                 <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>')" href="#">All published pictures</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" onclick="sort()">Sort</a>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" onclick="sort()">Sort</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="show()" href="#">by Create Date</a>
                                 <a class="dropdown-item" href="#">by Change Date</a>
