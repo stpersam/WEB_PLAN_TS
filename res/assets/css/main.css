@@ -7,6 +7,24 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+.btn-color {
+	background-color: #56435B;
+	color: #FFFFFF;
+}
+
+
+.btn-color:hover {
+	background-color: #9F7DA8;
+	/* Green */
+	color: white;
+}
+
+
+
+
+
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1952,11 +1970,12 @@ input, select, textarea {
 	form input[type="password"],
 	form select,
 	form textarea {
+		text-align:center;
 		-webkit-appearance: none;
 		display: block;
 		border: 0;
 		background: #fafafa;
-		width: 100%;
+		width: 25%;
 		border-radius: 0.5em;
 		border: solid 1px #E5E5E5;
 		padding: 1em;
@@ -2857,24 +2876,8 @@ input, select, textarea {
 			}
 
 			
-			input[type="button"],
-			input[type="submit"],
-			input[type="reset"],
-			button,
-			.btn-color {
-				background-color: #734F6F;
-				color: #FFFFFF;
-			}
 			
-			input[type="button"],
-			input[type="submit"],
-			input[type="reset"],
-			button,
-			.btn-color:hover {
-				background-color: #56435B;
-				/* Green */
-				color: white;
-			}
+		
 
 		/* Nav */
 
