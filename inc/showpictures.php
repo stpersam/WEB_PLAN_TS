@@ -66,7 +66,6 @@ function picsorter($picsort) {
     }
     //header("Refresh:0");
 }
-
 ?>
 
 <!--

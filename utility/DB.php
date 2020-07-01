@@ -173,6 +173,38 @@ class DB
         return $erg;
     }
 
+    function getTags($tag){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name LIKE ? ");
+        $tag = "%" . $tag . "%";
+        $statement->bind_param('s',$tag);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        $arraypictures = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($arraypictures, (object) $row);
+        }
+
+        $arraypictures2 = array();
+        foreach ($arraypictures as $a) {
+            $ab = new picture();
+            $ab->setName($a->Name);
+            $ab->setLatitude($a->latitude);
+            $ab->setLongitude($a->longitude);
+            $ab->setCapturedate($a->capturedate);
+            $ab->setChangedate($a->changedate);
+            $ab->setState($a->state);
+            $ab->setHref($a->href);
+            $ab->setTags($a->tags);
+            $ab->setOwner($a->owner);
+
+            array_push($arraypictures2, $ab);
+        }
+        $statement->close();
+        $dbobjekt->close();
+        return $arraypictures2;
+    }
 
     //getArray of Pictures from database
     function getPictureArray($name, $tag, $date, $state, $owner)
