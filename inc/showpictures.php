@@ -64,7 +64,7 @@ function picsorter($picsort) {
 
 ?>
 
-
+<!--
 <header class="page-header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
         <div class="">
@@ -80,7 +80,7 @@ function picsorter($picsort) {
         </div>
     </nav>
 </header>
-
+-->
 <?php
 
 echo "<div class='row'>";
