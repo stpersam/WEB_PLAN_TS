@@ -54,8 +54,7 @@ echo "</div>";
     window.onload = function() {
         var a = document.getElementById("deletepic");
         a.onclick = function() {
-            //todo function that deletes picture from DB (if picture.owner == currentuser) 
-
+            //todo function that deletes picture from DB (if picture.owner == currentuser)
         }
     }
 </script>

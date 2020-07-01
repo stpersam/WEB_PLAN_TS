@@ -61,8 +61,13 @@ if (isset($_SESSION['users']['Username'])) {
                     xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            var path = "./pictures/full/" + this.responseText;
-                            var text = "<img src='"+path+"'>";
+                            var text = "";
+                            if(this.responseText != "no suggestion"){
+                                var path = "./pictures/full/" + this.responseText;
+                                text = "<img src='"+path+"'>";
+                            }else{
+                                text = this.responseText;
+                            }
                             document.getElementById("includegallerycontent").innerHTML = text;
                         }
                     };
@@ -77,9 +82,7 @@ if (isset($_SESSION['users']['Username'])) {
             <!-- Content -->
             <section id="gallerycontent">
                 <body>
-                    <div id="includegallerycontent">
-
-                    </div>
+                    <div id="includegallerycontent"></div>
                 </body>
             </section>
             <br>
