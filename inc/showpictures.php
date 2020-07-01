@@ -145,6 +145,8 @@ echo "</div>";
 
 <div>
     <header class="page-header">
+        <br>
+        <br>
         <div class="row justify-content-between">
             <h1>View on Google Maps</h1>
             <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
