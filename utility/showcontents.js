@@ -1,7 +1,6 @@
 
 function showcontents($id, $currentuser) {
     var user = $currentuser;
-
     switch ($id) {
         case "gallery":
             $("#includecontent").load("inc/gallery.php");
@@ -21,6 +20,15 @@ function showcontents($id, $currentuser) {
             break;
         case "registrieren":
             $("#includecontent").load("inc/registerForm.php");
+            break;
+        case "admin":
+            $("#includecontent").load("inc/userVerwaltung.php");
+            break;
+        case "user":
+            $("#includecontent").load("inc/user.php");
+            break;
+        case "profilbearbeiten":
+            $("#includecontent").load("inc/profilbearbeiten.php");
             break;
         default:
             $("#includecontent").load("inc/home.php");

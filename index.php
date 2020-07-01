@@ -42,18 +42,24 @@
 
     if (isset($_SESSION['users']['Username'])) {
         $currentuser = $_SESSION['users']['Username'];
+        $rolle = $_SESSION['users']['Rolle'];
     } else {
         $currentuser = "";
+        $rolle = "";
     }
     ?>
     <!-- Navbar Visibility Checker -->
     <?php
     echo "<script type='text/javascript'> $(document).ready(function() {";
     echo "var x = document.getElementById('adminitem');";
+    echo "var y = document.getElementById('useritem');";
     if ($currentuser == "admin") {
         echo  "x.style.display = '';";
-    } else {
+    } elseif ($rolle == "user") {
+        echo  "y.style.display = '';";
+    }else{
         echo "x.style.display = 'none';";
+        echo "y.style.display = 'none';";
     }
     echo " });</script>";
     ?>
@@ -82,8 +88,9 @@
                 <ul>
                     <li><a href="" onclick="showcontents('')">Home</a></li>
                     <li><a href="" onclick="showcontents('gallery')">Gallery</a></li>
-                    <li><a href="" onclick="showcontents('chat',  '<?php echo $currentuser; ?>')">Chat</a></li>
+                    <li><a href="" onclick="showcontents('chat','<?php echo $currentuser; ?>')">Chat</a></li>
                     <li style="display:none" id="adminitem"><a href="" onclick="showcontents('admin')">Admin</a></li>
+                    <li style="display:none" id="useritem"><a href="" onclick="showcontents('user')">Profil</a></li>
                     <li><a href="" onclick="showcontents('help')">Help</a></li>
                     <li><a href="" onclick="showcontents('impressum')">Impressum</a></li>
                 </ul>
