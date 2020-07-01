@@ -1,24 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="res/assets/css/main.css" />
-<link rel="stylesheet" href="./utility/dropzone-5.7.0/dist/dropzone.css" />
-
-
-
 <html>
 
 <head>
-    <script type="text/javascript" src="./utility/showcontents.js"></script>
-    <script type="text/javascript" src="./utility/showgallerycontent.js"></script>
+    <link rel="stylesheet" href="res/assets/css/main.css" />
+    <link rel="stylesheet" href="./utility/dropzone-5.7.0/dist/dropzone.css" />
     <script src="./utility/dropzone-5.7.0/dist/dropzone.js"></script>
-
-    <script type="text/javascript">
-        function refreshi() {
-            showcontent("gallery");
-            showgallerycontent("fileupload");
-        }
-    </script>
-
     <style>
         .alignit {
             text-align: center;
@@ -28,7 +15,6 @@
 
 
 <body>
-    <!-- TBD with ajax -> do fileupload -->
     <form action="/upload-target" class="dropzone"></form>
     <div class="container alignit dropzone">
         <h5>Upload new file:</h5>
@@ -43,12 +29,16 @@
         </form>
         <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
     </div>
-    <div>
-        <form action="/upload-target" class="dropzone dz-clickable">
-            <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
-        </form>
-        <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
-    </div>
+
+
+
+    <form action="/upload-target" class="dropzone dz-clickable">
+        <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
+    </form>
+    <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+
+
+
     <?php
     if (isset($_FILES['myfile']['type'])) {
         $tmpfile = $_FILES['myfile']['type'];
