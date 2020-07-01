@@ -11,15 +11,14 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
     $statement->close();
 
     $output = '<ul class="list-unstyled">';
-    foreach($result as $row)
-    {
-        if($row["3"] == $from_user_id)
-        {
+    foreach($result as $row) {
+        if ($row["3"] == $from_user_id) {
             $user_name = '<b class="text-success">You</b>';
-        }
-        else
+        } else
         {
-            $user_name = '<b class="text-danger">'.get_user_name($row['3'], $connect).'</b>';
+            $id = $row['2'];
+            $username = get_user_name($id,$connect);
+            $user_name = '<b class="text-danger">'.$username.'</b>';
         }
         $output .= '
                       <li style="border-bottom:1px dotted #ccc">
@@ -37,15 +36,12 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 
 function get_user_name($user_id, $connect)
 {
-    $query = "SELECT Username FROM users WHERE ID =?";
+    $query = "SELECT Username AS c FROM users WHERE ID=?";
     $statement = $connect->prepare($query);
     $statement->bind_param('i',$user_id);
     $statement->execute();
-    $result = $statement->get_result()->fetch_all();
-    foreach($result as $row)
-    {
-        return $row['Username'];
-    }
+    $result = $statement->get_result()->fetch_assoc();
+    return $result['c'];
 }
 
 ?>
