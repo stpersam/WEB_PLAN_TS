@@ -54,8 +54,8 @@ if($isLoggedIn){
     if(filter_has_var(INPUT_POST, "stayLoggedIn")){
         setcookie("cookieLIn", filter_input(INPUT_POST,"username"),time()+600);
     }
-    header("Location:../index_2.php?use=log");
+    header("Location:../index_2.php");
 } else{
-    header("Location:../index_2.php?use=");
+    header("Location:../index_2.php");
 }
 
