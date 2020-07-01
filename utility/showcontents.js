@@ -12,9 +12,6 @@ function showcontents($id, $currentuser) {
         case "help":
             $("#includecontent").load("inc/hilfe.php");
             break;
-        case "registrieren":
-            $("#includecontent").load("inc/registerForm.php");
-            break;
         case "chat":
             if (user != "")
                 $("#includecontent").load("inc/chat.php");
@@ -22,8 +19,12 @@ function showcontents($id, $currentuser) {
                 $("#includecontent").load("inc/loginForm.php");
             }
             break;
+        case "registrieren":
+            $("#includecontent").load("inc/registerForm.php");
+            break;
         default:
             $("#includecontent").load("inc/home.php");
             break;
     }
+
 }

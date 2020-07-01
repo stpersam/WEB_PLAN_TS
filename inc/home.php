@@ -23,7 +23,7 @@
                     echo '</form>';
                 }else{
                     include "loginForm.php";
-                    $tmp = "registrieren";
+                    $tmp = '"registrieren"';
                     echo "<button class='btn btn-primary' onclick='showcontents($tmp)'>Registrieren</button>";
                 }
             ?>
