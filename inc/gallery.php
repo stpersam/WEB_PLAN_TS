@@ -13,6 +13,7 @@ if (isset($_SESSION['users']['Username'])) {
 <html>
 
 <head>
+    <link rel="stylesheet" href="res/assets/css/main.css" />
     <script type="text/javascript" src="./utility/showcontents.js"></script>
     <script type="text/javascript" src="./utility/showgallerycontent.js"></script>
     <script type="text/javascript">
@@ -20,7 +21,6 @@ if (isset($_SESSION['users']['Username'])) {
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
-
     </script>
 
 
@@ -42,8 +42,8 @@ if (isset($_SESSION['users']['Username'])) {
         } else {
             $a = $gettable->getPictureArrayAll($state);
         }
-        foreach ($a as $ab){
-            array_push($GLOBALS['array'],$ab);
+        foreach ($a as $ab) {
+            array_push($GLOBALS['array'], $ab);
         }
         return $a;
     }
@@ -56,7 +56,6 @@ if (isset($_SESSION['users']['Username'])) {
     <div>
         <header class="page-header">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
-                <a class="navbar-brand" href="" onclick="showcontents('gallery')">Gallery</a>
                 <div class="">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
@@ -87,10 +86,10 @@ if (isset($_SESSION['users']['Username'])) {
 
                 <body>
                     <div id="includegallerycontent">
-    
+
 
                     </div>
-                    <div><?php var_dump(getarrayofpictures('','', '%','', ''));?></div>
+                    <div><?php var_dump(getarrayofpictures('', '', '%', '', '')); ?></div>
                 </body>
             </section>
 
@@ -101,7 +100,7 @@ if (isset($_SESSION['users']['Username'])) {
                 <header class="page-header">
                     <div class="row justify-content-between">
                         <h1>View on Google Maps</h1>
-                        <a onclick="CollapseMaps()"><button class="btn-outline-dark">toggle</button></a>
+                        <a onclick="CollapseMaps()"><button class="btn btn-color">toggle</button></a>
                     </div>
                 </header>
                 <br>
@@ -132,31 +131,34 @@ if (isset($_SESSION['users']['Username'])) {
                 }
 
                 var passedArray = <?php echo json_encode($array); ?>;
-                if(passedArray !== null)
+                if (passedArray !== null)
                     arrayMarker(passedArray);
 
-                function arrayMarker(array){
-                    for(var i = 0; i < array.length; i++){
+                function arrayMarker(array) {
+                    for (var i = 0; i < array.length; i++) {
                         lat = parseFloat(array[i]['latitude']);
                         lng = parseFloat(array[i]['longitude']);
                         text = array[i]['name'];
                         href = "./pictures/thumbnail/"
                         href += array[i]['href'];
 
-                        initMarkers(lat,lng,text,href);
+                        initMarkers(lat, lng, text, href);
                     }
                 }
-               // initMarkers(48.20,16.36,"Marker",'./pictures/thumbnail/test.png')
+                // initMarkers(48.20,16.36,"Marker",'./pictures/thumbnail/test.png')
 
                 // Marker erstellen mit position, Text und Bild;
-                function initMarkers(latitude,longitude,text,href) {
-                    var myLatLng = {lat:latitude, lng:longitude};
-                    setMarkers(myLatLng,text,href)
+                function initMarkers(latitude, longitude, text, href) {
+                    var myLatLng = {
+                        lat: latitude,
+                        lng: longitude
+                    };
+                    setMarkers(myLatLng, text, href)
                 }
 
                 // set marker
-                function setMarkers(myLatLng,text,url) {
-                    var contentString = '<img src="'+url+'">';
+                function setMarkers(myLatLng, text, url) {
+                    var contentString = '<img src="' + url + '">';
 
                     var infowindow = new google.maps.InfoWindow({
                         content: contentString
@@ -168,7 +170,7 @@ if (isset($_SESSION['users']['Username'])) {
                         title: text
                     });
 
-                    marker.addListener('click', function () {
+                    marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
                 }

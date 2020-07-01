@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <div class="container">
     <div class="form_überschrift">
         <h2>Register</h2>
@@ -49,7 +50,7 @@
                     <label for="email">E-Mail:</label>
                     <input type="email" name="email" class="form-control" placeholder="email">
                 </div>
-                <button type="submit" name="registrieren" id="registrieren" class="btn btn-primary">Register</button>
+                <button type="submit" name="registrieren" id="registrieren" class="btn btn-color">Register</button>
         </form>
     </div>
     </div>

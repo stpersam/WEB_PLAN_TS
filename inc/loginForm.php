@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="res/assets/css/main.css" />
 <div class="container">
     <div class="form_überschrift">
         <h2>Login</h2>
@@ -18,7 +19,7 @@
                     <input type="checkbox" name="stayLoggedIn" value="yes" class="custom-control-input" id="stayLoggedIn">
                     <label class="custom-control-label" for="stayLoggedIn">Stay Logged in</label>
                 </div>
-            <button type="submit" name="login" id="login" class="btn btn-primary">Login</button>
+            <button type="submit" name="login" id="login" class="btn btn-color">Login</button>
         </form>
     </div>
     </div>
