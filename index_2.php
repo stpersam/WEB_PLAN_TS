@@ -30,7 +30,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
+    <script type="text/javascript" src="utility/showcontents.js"></script>
 </head>
 
 <body class="homepage is-preload">
@@ -95,6 +95,7 @@
                     <h1><a href="index_2.php" id="logo">Picture Cload</a></h1>
                     <hr />
                     <p>The world greatest Picture Gallery Manager</p>
+                    <?php echo $currentuser; ?>
                 </header>
             </div>
 
@@ -103,7 +104,7 @@
                 <ul>
                     <li><a href="" onclick="showcontent('')">Home</a></li>
                     <li><a href="" onclick="showcontent('gallery')">Gallery</a></li>
-                    <li><a href="" onclick="showcontent('chat')">Chat</a></li>
+                    <li><a href="" onclick="showcontents('chat',  '<?php echo $currentuser; ?>')">Chat</a></li>
                     <li><a href="" onclick="showcontent('help')">Help</a></li>
                     <li><a href="" onclick="showcontent('impressum')">Impressum</a></li>
                 </ul>

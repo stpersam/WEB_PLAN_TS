@@ -10,9 +10,14 @@
 
 
         function showgallerycontent($id) {
+            var currentuser = "'" + <?php
+                                if (isset($_SESSION['users']['Username'])) {
+                                    echo '"testing"';
+                                    //echo $_SESSION['users']['Username'];
+                                } ?> + "'";
             switch ($id) {
                 case "showmypicture":
-                    $("#includegallerycontent").load("inc/showpictures.php?user=set");
+                    $("#includegallerycontent").load("inc/showpictures.php?user=#currentuser");
                     break;
                 case "showpictures":
                     $("#includegallerycontent").load("inc/showpictures.php?picsort=changedate");
