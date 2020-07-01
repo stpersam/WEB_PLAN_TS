@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="res/assets/css/main.css" />
+<link rel="stylesheet" href="./utility/dropzone-5.7.0/dist/dropzone.css" />
+
+
+
 <html>
 
 <head>
     <script type="text/javascript" src="./utility/showcontents.js"></script>
     <script type="text/javascript" src="./utility/showgallerycontent.js"></script>
+    <script src="./utility/dropzone-5.7.0/dist/dropzone.js"></script>
 
 
     <script type="text/javascript">
@@ -29,6 +34,11 @@
         <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="myfile" id="myfile" accept="image/*">
             <input type="submit" class="btn btn-color" name="submitfile">
+        </form>
+        <form action="inc/pictureupload.php" class="dropzone dz-clickable">
+            <div class="dz-default dz-message">
+                <button class="dz-button" type="button">Upload</button>
+            </div>
         </form>
     </div>
 
