@@ -15,10 +15,6 @@
     form {
         text-align: center;
     }
-
-    .alignit {
-        text-align: center;
-    }
 </style>
 <div>
     <div class="form_überschrift">
@@ -39,7 +35,7 @@
                 </div>
                 <div class="custom-control custom-checkbox alignit">
                     <label class="custom-control-label" for="stayLoggedIn">Stay Logged in</label>
-                   <input type="checkbox" name="stayLoggedIn" value="yes" class="custom-control-input" id="stayLoggedIn">
+                    <input type="checkbox" name="stayLoggedIn" value="yes" class="custom-control-input" id="stayLoggedIn">
                 </div>
                 <button type="submit" name="login" id="login" class="btn btn-color">Login</button>
         </form>

@@ -7,7 +7,7 @@ First:
 - Hilfe & Impressum (7) - done
 - Code Kommentieren - done
 - Bilder löschen (nur eigene) (2) - done
-- Continuous Search Filter Ajax (5) - partly done
+- Continuous Search Filter Ajax (5) - partly done (eingebunden)
 
 
 Second:
