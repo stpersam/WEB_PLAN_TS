@@ -71,7 +71,7 @@
             if (move_uploaded_file($tempDateiName, $dateiPfadFull)) {
                 imagejpeg($thumb, $dateiPfadthumbnail);
                 ////create DB object
-                $gettable->createpicture($originalName, 0, 0, "-", date("Y-m-d"), "gesperrt", $dateiPfad, $eineId . "," . $originalName, $_SESSION['users']['Username']);
+                $gettable->createpicture($originalName, 48, 16, "-", date("Y-m-d"), "gesperrt", $dateiPfad, $eineId . "," . $originalName, $_SESSION['users']['Username']);
             }
         }
         header("Location: ../index.php");
