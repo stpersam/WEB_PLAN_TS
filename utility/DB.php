@@ -377,7 +377,7 @@ class DB
     function getPictureState($name)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("Select state As c FROM pictures Where Name=?");
+        $statement = $dbobjekt->prepare("Select state As c FROM pictures Where Name=?;");
         $statement->bind_param('s', $name);
         $statement->execute();
         $status = $statement->get_result()->fetch_assoc();
@@ -389,10 +389,21 @@ class DB
     function changePictureState($name, $state)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where Name=?");
+        $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where Name=?;");
         $statement->bind_param('ss', $state, $name);
         $statement->execute();
         $statement->close();
         $dbobjekt->close();
+    }
+
+    function getHref($name){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("Select href as c from pictures WHERE Name =?;");
+        $statement->bind_param('s',$name);
+        $statement->execute();
+        $erg = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $erg['c'];
     }
 }
