@@ -85,17 +85,6 @@ function picsorter($picsort) {
     </nav>
 </header>
 -->
-<script>
-
-    function showStatus(name) {
-        $.post("./ajax/changeFreigabe.php", {
-                name: name,
-            },
-            function(data) {
-                $("#st-" + name).html(data)
-            });
-    }
-</script>
 <?php
 echo "<div class='row'>";
 //loop to show fancybox pictures with
@@ -118,6 +107,7 @@ foreach ($a as $ab) {
     $latitude = $ab->getLatitude();
     $longitude = $ab->getLongitude();
     $newvar = '"' . $href . '"';
+    $name = '"' . $name . '"';
     echo "<button class='btn btn-outline-dark btn-sm' onclick='MoreInfo($newvar)'>more..</button>";
     echo "<div id='$href' style='display: none'>";
     echo "<p>Creator: $owner</p>";
@@ -143,6 +133,15 @@ echo "</div>";
         } else {
             x.style.display = "none";
         }
+    }
+
+    function showStatus(pname) {
+        $.post("./ajax/changeFreigabe.php", {
+                name: pname,
+            },
+            function(data) {
+                $("#st-" + pname).html(data)
+            });
     }
 </script>
 
