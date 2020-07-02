@@ -3,9 +3,11 @@
 include "DB.php";
 include "../model/picture.php";
 include "../model/User.php";
-
 session_start();
 
+
+
+//fetches all users from the database and display if they are online or offline
 $db = new DB();
 $db->connect("users");
 $result = $db->getUserList();

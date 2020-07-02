@@ -21,6 +21,7 @@
 </script>
 <div class="container">
     <br>
+    <!--Creates a Table to display the user administration for the admins -->
     <form method="post" action="utility/login.php">
         <button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>
     </form>
@@ -46,6 +47,7 @@
         <tbody>
 
             <?php
+            // fetsch all Users from the database and display it with a Status, Pictures and Delete button.
             $bd = new DB();
             $users = $bd->getUserList();
 
@@ -70,5 +72,6 @@
             ?>
         </tbody>
     </table>
+    <!--Displays the pictures when clicked on the Picture button of a specific user -->
     <div id="divPictures"></div>
 </div>

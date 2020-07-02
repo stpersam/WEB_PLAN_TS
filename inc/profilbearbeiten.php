@@ -6,8 +6,11 @@ session_start();
 $dbobjekt = new DB();
 $dbobjekt->connect("users");
 
+// gets one specific user from the database
 $z = $dbobjekt->getUser($_SESSION["users"]["Username"]);
 
+
+// updates user details
 if(isset($_GET["bearbeitet"])) {
     if ($_GET["bearbeitet"] == "T") {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -26,6 +29,7 @@ if(isset($_GET["bearbeitet"])) {
                             $password = (filter_input(INPUT_POST, "passwordN"));
                             $email = (filter_input(INPUT_POST, "email"));
 
+                            // hasches the password
                             $password = hash('sha256',$password);
                             $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);
 
@@ -54,7 +58,7 @@ if(isset($_GET["bearbeitet"])) {
     <div class="form_überschrift">
         <h2>Edit Profile</h2>
     </div>
-
+    <!--Form to display and edit the Profil details -->
     <div class="formular">
         <form name = "myForm" action="profilbearbeiten.php?bearbeitet=T&id=<?php echo $z["ID"] ?>" method="post">
             <div class="Formularfenster" Id="eltern">

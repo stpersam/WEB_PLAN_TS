@@ -8,6 +8,7 @@ if(isset($_COOKIE["cookieLIn"])){
     $isLoggedIn = true;
 }
 
+// if clicked on the logout button the session will be destroyed and the user is logged out
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(filter_has_var(INPUT_POST, "logout")){
         $isLoggedIn = false;
@@ -39,6 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
+//if the user is logged in his stade will be set to online and his attributes will be added to the Session.
 if($isLoggedIn){
     $db = new DB();
     $user = $db->getUser(filter_input(INPUT_POST,"username"));

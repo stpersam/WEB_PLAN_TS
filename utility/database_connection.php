@@ -1,6 +1,6 @@
 <?php
 $connect = new mysqli("localhost", "webProjekt", "cprn66ae", "webprojekt");
-
+// database methode to fetch user chat history from database
 function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 {
     $query = "SELECT * FROM chat_message WHERE (from_user_id =? AND to_user_id =?) OR (from_user_id =? AND to_user_id = ?) ORDER BY timestamp ASC ";
@@ -34,6 +34,7 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
     return $output;
 }
 
+// function to get the username from a userid
 function get_user_name($user_id, $connect)
 {
     $query = "SELECT Username AS c FROM users WHERE ID=?";

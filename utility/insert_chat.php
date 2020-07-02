@@ -2,6 +2,8 @@
 include "database_connection.php";
 session_start();
 
+// insert chat messages into the database and calls the fetch_user_chat_history method
+
 $data = array(
     ':to_user_id'  => $_POST['to_user_id'],
     ':from_user_id'  => $_SESSION['users']['ID'],
@@ -15,7 +17,7 @@ $temp = $statement->execute();
 
 if($temp)
 {
-    echo fetch_user_chat_history($_SESSION['users']["ID"], $_POST['to_user_id'], $connect);
+    echo fetch_user_chat_history($_SESSION['users']["ID"], $_POST['to_user_id'],$connect);
 }
 
 ?>

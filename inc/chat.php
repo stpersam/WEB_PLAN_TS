@@ -1,6 +1,7 @@
 <?php session_start();?>
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <script>
+    // Site reloading every 5 seconds
     $(document).ready(function(){
         fetch_user();
         setInterval(function(){
@@ -8,6 +9,7 @@
             update_chat_history_data();
         }, 5000);
 
+        // call the php-file to fetch all users from the database
         function fetch_user()
         {
             $.ajax({
@@ -18,6 +20,8 @@
                 }
             })
         }
+
+        // Create Chat Box
         function make_chat_dialog_box(to_user_id, to_user_name)
         {
             var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
@@ -31,12 +35,14 @@
             $('#user_model_details').html(modal_content);
         }
 
+        // Display Chat Box when clicked on start_chat
         $(document).on('click', '.start_chat', function(){
             var to_user_id = $(this).data('touserid');
             var to_user_name = $(this).data('tousername');
             make_chat_dialog_box(to_user_id, to_user_name);
         });
 
+        // Read and Send the Chat Message by click send_chat to insert_chat.php
         $(document).on('click', '.send_chat', function(){
             var to_user_id = $(this).attr('id');
             var chat_message = $('#chat_message_'+to_user_id).val();
@@ -51,6 +57,8 @@
                 }
             })
         });
+
+        // fetch the chat history from the database of a specific user
         function fetch_user_chat_history(to_user_id)
         {
             $.ajax({
@@ -63,6 +71,7 @@
             })
         }
 
+        // updates the chat history, called every 5 seconds
         function update_chat_history_data()
         {
             $('.chat_history').each(function(){
@@ -70,11 +79,6 @@
                 fetch_user_chat_history(to_user_id);
             });
         }
-
-        $(document).on('click', '.ui-button-icon', function(){
-            $('.user_dialog').dialog('destroy').remove();
-        });
-
     });
 </script>
 
@@ -86,7 +90,9 @@
 
     <div class="table-responsive">
         <h4 align="center">Online User</h4>
+        <!-- Show user details and Start Chat button -->
         <div id="user_details"></div>
+        <!--Show chat box and send button -->
         <div id="user_model_details"></div>
     </div>
 </div>

@@ -3,6 +3,7 @@ include "../model/User.php";
 include "DB.php";
 session_start();
 
+// validates the data what came from the registerForm.php
     $anrede = (filter_input(INPUT_POST, "anrede"));
     $vorname = (filter_input(INPUT_POST, "vorname"));
     $nachname = (filter_input(INPUT_POST, "nachname"));
@@ -23,6 +24,7 @@ session_start();
 
     $ort = (filter_input(INPUT_POST, "ort"));
 
+    // checks if the username dont already exists
     $db = new DB();
     $count = $db->countUser(filter_input(INPUT_POST, "username"));
 
@@ -33,6 +35,7 @@ session_start();
         die();
     }
 
+    // checks if the passwords are the same
     if($_POST["password"] == $_POST["passwordBest"]){
         $password = (filter_input(INPUT_POST, "password"));
     }else{
@@ -40,6 +43,7 @@ session_start();
         die();
     }
 
+    // hashes the password and creates a new user what is added to the database
     $email = (filter_input(INPUT_POST, "email"));
     $password = hash('sha256',$password);
     $user = new User($anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email);

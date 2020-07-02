@@ -9,6 +9,7 @@ class DB
         return new mysqli("localhost", "webProjekt", "cprn66ae", "webprojekt");
     }
 
+    // ger UserList form database
     function getUserList()
     {
         $dbobjekt = $this->connect("users");
@@ -22,6 +23,7 @@ class DB
         return $arrayuser;
     }
 
+    // function to get the password of a specific user
     function getPassword($username)
     {
         $dbobjekt = $this->connect("users");
@@ -34,6 +36,7 @@ class DB
         return $z['c'];
     }
 
+    // function to get the user-object by the username
     function getUser($username)
     {
         $dbobjekt = $this->connect("users");
@@ -46,6 +49,7 @@ class DB
         return $z;
     }
 
+    // function to get the username by id
     function getUsername($id)
     {
         $dbobjekt = $this->connect("users");
@@ -58,6 +62,7 @@ class DB
         return $username['c'];
     }
 
+    // function to get the Status of a specific user (aktiv/inaktive)
     function getStatus($username)
     {
         $dbobjekt = $this->connect("users");
@@ -69,6 +74,8 @@ class DB
         $dbobjekt->close();
         return $status['c'];
     }
+
+    // function to change the state of a specific user (aktiv/inaktive)
     function changeStatus($id, $status)
     {
         $dbobjekt = $this->connect("users");
@@ -79,6 +86,7 @@ class DB
         $dbobjekt->close();
     }
 
+    // function to get the state of a user (online/offline)
     function getState($username)
     {
         $dbobjekt = $this->connect("users");
@@ -91,6 +99,7 @@ class DB
         return $status['c'];
     }
 
+    // function to change the state of a user (online/offline)
     function changeState($username, $status)
     {
         $dbobjekt = $this->connect("users");
@@ -101,6 +110,7 @@ class DB
         $dbobjekt->close();
     }
 
+    // function to count the users
     function countUser($username)
     {
         $dbobjekt = $this->connect("users");
@@ -111,6 +121,7 @@ class DB
         $dbobjekt->close();
         return $z['c'];
     }
+
 
     //Adds User to the Database
     function registerUser($userObjekt)
@@ -173,6 +184,7 @@ class DB
         return $erg;
     }
 
+    // function to get the tags of a specific picture
     function getTags($tag){
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name LIKE ? ");

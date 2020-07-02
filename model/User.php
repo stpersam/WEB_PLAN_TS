@@ -1,6 +1,7 @@
 <?php
 
 class User{
+    // Class for instantiating users
     var $anrede,$vorname,$nachname,$adresse,$plz,$ort,$username,$password,$email,$rolle;
     /**
      * User constructor.

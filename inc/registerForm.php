@@ -3,7 +3,7 @@
     <div class="form_überschrift">
         <h2>Register</h2>
     </div>
-
+    <!--Form to get the data of the User and validate it -->
     <div class="formular">
         <form name = "myForm" action="./utility/regValidate.php" method="post">
             <div class="Formularfenster" Id="eltern">

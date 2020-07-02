@@ -25,6 +25,7 @@ if ($q !== "") {
         }
     }
 }
+// returns the searched hint if nothing found, no suggestion will be displayed
 $hint ="no suggestion";
 echo $hint ;
 ?>
