@@ -8,7 +8,10 @@ if($_GET["do"] == "del"){
         $owner = $db->getOwner($_GET["name"]);
         if($_SESSION['users']['Username'] == $owner) {
             $db->connect("pictures");
+            $href = $db->getHref($_GET["name"]);
             $db->deletePicture($_GET["name"]);
+            $href = "/htdocs/WebProjekt/WebProjekt2020/pictures/full/".$href;
+            unlink($href);
         }
     }
     header("Location: ../index.php");
