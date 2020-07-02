@@ -1,3 +1,12 @@
+<script>
+    function check_pass() {
+        if (document.getElementById('password').value == document.getElementById('passwordBest').value) {
+            document.getElementById('registrieren').disabled = false;
+        } else {
+            document.getElementById('registrieren').disabled = true;
+        }
+    }
+</script>
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <div class="container">
     <div class="form_überschrift">
@@ -40,11 +49,11 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                     <label for="passwordBest">Confirm Password:</label>
-                    <input type="password" name="passwordBest" class="form-control" placeholder="Confirm Password" required>
+                    <input type="password" id="passwordBest" name="passwordBest" class="form-control" onchange="check_pass();" placeholder="Confirm Password" required>
                 </div>
                 <div class="form-group">
                     <label for="email">E-Mail:</label>
