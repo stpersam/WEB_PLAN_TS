@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- CONTENT -->
     <div class="container alignit dropzone">
         <h5>Upload new file:</h5>
         <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
@@ -21,6 +22,7 @@
         </form>
         <a href="./dropzone.php"><button class="btn-color">to drag and drop area</button></a>
     </div>
+    <!-- scriot to hide searchbar -->
     <script>
         $(document).ready(function() {
             $('#txt1').hide();
@@ -29,6 +31,7 @@
     </script>
 
     <?php
+    //Upload function
     if (isset($_FILES['myfile']['type']) || !empty($_FILES)) {
         session_start();
         include "../model/picture.php";
