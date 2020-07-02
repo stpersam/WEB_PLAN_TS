@@ -25,8 +25,7 @@
     <form method="post" action="utility/login.php">
         <button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>
     </form>
-    <br>
-    <h2>User Administration</h2>
+    <h2 style="text-align: center">User Administration</h2>
     <table class="table">
         <thead>
             <tr>

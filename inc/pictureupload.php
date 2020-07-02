@@ -15,7 +15,7 @@
     <div class="container alignit dropzone">
         <h5>Upload new file:</h5>
         <form action="inc/pictureupload.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="myfile" id="myfile" accept="image/*">
+            <input class=""type="file" name="myfile" id="myfile" accept="image/*">
             <br>
             <input type="submit" class="btn btn-color" name="submitfile">
         </form>

@@ -29,6 +29,7 @@
         text-align: center;
     }
 </style>
+<nav class="navbar navbar-dark bg-dark sticky-top"></nav>
 <div class="container">
     <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {
                     echo $_SESSION['users']['Username'];

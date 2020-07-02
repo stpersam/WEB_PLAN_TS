@@ -5,18 +5,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        p{
+        p {
             text-align: center;
         }
-        h4{
+
+        h4 {
             text-align: center;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
+
         <br>
         <p><strong>Impressum</strong></p>
         <p>Anbieter:<br />Max Mustermann<br />Musterstraße 1<br />80999 München</p>

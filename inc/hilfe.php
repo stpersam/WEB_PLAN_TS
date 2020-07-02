@@ -50,8 +50,10 @@
 
 <body>
     <div class="container">
+    <br>
         <h2>Help Page</h2>
-        <h5>General:</h5>
+        <br>
+        <h3>General:</h3>
         <button class="collapsible">How do I use the Gallery?</button>
         <div class="content">
             <p>The gallery can be found in the upper part of the page.
@@ -75,8 +77,8 @@
                 It contains all relevant information about us as a manufacturer.
             </p>
         </div>
-
-        <h5>User:</h5>
+        <br>
+        <h3>User:</h3>
         <button class="collapsible">How do I create an account?</button>
         <div class="content">
             <p>To register as a user you have to navigate to the home and click
@@ -100,7 +102,8 @@
                 This creates the possibility to edit the Profile data and the password.
             </p>
         </div>
-        <h5>Admin:</h5>
+        <br>
+        <h3>Admin:</h3>
         <button class="collapsible">How can I manage users?</button>
         <div class="content">
             <p>

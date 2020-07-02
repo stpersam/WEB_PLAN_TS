@@ -63,7 +63,6 @@ global $a;
             <!-- Content -->
             <section id="gallerycontent">
                 <body>
-                    <br><br>
                     <form action="">
                         <label id="txt2">Search Name:</label> <input type="text" id="txt1" onkeyup="showHint(this.value)">
                     </form>

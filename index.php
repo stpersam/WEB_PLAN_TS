@@ -79,7 +79,7 @@
                     <h1><a href="index.php" id="logo">Picture Cloud</a></h1>
                     <hr />
                     <p>The world greatest Picture Gallery Manager</p>
-                    <p><?php echo "$currentuser"?></p>
+                    
                 </header>
             </div>
 
