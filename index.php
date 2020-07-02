@@ -49,7 +49,8 @@
     ?>
     <!-- Navbar Visibility Checker -->
     <?php
-    echo "<script type='text/javascript'> $(document).ready(function() {";
+    echo "<script type='text/javascript'>";
+    echo "$(document).ready(function(){";
     echo "var x = document.getElementById('adminitem');";
     echo "var y = document.getElementById('useritem');";
     if ($currentuser == "admin") {

@@ -115,7 +115,7 @@ foreach ($a as $ab) {
     echo "<p>Changed: $changedate</p>";
     echo "<p>Latitude: $latitude</p>";
     echo "<p>Longitude: $longitude</p>";
-    echo "<button class='btn btn-color' id='st-$name' onclick='showStatus($name)'>$state</button><p></p>";
+    echo "<button class='btn btn-color' id='st-$name' onclick='showState($name)'>$state</button><p></p>";
     echo "<button class='btn btn-color'><a href='./utility/modifyPictures.php?do=del&name=$name'>Delete</a></button>";
     echo "</div>";
 
@@ -135,9 +135,9 @@ echo "</div>";
         }
     }
 
-    function showStatus(pname) {
+    function showState(pname) {
         $.post("./ajax/changeFreigabe.php", {
-                name: pname,
+                pname: pname,
             },
             function(data) {
                 $("#st-" + pname).html(data)
