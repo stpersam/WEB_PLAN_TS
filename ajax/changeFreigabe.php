@@ -1,13 +1,20 @@
 <?php
 include "../utility/DB.php";
+session_start();
+
+if (isset($_SESSION['users']['Username'])) {
+    $currentuser = $_SESSION['users']['Username'];
+} else {
+    $currentuser = "";
+}
 
 $db = new DB();
 $db->connect("pictures");
 $name = $_POST["pname"];
 $status = $db->getPictureState($name);
+$owner = $db->getOwner($name);
 
-$owner = $db->getOwner($_POST["username"]);
-if($_SESSION['users']['Username'] == $owner) {
+if ($currentuser == $owner) {
     if ($status == "freigegeben") {
         $db->changePictureState($name, "gesperrt");
         echo "gesperrt";
@@ -16,3 +23,4 @@ if($_SESSION['users']['Username'] == $owner) {
         echo "freigegeben";
     }
 }
+
