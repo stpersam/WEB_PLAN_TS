@@ -324,4 +324,53 @@ class DB
         $dbobjekt->close();
         return $arraypictures2;
     }
+
+    // delete picture by name
+    function deletePicture($name){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("DELETE FROM pictures Where Name =?");
+        $statement->bind_param('s', $name);
+        if ($statement) {
+            $erg = true;
+        } else {
+            $erg = false;
+        }
+        $statement->execute();
+        $statement->close();
+        $dbobjekt->close();
+        return $erg;
+    }
+
+    // get picture owner by name
+    function getOwner($name){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("Select owner As c FROM pictures Where Name=?");
+        $statement->bind_param('s', $name);
+        $statement->execute();
+        $status = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $status['c'];
+    }
+
+    // get state of Pictures
+    function getPictureState($name){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("Select state As c FROM pictures Where Name=?");
+        $statement->bind_param('s', $name);
+        $statement->execute();
+        $status = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $status['c'];
+    }
+
+    function changePictureState($name,$state){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where Name=?");
+        $statement->bind_param('ss', $state, $name);
+        $statement->execute();
+        $statement->close();
+        $dbobjekt->close();
+    }
 }

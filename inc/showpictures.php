@@ -85,7 +85,17 @@ function picsorter($picsort) {
     </nav>
 </header>
 -->
+<script>
 
+    function showStatus(name) {
+        $.post("./ajax/changeFreigabe.php", {
+                name: name,
+            },
+            function(data) {
+                $("#st-" + name).html(data)
+            });
+    }
+</script>
 <?php
 echo "<div class='row'>";
 //loop to show fancybox pictures with
@@ -115,7 +125,8 @@ foreach ($a as $ab) {
     echo "<p>Changed: $changedate</p>";
     echo "<p>Latitude: $latitude</p>";
     echo "<p>Longitude: $longitude</p>";
-    echo "<a href='' id='deletepic'>delete</a>";
+    echo "<button class='btn btn-color' id='st-$name' onclick='showStatus($name)'>$state</button><p></p>";
+    echo "<button class='btn btn-color'><a href='./utility/modifyPictures.php?do=del&name=$name'>Delete</a></button>";
     echo "</div>";
 
     echo "</div>";
@@ -131,14 +142,6 @@ echo "</div>";
             x.style.display = "block";
         } else {
             x.style.display = "none";
-        }
-    }
-
-    window.onload = function() {
-        var a = document.getElementById("deletepic");
-        a.onclick = function() {
-            //todo function that deletes picture from DB (if picture.owner == currentuser) 
-
         }
     }
 </script>
