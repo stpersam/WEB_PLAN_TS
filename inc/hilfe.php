@@ -51,35 +51,62 @@
 <body>
     <div class="container">
         <h2>Help Page</h2>
-        <h5>Pictures:</h5>
-        <button class="collapsible">How do I open my pictures?</button>
+        <h5>General:</h5>
+        <button class="collapsible">How do I use the Gallery?</button>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>The gallery can be found in the upper part of the page.
+                It can be used to view all images that have been made public.
+                You can also manage your own pictures when you are logged in.
+                The images with GEO-data are displayed on a map with clickable markers that show the image as a thumbnail.
+            </p>
+        </div>
+        <button class="collapsible">How do I use the Chat?</button>
+        <div class="content">
+            <p>The chat is located in the upper part of the page and can
+                only be used by logged in users. With the chat you have the possibility
+                to send messages to all existing users live to ensure a lavish conversation.
+                To chat with a user, simply click on Start Chat and you can send the user messages directly.
+            </p>
+        </div>
+        <button class="collapsible">How do I get to the Impressum?</button>
+        <div class="content">
+            <p>
+                The Impressum can be reached by clicking Impressum in the upper part of the page.
+                It contains all relevant information about us as a manufacturer.
+            </p>
         </div>
 
-        <h5>User-Verwaltung:</h5>
+        <h5>User:</h5>
         <button class="collapsible">How do I create an account?</button>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>To register as a user you have to navigate to the home and click
+                the Register button in the lower part of the page.
+                This means that the data can be entered in order to register successfully
+            </p>
         </div>
         <button class="collapsible">How can I change my password?</button>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                ut aliquip ex ea commodo consequat.</p>
+            <p>
+                To change your password you have to be logged in as a user.
+                Then go to profile in the upper part of the page and press the Edit Profile button.
+                This creates the possibility to edit the Profile data and the password.
+            </p>
         </div>
         <button class="collapsible">How can I edit my profile?</button>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>
+                To edit your profile you have to be logged in as a user.
+                Then go to profile in the upper part of the page and press the Edit Profile button.
+                This creates the possibility to edit the Profile data and the password.
+            </p>
+        </div>
+        <h5>Admin:</h5>
+        <button class="collapsible">How can I manage users?</button>
+        <div class="content">
+            <p>
+                As soon as you are logged in as Admin, the Admin tab appears
+                in the upper part of the page where you can manage users
+            </p>
         </div>
     </div>
     <script>
