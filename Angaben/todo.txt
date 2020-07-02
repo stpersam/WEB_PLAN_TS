@@ -8,6 +8,7 @@ First:
 - Code Kommentieren - done
 - Bilder löschen (nur eigene) (2) - done
 
+
 Second:
 - Continuous Search Filter Ajax (5) - partly done
 - Bilder freigeben (15) - partly done

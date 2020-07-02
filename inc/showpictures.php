@@ -148,6 +148,33 @@ echo "</div>";
     }
 </script>
 
+<!--Search function -->
+<script>
+    function showHint(str) {
+        var xhttp;
+        if (str.length == 0) {
+            document.getElementById("includegallerycontent").innerHTML = "";
+            return;
+        }
+        //creates a XMLHttpRequest to get the ability of Continuous Search filter
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var text = "";
+                if(this.responseText != "no suggestion"){
+                    var path = "./pictures/thumbnail/" + this.responseText;
+                    text = "<img src='"+path+"'><br>";
+                }else{
+                    text = this.responseText;
+                }
+                document.getElementById("includegallerycontent").innerHTML = text;
+            }
+        };
+        xhttp.open("GET", "./utility/gethint.php?q="+str, true);
+        xhttp.send();
+    }
+</script>
+
 <!-- Google Maps -->
 <div>
     <header class="page-header">

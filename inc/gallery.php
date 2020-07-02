@@ -51,38 +51,14 @@ if (isset($_SESSION['users']['Username'])) {
         </header>
 
         <div class="container">
-            <script>
-                function showHint(str) {
-                    var xhttp;
-                    if (str.length == 0) {
-                        document.getElementById("includegallerycontent").innerHTML = "";
-                        return;
-                    }
-                    //creates a XMLHttpRequest to get the ability of Continuous Search filter
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            var text = "";
-                            if(this.responseText != "no suggestion"){
-                                var path = "./pictures/full/" + this.responseText;
-                                text = "<img src='"+path+"'>";
-                            }else{
-                                text = this.responseText;
-                            }
-                            document.getElementById("includegallerycontent").innerHTML = text;
-                        }
-                    };
-                    xhttp.open("GET", "./utility/gethint.php?q="+str, true);
-                    xhttp.send();
-                }
-            </script>
-
-            <form action="" style="display: none">
-                Search Name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
-            </form>
             <!-- Content -->
             <section id="gallerycontent">
                 <body>
+                    <br><br>
+                    <form action="">
+                        <label id="txt2">Search Name:</label> <input type="text" id="txt1" onkeyup="showHint(this.value)">
+                    </form>
+                    <br>
                     <div id="includegallerycontent"></div>
                 </body>
             </section>

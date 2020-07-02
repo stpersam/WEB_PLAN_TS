@@ -21,6 +21,12 @@
         </form>
         <a href="./dropzone.php"><button class="btn-color">to drag and drop area</button></a>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#txt1').hide();
+            $('#txt2').hide();
+        });
+    </script>
 
     <?php
     if (isset($_FILES['myfile']['type']) || !empty($_FILES)) {
