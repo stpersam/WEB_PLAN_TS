@@ -108,6 +108,14 @@ foreach ($a as $ab) {
     $longitude = $ab->getLongitude();
     $newvar = '"' . $href . '"';
     $name = '"' . $name . '"';
+
+    if (isset($_SESSION['users']['Username'])) {
+        $currentuser = $_SESSION['users']['Username'];
+    } else {
+        $currentuser = "";
+    }
+    $currentuser = '"'.$currentuser.'"';
+
     echo "<button class='btn btn-outline-dark btn-sm' onclick='MoreInfo($newvar)'>more..</button>";
     echo "<div id='$href' style='display: none'>";
     echo "<p>Creator: $owner</p>";
@@ -115,7 +123,7 @@ foreach ($a as $ab) {
     echo "<p>Changed: $changedate</p>";
     echo "<p>Latitude: $latitude</p>";
     echo "<p>Longitude: $longitude</p>";
-    echo "<button class='btn btn-color' id='st-$name' onclick='showState($name)'>$state</button><p></p>";
+    echo "<button class='btn btn-color' id='st-$name' onclick='showState($name,$currentuser)'>$state</button><p></p>";
     echo "<button class='btn btn-color'><a href='./utility/modifyPictures.php?do=del&name=$name'>Delete</a></button>";
     echo "</div>";
 
@@ -135,9 +143,10 @@ echo "</div>";
         }
     }
 
-    function showState(pname) {
+    function showState(pname,username) {
         $.post("./ajax/changeFreigabe.php", {
                 pname: pname,
+                username: username,
             },
             function(data) {
                 $("#st-" + pname).html(data)
