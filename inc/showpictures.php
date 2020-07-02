@@ -143,6 +143,7 @@ echo "</div>";
     }
 </script>
 
+<!-- Google Maps -->
 <div>
     <header class="page-header">
         <br>
@@ -159,12 +160,14 @@ echo "</div>";
 </div>
 
 <script type="text/javascript">
+    // sets the attributes for th map like where and how much it will be zoomed in
     var myOptions = {
         zoom: 8,
         center: new google.maps.LatLng(48.20, 16.36),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
+    //crates the map with the obptions set and displays it at the div with the id map
     var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
     // Toggle Map
@@ -177,10 +180,12 @@ echo "</div>";
         }
     }
 
+    // fetches the array of pictures the user displays at the moment
     var passedArray = <?php echo json_encode($array); ?>;
     if(passedArray !== null)
         arrayMarker(passedArray);
 
+    //fetches all individual items aut of the array and calls the initMarker() functione
     function arrayMarker(array){
         for(var i = 0; i < array.length; i++){
             lat = parseFloat(array[i]['latitude']);
@@ -192,15 +197,13 @@ echo "</div>";
             initMarkers(lat,lng,text,href);
         }
     }
-    // initMarkers(48.20,16.36,"Marker",'./pictures/thumbnail/test.png')
-
-    // Marker erstellen mit position, Text und Bild;
+    // initialise Markers with position name and picture
     function initMarkers(latitude,longitude,text,href) {
         var myLatLng = {lat:latitude, lng:longitude};
         setMarkers(myLatLng,text,href)
     }
 
-    // set marker
+    // set marker and displays it on the map
     function setMarkers(myLatLng,text,url) {
         var contentString = '<img src="'+url+'">';
 
