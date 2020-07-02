@@ -17,14 +17,14 @@ Franz:
 
 First:
 - Code Kommentieren
-
+- File Upload Drag&Drop (4) - najo
 Second:
 -
 
 
 Unassigned:
 - Bilder Sortierung (4) - nicht mehr done
-- File Upload Drag&Drop (4) - najo
+- Aufräumen
 - Bilder Tagging (11) - mini partly
 - Bilder Tagging Zuordnung drag / drop (4)
 
