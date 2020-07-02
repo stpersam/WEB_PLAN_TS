@@ -14,7 +14,7 @@ $name = $_POST["pname"];
 $status = $db->getPictureState($name);
 $owner = $db->getOwner($name);
 
-if ($currentuser == $owner) {
+if ($currentuser == $owner ||  $currentuser == "admin") {
     if ($status == "freigegeben") {
         $db->changePictureState($name, "gesperrt");
         echo "gesperrt";
