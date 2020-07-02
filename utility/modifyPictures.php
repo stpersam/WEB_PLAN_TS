@@ -10,7 +10,7 @@ if($_GET["do"] == "del"){
             $db->connect("pictures");
             $href = $db->getHref($_GET["name"]);
             $db->deletePicture($_GET["name"]);
-            $href = "/htdocs/WebProjekt/WebProjekt2020/pictures/full/".$href;
+            $href = "../pictures/full/".$href;
             unlink($href);
         }
     }
