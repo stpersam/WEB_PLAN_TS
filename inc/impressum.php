@@ -8,6 +8,9 @@
         p{
             text-align: center;
         }
+        h4{
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -21,6 +24,11 @@
         <p> </p>
         <p>Bei redaktionellen Inhalten:</p>
         <p>Verantwortlich nach § 55 Abs.2 RStV<br />Moritz Schreiberling<br />Musterstraße 2<br />80999 München</p>
+        <br>
+        <h4>Am Projekt beteiligten Personen</h4><br>
+        <p><img src="./res/images/Samuel.png"><br><label>Samuel Pernthaler</label></p>
+        <p><img src="./res/images/Franz.png"><br><label>Franz Schillinger</label></p>
+
     </div>
 
 </body>
