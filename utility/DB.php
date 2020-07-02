@@ -130,7 +130,7 @@ class DB
         $status = "aktive";
         $state = "offline";
         $statement = $dbobjekt->prepare("Insert INTO users (Anrede,Vorname,Nachname,Adresse,PLZ,Ort,Username,Password,Email,Rolle,Status,State) values (?,?,?,?,?,?,?,?,?,?,?,?)");
-        $statement->bind_param('ssssisssssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $status,$state);
+        $statement->bind_param('ssssisssssss', $userObjekt->getAnrede(), $userObjekt->getVorname(), $userObjekt->getNachname(), $userObjekt->getAdresse(), $userObjekt->getPlz(), $userObjekt->getOrt(), $userObjekt->getUsername(), $userObjekt->getPassword(), $userObjekt->getEmail(), $userObjekt->getRolle(), $status, $state);
         if ($statement) {
             $erg = true;
         } else {
@@ -185,11 +185,12 @@ class DB
     }
 
     // function to get the tags of a specific picture
-    function getTags($tag){
+    function getTags($tag)
+    {
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("SELECT * from pictures WHERE Name LIKE ? ");
         $tag = "%" . $tag . "%";
-        $statement->bind_param('s',$tag);
+        $statement->bind_param('s', $tag);
         $statement->execute();
         $result = $statement->get_result();
 
@@ -325,8 +326,26 @@ class DB
         return $arraypictures2;
     }
 
+    // create picture
+    function dcreatePicture($name)
+    {
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("DELETE FROM pictures Where Name =?");
+        $statement->bind_param('s', $name);
+        if ($statement) {
+            $erg = true;
+        } else {
+            $erg = false;
+        }
+        $statement->execute();
+        $statement->close();
+        $dbobjekt->close();
+        return $erg;
+    }
+    
     // delete picture by name
-    function deletePicture($name){
+    function deletePicture($name)
+    {
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("DELETE FROM pictures Where Name =?");
         $statement->bind_param('s', $name);
@@ -342,7 +361,8 @@ class DB
     }
 
     // get picture owner by name
-    function getOwner($name){
+    function getOwner($name)
+    {
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("Select owner As c FROM pictures Where Name=?");
         $statement->bind_param('s', $name);
@@ -354,7 +374,8 @@ class DB
     }
 
     // get state of Pictures
-    function getPictureState($name){
+    function getPictureState($name)
+    {
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("Select state As c FROM pictures Where Name=?");
         $statement->bind_param('s', $name);
@@ -365,7 +386,8 @@ class DB
         return $status['c'];
     }
 
-    function changePictureState($name,$state){
+    function changePictureState($name, $state)
+    {
         $dbobjekt = $this->connect("pictures");
         $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where Name=?");
         $statement->bind_param('ss', $state, $name);
