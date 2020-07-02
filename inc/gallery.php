@@ -10,6 +10,8 @@ if (isset($_SESSION['users']['Username'])) {
 } else {
     $currentuser = "";
 }
+
+global $a;
 ?>
 <html>
 
@@ -21,6 +23,14 @@ if (isset($_SESSION['users']['Username'])) {
         $(document).ready(function() {
             $("#includegallerycontent").load("inc/showpictures.php");
         });
+
+        function sortarray(state) {
+            if(state == "create") {
+                <?php $a = "createdate"?>
+            }else if(state == "change"){
+                <?php $a = "changedate"?>
+            }
+        }
     </script>
 </head>
 <body>
@@ -32,16 +42,15 @@ if (isset($_SESSION['users']['Username'])) {
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>')" href="#">My Pictures</a>
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>')" href="#">My published Pictures</a>
-                                <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>')" href="#">All published pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">My published Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">All published pictures</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" onclick="sort()">Sort</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="show()" href="#">by Create Date</a>
-                                <a class="dropdown-item" href="#">by Change Date</a>
-                                <a class="dropdown-item" href="#">by else</a>
+                                <a class="dropdown-item" onclick="sortarray('create')" href="#">by Create Date</a>
+                                <a class="dropdown-item" onclick="sortarray('change')" href="#">by Change Date</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" onclick="showgallerycontent('pictureupload')">Upload</a></li>

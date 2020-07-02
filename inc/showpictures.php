@@ -16,8 +16,10 @@ else {
 }
 if (isset($_GET["sort"])) {
     $picsort = $_GET["sort"];
+    //picsorter($picsort);
 } else {
     $picsort = "createdate";
+    //picsorter($picsort);
 }
 
 
@@ -56,15 +58,14 @@ function sortbychangedate($p1, $p2)
 function picsorter($picsort) {
     switch ($picsort) {
         case "createdate":
-            usort($a, "sortbycreatedate");
+            usort($GLOBALS['array'], "sortbycreatedate");
             break;
         case "changedate":
-            usort($a, "sortbychangedate");
+            usort($GLOBALS['array'], "sortbychangedate");
             break;
         default:
-            usort($a, "sortbycreatedate");
+            usort($GLOBALS['array'], "sortbycreatedate");
     }
-    //header("Refresh:0");
 }
 ?>
 
