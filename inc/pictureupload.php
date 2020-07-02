@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="res/assets/css/main.css" />
+    <link rel="stylesheet" href="../res/assets/css/main.css" />
     <style>
         .alignit {
             text-align: center;
@@ -19,22 +19,40 @@
             <br>
             <input type="submit" class="btn btn-color" name="submitfile">
         </form>
-        <a href="testdropzone.html"><button class="btn-color">to drag and drop area</button></a>
+        <a href="./dropzone.php"><button class="btn-color">to drag and drop area</button></a>
     </div>
 
     <?php
-    if (isset($_FILES['myfile']['type'])) {
-        $tmpfile = $_FILES['myfile']['type'];
+    if (isset($_FILES['myfile']['type']) || !empty($_FILES)) {
+        session_start();
+        include "../model/picture.php";
+        include "../utility/DB.php";
+
+        //connect to db/pictures
+        $gettable = new DB();
+        $gettable->connect("pictures");
+
+        ////fileupload
+        if (isset($_FILES['myfile']['type'])) {
+            $tmpfile = $_FILES['myfile']['type'];
+            echo "normal";
+        } elseif (!empty($_FILES)) {
+
+            $tmpfile = $_FILES['file']['tmp_name'];
+            echo "dropzone";
+        }
 
         if ($tmpfile != "image/png" && $tmpfile != "image/jpeg" && $tmpfile != "image/gif") {
             die("Not a gif/jpeg/png");
         } else {
             $tempDateiName = $_FILES["myfile"]["tmp_name"];
             $originalName = $_FILES["myfile"]["name"];
-            $eineId = uniqid();
+            $eineId = substr(uniqid(), 0, 4);
 
-            $dateiPfadFull = "../pictures/full/" . $eineId . $originalName;
-            $dateiPfadthumbnail = "../pictures/thumbnail/" . $eineId . $originalName;
+
+            $dateiPfad = substr($originalName, 0, -4) . "_" . $eineId . substr($originalName, -4);
+            $dateiPfadFull = "../pictures/full/" . $dateiPfad;
+            $dateiPfadthumbnail = "../pictures/thumbnail/" . $dateiPfad;
 
             ///Thumbnail
             // Get new sizes 
@@ -52,6 +70,8 @@
             //save both files to fileserver/locally
             if (move_uploaded_file($tempDateiName, $dateiPfadFull)) {
                 imagejpeg($thumb, $dateiPfadthumbnail);
+                ////create DB object
+                $gettable->createpicture($originalName, 0, 0, "-", date("Y-m-d"), "gesperrt", $dateiPfad, $eineId . "," . $originalName, $_SESSION['users']['Username']);
             }
         }
         header("Location: ../index.php");

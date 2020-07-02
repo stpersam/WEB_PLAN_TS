@@ -327,11 +327,12 @@ class DB
     }
 
     // create picture
-    function dcreatePicture($name)
+    function createPicture($Name,$latitude,$longitude,$capturedate,$changedate,$state,$href,$tags,$owner)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("DELETE FROM pictures Where Name =?");
-        $statement->bind_param('s', $name);
+        //Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Test','48.20','16.36','2018-12-17','2019-12-17','freigegeben','test.png','test,klaus','Samuel');
+        $statement = $dbobjekt->prepare("INSERT INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values (?,?,?,?,?,?,?,?,?)");
+        $statement->bind_param('sssssssss', $Name,$latitude,$longitude,$capturedate,$changedate,$state,$href,$tags,$owner);
         if ($statement) {
             $erg = true;
         } else {
@@ -342,7 +343,7 @@ class DB
         $dbobjekt->close();
         return $erg;
     }
-    
+
     // delete picture by name
     function deletePicture($name)
     {
