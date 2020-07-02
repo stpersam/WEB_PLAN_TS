@@ -107,6 +107,9 @@ foreach ($a as $ab) {
     $longitude = $ab->getLongitude();
     $newvar = '"' . $href . '"';
     $pname = '"' . $name . '"';
+    $db = new DB();
+    $db->connect("pictures");
+    $id = $db->getPictureID($name);
 
     echo "<button class='btn btn-outline-dark btn-sm' onclick='MoreInfo($newvar)'>more..</button>";
     echo "<div id='$href' style='display: none'>";
@@ -115,7 +118,7 @@ foreach ($a as $ab) {
     echo "<p>Changed: $changedate</p>";
     echo "<p>Latitude: $latitude</p>";
     echo "<p>Longitude: $longitude</p>";
-    echo "<button class='btn btn-color' id='st-$name' onclick='showState($pname)'>$state</button><p></p>";
+    echo "<button class='btn btn-color' id='ab-$id' onclick='showState($id)'>$state</button><p></p>";
     echo "<button class='btn btn-color'><a href='./utility/modifyPictures.php?do=del&name=$name'>Delete</a></button>";
     echo "</div>";
 
@@ -135,12 +138,12 @@ echo "</div>";
         }
     }
 
-    function showState(pname) {
+    function showState(id) {
         $.post("./ajax/changeFreigabe.php", {
-                pname: pname,
+                id: id,
             },
             function(data) {
-                $("#st-" + pname).html(data)
+                $('#ab-'+id).html(data)
             });
     }
 </script>

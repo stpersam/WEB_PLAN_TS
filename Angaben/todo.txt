@@ -6,11 +6,11 @@ Samuel:
 First:
 - Hilfe & Impressum (7) - done
 - Code Kommentieren - done
+- Bilder löschen (nur eigene) (2) - partly done
+
 Second:
 - Continuous Search Filter Ajax (5) - partly done
 - Bilder freigeben (15) - partly done
-- Bilder löschen (nur eigene) (2) - partly done
-
 - Chat Funktion (19) --> fast alles erledigt
 
 

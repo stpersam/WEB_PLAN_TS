@@ -362,11 +362,11 @@ class DB
     }
 
     // get picture owner by name
-    function getOwner($name)
+    function getOwner($id)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("Select owner As c FROM pictures Where Name=?");
-        $statement->bind_param('s', $name);
+        $statement = $dbobjekt->prepare("Select owner As c FROM pictures Where ID=?");
+        $statement->bind_param('i', $id);
         $statement->execute();
         $status = $statement->get_result()->fetch_assoc();
         $statement->close();
@@ -375,11 +375,11 @@ class DB
     }
 
     // get state of Pictures
-    function getPictureState($name)
+    function getPictureState($id)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("Select state As c FROM pictures Where Name=?;");
-        $statement->bind_param('s', $name);
+        $statement = $dbobjekt->prepare("Select state As c FROM pictures Where ID=?;");
+        $statement->bind_param('i', $id);
         $statement->execute();
         $status = $statement->get_result()->fetch_assoc();
         $statement->close();
@@ -387,19 +387,29 @@ class DB
         return $status['c'];
     }
 
-    function changePictureState($name, $state)
+    function changePictureState($id, $state)
     {
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where Name=?;");
-        $statement->bind_param('ss', $state, $name);
+        $statement = $dbobjekt->prepare("UPDATE pictures SET state=? Where ID=?;");
+        $statement->bind_param('si', $state, $id);
         $statement->execute();
         $statement->close();
         $dbobjekt->close();
     }
 
-    function getHref($name){
+    function getHref($id){
         $dbobjekt = $this->connect("pictures");
-        $statement = $dbobjekt->prepare("Select href as c from pictures WHERE Name =?;");
+        $statement = $dbobjekt->prepare("Select href as c from pictures WHERE ID =?;");
+        $statement->bind_param('i',$id);
+        $statement->execute();
+        $erg = $statement->get_result()->fetch_assoc();
+        $statement->close();
+        $dbobjekt->close();
+        return $erg['c'];
+    }
+    function getPictureID($name){
+        $dbobjekt = $this->connect("pictures");
+        $statement = $dbobjekt->prepare("Select ID as c from pictures WHERE Name =?;");
         $statement->bind_param('s',$name);
         $statement->execute();
         $erg = $statement->get_result()->fetch_assoc();
