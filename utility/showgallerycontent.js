@@ -1,3 +1,4 @@
+//function that gets called from, including content based on given variable, loaded with .load()
 function showgallerycontent($id, $currentuser, $sort) {
     var user = $currentuser;
     var sort = $sort;

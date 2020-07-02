@@ -1,12 +1,14 @@
 <?php
-
+//Picture class
 class picture
 {
     var $name, $latitude, $longitude, $capturedate, $changedate, $state, $href, $tags, $owner;
 
-
-    public function __construct(){
-
+    /**
+     * constructur
+     */
+    public function __construct()
+    {
     }
 
     /**
@@ -51,7 +53,7 @@ class picture
 
     /**
      * Get the value of latitude
-     */ 
+     */
     public function getLatitude()
     {
         return $this->latitude;
@@ -61,7 +63,7 @@ class picture
      * Set the value of latitude
      *
      * @return  self
-     */ 
+     */
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
@@ -71,7 +73,7 @@ class picture
 
     /**
      * Get the value of longitude
-     */ 
+     */
     public function getLongitude()
     {
         return $this->longitude;
@@ -81,7 +83,7 @@ class picture
      * Set the value of longitude
      *
      * @return  self
-     */ 
+     */
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
@@ -91,7 +93,7 @@ class picture
 
     /**
      * Get the value of capturedate
-     */ 
+     */
     public function getCapturedate()
     {
         return $this->capturedate;
@@ -101,7 +103,7 @@ class picture
      * Set the value of capturedate
      *
      * @return  self
-     */ 
+     */
     public function setCapturedate($capturedate)
     {
         $this->capturedate = $capturedate;
@@ -111,7 +113,7 @@ class picture
 
     /**
      * Get the value of changedate
-     */ 
+     */
     public function getChangedate()
     {
         return $this->changedate;
@@ -121,7 +123,7 @@ class picture
      * Set the value of changedate
      *
      * @return  self
-     */ 
+     */
     public function setChangedate($changedate)
     {
         $this->changedate = $changedate;
@@ -131,7 +133,7 @@ class picture
 
     /**
      * Get the value of href
-     */ 
+     */
     public function getHref()
     {
         return $this->href;
@@ -141,7 +143,7 @@ class picture
      * Set the value of href
      *
      * @return  self
-     */ 
+     */
     public function setHref($href)
     {
         $this->href = $href;
@@ -151,7 +153,7 @@ class picture
 
     /**
      * Get the value of tags
-     */ 
+     */
     public function getTags()
     {
         return $this->tags;
@@ -161,7 +163,7 @@ class picture
      * Set the value of tags
      *
      * @return  self
-     */ 
+     */
     public function setTags($tags)
     {
         $this->tags = $tags;
@@ -171,7 +173,7 @@ class picture
 
     /**
      * Get the value of owner
-     */ 
+     */
     public function getOwner()
     {
         return $this->owner;
@@ -181,7 +183,7 @@ class picture
      * Set the value of owner
      *
      * @return  self
-     */ 
+     */
     public function setOwner($owner)
     {
         $this->owner = $owner;

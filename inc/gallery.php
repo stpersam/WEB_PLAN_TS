@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <?php session_start();
-
+// Include all needed classes
 include "../model/picture.php";
 include "../utility/DB.php";
 
+//initialize currentuser and role Variable for easier use
 if (isset($_SESSION['users']['Username'])) {
     $currentuser = $_SESSION['users']['Username'];
 } else {
     $currentuser = "";
 }
-
+//define global array
 global $a;
 ?>
 <html>
@@ -24,6 +25,7 @@ global $a;
             $("#includegallerycontent").load("inc/showpictures.php");
         });
 
+        //function to sort array
         function sortarray(state) {
             if(state == "create") {
                 <?php $a = "createdate"?>
@@ -33,9 +35,11 @@ global $a;
         }
     </script>
 </head>
+<!-- BODY -->
 <body>
     <div>
         <header class="page-header">
+            <!-- NAVBAR -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center sticky-top">
                 <a class="navbar-brand" href="" onclick="showcontents('gallery')">Gallery</a>
                 <div class="">

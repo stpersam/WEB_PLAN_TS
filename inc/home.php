@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <script type="text/javascript" src="./utility/showcontents.js"></script>
 <link rel="stylesheet" href="res/assets/css/main.css" />
+<!-- CSS -->
 <style>
     .btn-color {
         background-color: #734F6F;
@@ -29,7 +30,9 @@
         text-align: center;
     }
 </style>
+<!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark sticky-top"></nav>
+<!-- CONTENT -->
 <div class="container">
     <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {
                     echo $_SESSION['users']['Username'];

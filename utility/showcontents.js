@@ -1,4 +1,5 @@
 
+//function that gets called from index, including content based on given variable, loaded with .load()
 function showcontents($id, $currentuser) {
     var user = $currentuser;
     switch ($id) {

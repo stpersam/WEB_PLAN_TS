@@ -1,19 +1,15 @@
 <!DOCTYPE HTML>
 <?php session_start(); ?>
-<!--
-	Helios by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!-- Helios by HTML5 UP - html5up.net | @ajlkn - Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
 <html>
 
 <head>
     <title>Picture Cloud</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- load CSS -->
     <link rel="stylesheet" href="res/assets/css/main.css" />
-    <noscript>
-        <link rel="stylesheet" href="res/assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="res/assets/css/noscript.css" />
 
     <!-- Fancybox/Fancyapps-->
     <!-- 1. Add latest jQuery and fancybox files -->
@@ -27,18 +23,28 @@
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <!-- load JS -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="utility/showcontents.js"></script>
+    <script src="res/assets/js/jquery.min.js"></script>
+    <script src="res/assets/js/jquery.dropotron.min.js"></script>
+    <script src="res/assets/js/jquery.scrolly.min.js"></script>
+    <script src="res/assets/js/jquery.scrollex.min.js"></script>
+    <script src="res/assets/js/browser.min.js"></script>
+    <script src="res/assets/js/breakpoints.min.js"></script>
+    <script src="res/assets/js/util.js"></script>
+    <script src="res/assets/js/main.js"></script>
 
 </head>
 
 <body class="homepage is-preload">
     <?php
+    // Include all needed classes
     include "model/picture.php";
     include "utility/DB.php";
     include "model/User.php";
 
+    //initialize currentuser and role Variable for easier use
     if (isset($_SESSION['users']['Username'])) {
         $currentuser = $_SESSION['users']['Username'];
         $rolle = $_SESSION['users']['Rolle'];
@@ -57,13 +63,14 @@
         echo  "x.style.display = '';";
     } elseif ($rolle == "user") {
         echo  "y.style.display = '';";
-    }else{
+    } else {
         echo "x.style.display = 'none';";
         echo "y.style.display = 'none';";
     }
     echo " });</script>";
     ?>
 
+    <!-- Default include: home -->
     <script type="text/javascript">
         $(document).ready(function() {
             $("#includecontent").load("inc/home.php");
@@ -79,7 +86,6 @@
                     <h1><a href="index.php" id="logo">Picture Cloud</a></h1>
                     <hr />
                     <p>The world greatest Picture Gallery Manager</p>
-                    
                 </header>
             </div>
 
@@ -106,18 +112,10 @@
             </body>
         </section>
 
+        <!-- footer -->
         <footer class="text-center ">
             <a href="#header" class=""><i class="fa fa-arrow-up"></i>To the top</a>
         </footer>
-
-        <script src="res/assets/js/jquery.min.js"></script>
-        <script src="res/assets/js/jquery.dropotron.min.js"></script>
-        <script src="res/assets/js/jquery.scrolly.min.js"></script>
-        <script src="res/assets/js/jquery.scrollex.min.js"></script>
-        <script src="res/assets/js/browser.min.js"></script>
-        <script src="res/assets/js/breakpoints.min.js"></script>
-        <script src="res/assets/js/util.js"></script>
-        <script src="res/assets/js/main.js"></script>
 </body>
 
 </html>

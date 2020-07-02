@@ -4,6 +4,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
     <style>
         .collapsible {
             background-color: #56435B;
@@ -47,7 +48,7 @@
         }
     </style>
 </head>
-
+<!-- CONTENT -->
 <body>
     <div class="container">
     <br>
@@ -112,6 +113,7 @@
             </p>
         </div>
     </div>
+    <!-- Function that makes them collapsible -->
     <script>
         var coll = document.getElementsByClassName("collapsible");
         var i;
