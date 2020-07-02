@@ -40,8 +40,8 @@ CREATE TABLE pictures(
     PRIMARY KEY(ID,Name)
 );
 
-Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Coffee and Clipboard','49.20','16.36','2016-12-17','2019-12-17','freigegeben','delicious-hot-coffee-and-clipboard.png','test,klaus','Samuel');
-Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Set of Spoons','48.20','16.86','2018-12-14','2011-12-17','freigegeben','set-of-shiny-black-spoons_5efd.png','test,klaus','Samuel');
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Coffee and Clipboard','49.20','16.36','2016-12-17','2019-12-17','freigegeben','delicious-hot-coffee-and-clipboard.jpg','test,klaus','Samuel');
+Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Set of Spoons','48.20','16.86','2018-12-14','2011-12-17','freigegeben','set-of-shiny-black-spoons_5efd.jpg','test,klaus','Samuel');
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Scissors and Clips','48.50','16.50','2013-12-17','2015-12-17','freigegeben','composition-of-scissors-and-clip.jpg','scissors,clip,beige','Franz');
 Insert INTO pictures (Name,latitude,longitude,capturedate,changedate,state,href,tags,owner) values ('Coffee and Diary','49.20','16.01','2020-12-17','2015-12-17','freigegeben','cup-of-coffee-and-colorful-diary.jpg','coffee,cup,diary,beige','Franz');
 
