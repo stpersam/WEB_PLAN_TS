@@ -19,8 +19,3 @@ function showgallerycontent($id, $currentuser, $sort) {
             break;
     }
 }
-/*
-function showarray($array){
-    $("#includegallerycontent").load("inc/showpictures.php");
-}
-*/
