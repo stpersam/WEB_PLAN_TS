@@ -152,12 +152,6 @@ echo "</div>";
 <!--Search function -->
 <script>
     function showHint(str) {
-        var tmp = str;
-        <?php
-
-        $z->$gettable->getPictureArray(echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";);
-        ?>
-
         var xhttp;
         if (str.length == 0) {
             document.getElementById("include").innerHTML = "";

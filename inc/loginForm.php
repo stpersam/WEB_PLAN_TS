@@ -35,7 +35,7 @@
                     <input type="password" name="password" class="form-control container" placeholder="Password" required>
                 </div>
                 <div class="custom-control custom-checkbox alignit">
-                    <label class="custom-control-label" for="stayLoggedIn">Stay Logged in</label>
+                    <label for="stayLoggedIn" class="custom-control-label" for="stayLoggedIn">Stay Logged in</label>
                     <input type="checkbox" name="stayLoggedIn" value="yes" class="custom-control-input" id="stayLoggedIn">
                 </div>
                 <button type="submit" name="login" id="login" class="btn btn-color">Login</button>
