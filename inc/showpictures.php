@@ -152,8 +152,6 @@ echo "</div>";
 <!--Search function -->
 <script>
     function showHint(str) {
-        var tmp = str;
-
         var xhttp;
         if (str.length == 0) {
             document.getElementById("include").innerHTML = "";
