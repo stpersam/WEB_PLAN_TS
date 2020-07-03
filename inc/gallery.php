@@ -27,15 +27,16 @@ global $a;
 
         //function to sort array
         function sortarray(state) {
-            if(state == "create") {
-                <?php $a = "createdate"?>
-            }else if(state == "change"){
-                <?php $a = "changedate"?>
+            if (state == "create") {
+                <?php $a = "createdate" ?>
+            } else if (state == "change") {
+                <?php $a = "changedate" ?>
             }
         }
     </script>
 </head>
 <!-- BODY -->
+
 <body>
     <div>
         <header class="page-header">
@@ -46,17 +47,19 @@ global $a;
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Show Pictures</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">My Pictures</a>
-                                <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">My published Pictures</a>
-                                <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a;?>')" href="#">All published pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypictures', '<?php echo $currentuser; ?>','<?php echo $a; ?>')" href="#">My Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showmypublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a; ?>')" href="#">My published Pictures</a>
+                                <a class="dropdown-item" onclick="showgallerycontent('showallpublishedpictures', '<?php echo $currentuser; ?>','<?php echo $a; ?>')" href="#">All published pictures</a>
                             </div>
                         </li>
+                        <!--
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" onclick="sort()">Sort</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="sortarray('create')" href="#">by Create Date</a>
                                 <a class="dropdown-item" onclick="sortarray('change')" href="#">by Change Date</a>
                             </div>
                         </li>
+                         -->
                         <li class="nav-item"><a class="nav-link" onclick="showgallerycontent('pictureupload')">Upload</a></li>
                     </ul>
                 </div>
@@ -66,6 +69,7 @@ global $a;
         <div class="container">
             <!-- Content -->
             <section id="gallerycontent">
+
                 <body>
                     <form action="">
                         <label id="txt2">Search Name:</label> <input type="text" id="txt1" onkeyup="showHint(this.value)">

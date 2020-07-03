@@ -26,6 +26,7 @@
         <button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>
     </form>
     <h2 style="text-align: center">User Administration</h2>
+    <br>
     <table class="table">
         <thead>
             <tr>

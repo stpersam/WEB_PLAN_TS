@@ -26,7 +26,7 @@
         <p>Bei redaktionellen Inhalten:</p>
         <p>Verantwortlich nach § 55 Abs.2 RStV<br />Moritz Schreiberling<br />Musterstraße 2<br />1220 Wien</p>
         <br>
-        <h4>Am Projekt beteiligten Personen</h4><br>
+        <h4>Project Team:</h4><br>
         <p><img src="./res/images/Samuel.png"><br><label>Samuel Pernthaler</label></p>
         <p><img src="./res/images/Franz.png"><br><label>Franz Schillinger</label></p>
 
