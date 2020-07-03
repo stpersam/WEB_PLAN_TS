@@ -26,14 +26,7 @@
     <!-- load JS -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="utility/showcontents.js"></script>
-    <script src="res/assets/js/jquery.min.js"></script>
-    <script src="res/assets/js/jquery.dropotron.min.js"></script>
-    <script src="res/assets/js/jquery.scrolly.min.js"></script>
-    <script src="res/assets/js/jquery.scrollex.min.js"></script>
-    <script src="res/assets/js/browser.min.js"></script>
-    <script src="res/assets/js/breakpoints.min.js"></script>
-    <script src="res/assets/js/util.js"></script>
-    <script src="res/assets/js/main.js"></script>
+
 
 </head>
 
@@ -117,5 +110,12 @@
             <a href="#header" class=""><i class="fa fa-arrow-up"></i>To the top</a>
         </footer>
 </body>
-
+<script src="res/assets/js/jquery.min.js"></script>
+<script src="res/assets/js/jquery.dropotron.min.js"></script>
+<script src="res/assets/js/jquery.scrolly.min.js"></script>
+<script src="res/assets/js/jquery.scrollex.min.js"></script>
+<script src="res/assets/js/browser.min.js"></script>
+<script src="res/assets/js/breakpoints.min.js"></script>
+<script src="res/assets/js/util.js"></script>
+<script src="res/assets/js/main.js"></script>
 </html>
