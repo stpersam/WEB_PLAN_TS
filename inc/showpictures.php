@@ -87,7 +87,7 @@ function picsorter($picsort) {
 </header>
 -->
 <?php
-echo "<div class='row'>";
+echo "<div id='include' class='row'>";
 //loop to show fancybox pictures with
 
 foreach ($a as $ab) {
@@ -152,9 +152,15 @@ echo "</div>";
 <!--Search function -->
 <script>
     function showHint(str) {
+        var tmp = str;
+        <?php
+
+        $z->$gettable->getPictureArray(echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";,echo "<script>document.writeln(tmp);</script>";);
+        ?>
+
         var xhttp;
         if (str.length == 0) {
-            document.getElementById("includegallerycontent").innerHTML = "";
+            document.getElementById("include").innerHTML = "";
             return;
         }
         //creates a XMLHttpRequest to get the ability of Continuous Search filter
@@ -163,12 +169,11 @@ echo "</div>";
             if (this.readyState == 4 && this.status == 200) {
                 var text = "";
                 if(this.responseText != "no suggestion"){
-                    var path = "./pictures/thumbnail/" + this.responseText;
-                    text = "<img src='"+path+"'><br>";
+                    text = "<a href='./pictures/full/"+ this.responseText+"' data-fancybox='mygallery'><img src='./pictures/thumbnail/"+this.responseText+"' class='imgs'></a>";
                 }else{
                     text = this.responseText;
                 }
-                document.getElementById("includegallerycontent").innerHTML = text;
+                document.getElementById("include").innerHTML = text;
             }
         };
         xhttp.open("GET", "./utility/gethint.php?q="+str, true);
