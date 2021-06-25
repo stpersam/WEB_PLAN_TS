@@ -76,9 +76,9 @@
             <!-- Inner -->
             <div class="inner">
                 <header>
-                    <h1><a href="index.php" id="logo">Picture Cloud</a></h1>
+                    <h1><a href="index.php" id="logo">Plan-ts</a></h1>
                     <hr />
-                    <p>The world greatest Picture Gallery Manager</p>
+                    <p>Mobile App für das moderen Zimmerpflanzen Management</p>
                 </header>
             </div>
 
