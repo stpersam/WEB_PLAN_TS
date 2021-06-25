@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>Picture Cloud</title>
+    <title>Plan_ts Mobile App</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- load CSS -->
