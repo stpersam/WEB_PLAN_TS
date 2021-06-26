@@ -29,25 +29,23 @@
     .alignit {
         text-align: center;
     }
+
+
 </style>
 <!-- NAVBAR -->
-<nav class="navbar navbar-dark bg-dark sticky-top"></nav>
+<nav class="navbar navbar-dark sticky-top" style="background-color: #055959;"></nav>
 <!-- CONTENT -->
-<div class="container">
-    <h2>Welcome <?php if (isset($_SESSION['users']['Username'])) {
+<div class="container">    
+    <h2>Willkommen <?php if (isset($_SESSION['users']['Username'])) {
                     echo $_SESSION['users']['Username'];
-                } ?> to our Picture Cloud</h2>
+                } ?> bei Plan-ts</h2>
+    
     <div class="row">
         <div id="content" class="col-md-12">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+                Melde dich and oder Registriere dich um unsere App nutzen zu können!
+            </p>           
+    
         </div>
     </div>
     <div class="row">
