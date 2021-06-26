@@ -36,8 +36,8 @@
 <nav class="navbar navbar-dark sticky-top" style="background-color: #055959;"></nav>
 <!-- CONTENT -->
 <div class="container">    
-    <h2>Willkommen <?php if (isset($_SESSION['users']['Username'])) {
-                    echo $_SESSION['users']['Username'];
+    <h2>Willkommen <?php if (isset($_SESSION['user'])) {
+                    echo $_SESSION['user'];
                 } ?> bei Plan-ts</h2>
     
     <div class="row">
@@ -52,8 +52,8 @@
         <div class="container">
             <div id="login" class="col-md-12">
                 <?php
-                if (isset($_SESSION['users']['Username'])) {
-                    echo '<form method="post" action="utility/login.php">';
+                if (isset($_SESSION['user'])) {
+                    echo '<form method="post" action="utility/LoginAPI.php">';
                     echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
                     echo '</form>';
                 } else {

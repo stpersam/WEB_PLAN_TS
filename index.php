@@ -37,9 +37,9 @@
     include "model/User.php";
 
     //initialize currentuser and role Variable for easier use
-    if (isset($_SESSION['users']['Username'])) {
-        $currentuser = $_SESSION['users']['Username'];
-        $rolle = $_SESSION['users']['Rolle'];
+    if (isset($_SESSION['user'])) {
+        $currentuser = $_SESSION['user'];
+        $rolle = $_SESSION['user'];
     } else {
         $currentuser = "";
         $rolle = "";
@@ -51,10 +51,8 @@
     echo "$(document).ready(function(){";
     echo "var x = document.getElementById('adminitem');";
     echo "var y = document.getElementById('useritem');";
-    if ($currentuser == "admin") {
-        echo  "x.style.display = '';";
-    } elseif ($rolle == "user") {
-        echo  "y.style.display = '';";
+    if ($currentuser != "") {
+        echo  "x.style.display = '';";    
     } else {
         echo "x.style.display = 'none';";
         echo "y.style.display = 'none';";
