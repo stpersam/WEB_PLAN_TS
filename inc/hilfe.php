@@ -7,7 +7,7 @@
     <!-- CSS -->
     <style>
         .collapsible {
-            background-color: #56435B;
+            background-color: #05595F;
             color: white;
             cursor: pointer;
             padding: 18px;
@@ -20,7 +20,7 @@
 
         .active,
         .collapsible:hover {
-            background-color: #634D69;
+            background-color: #176C5F;
         }
 
         .collapsible:after {
@@ -52,10 +52,10 @@
 <body>
     <div class="container">
     <br>
-        <h2>Help Page</h2>
+        <h2>FAQ</h2>
         <br>
-        <h3>General:</h3>
-        <button class="collapsible">How do I use the Gallery?</button>
+        <h3>Allgemein:</h3>
+        <button class="collapsible">Wie kann ich Plan-ts nutzen?</button>
         <div class="content">
             <p>The gallery can be found in the upper part of the page.
                 It can be used to view all images that have been made public.

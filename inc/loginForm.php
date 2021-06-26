@@ -24,15 +24,15 @@
 
     <!--Form for the Login Field -->
     <div class="formular">
-        <form name="myForm" action="./utility/login.php" method="post">
+        <form name="myForm" action="./utility/LoginAPI.php" method="post">
             <div class="Formularfenster" Id="eltern">
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input type="text" name="username" class="form-control container" placeholder="Username" required>
+                    <input type="text" name="username" class="form-control container" placeholder="User1" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control container" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control container" placeholder="password1" required>
                 </div>
                 <div class="custom-control custom-checkbox alignit">
                     <label for="stayLoggedIn" class="custom-control-label" for="stayLoggedIn">Stay Logged in</label>

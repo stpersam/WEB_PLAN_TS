@@ -6,6 +6,7 @@ class DB
     function connect($name)
     {
         $this->dbname = $name;
+        //return new PDO('pgsql:host=localhost;dbname=PlantsDB', 'postgres', '');
         return new mysqli("localhost", "webProjekt", "cprn66ae", "webprojekt");
     }
 

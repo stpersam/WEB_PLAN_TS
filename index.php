@@ -27,7 +27,6 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="utility/showcontents.js"></script>
 
-
 </head>
 
 <body class="homepage is-preload">
@@ -75,7 +74,8 @@
         <div id="header">
             <!-- Inner -->
             <div class="inner">
-                <header>
+                <header >
+                    
                     <h1><a href="index.php" id="logo">Plan-ts</a></h1>
                     <hr />
                     <p>Mobile App für das moderen Zimmerpflanzen Management</p>
@@ -86,11 +86,10 @@
             <nav id="nav">
                 <ul>
                     <li><a href="" onclick="showcontents('')">Home</a></li>
-                    <li><a href="" onclick="showcontents('gallery')">Gallery</a></li>
-                    <li><a href="" onclick="showcontents('chat','<?php echo $currentuser; ?>')">Chat</a></li>
                     <li style="display:none" id="adminitem"><a href="" onclick="showcontents('admin')">Admin</a></li>
                     <li style="display:none" id="useritem"><a href="" onclick="showcontents('user')">Profil</a></li>
-                    <li><a href="" onclick="showcontents('help')">Help</a></li>
+                    <li><a href="" onclick="showcontents('download')">Download</a></li>
+                    <li><a href="" onclick="showcontents('help')">FAQ</a></li>
                     <li><a href="" onclick="showcontents('impressum')">Impressum</a></li>
                 </ul>
             </nav>
