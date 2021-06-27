@@ -46,36 +46,42 @@
         h2 {
             text-align: center;
         }
+
     </style>
 </head>
 <!-- CONTENT -->
+
 <body>
     <div class="container">
-    <br>
+        <br>
         <h2>Downloads</h2>
         <br>
         <h3>Android:</h3>
         <button class="collapsible">Google Play</button>
         <div class="content">
-            <img src="./pictures/full/googleplay.png" height="200">
+            <a href="https://play.google.com/store?hl=de_AT&gl=US" target="_blank"> <img src="./pictures/full/googleplay.png" width="225"></a>
         </div>
         <button class="collapsible">Microsoft Store</button>
         <div class="content">
-        <img src="./pictures/full/windowsphone.png"height="200">
-        </div>      
+            <a href="https://www.microsoft.com/de-at/store/apps/windows-phone" target="_blank"><img src="./pictures/full/windowsphone.png" height="125"></a>
+        </div>
         <br>
         <h3>iOS:</h3>
         <button class="collapsible">App Store</button>
         <div class="content">
-        <img src="./pictures/full/appstore.jpg" height="200">
-        </div>        
+            <a href="https://www.apple.com/at/ios/app-store/" target="_blank"> <img src="./pictures/full/appstore.jpg" height="125"></a>
+        </div>
         <br>
         <h3>Direkter Download:</h3>
         <button class="collapsible">Link</button>
         <div class="content">
-            <p>
-               Click here !
-            </p>
+            <div class="">
+                <a href="https://github.com/stpersam/PLAN_TS" class="link" target="_blank">
+                    <img src="./pictures/full/github.png" height="150">
+                    
+                </a>
+                <p>Download from Github</p>
+            </div>
         </div>
     </div>
     <!-- Function that makes them collapsible -->

@@ -33,8 +33,8 @@
         Here you can edit your profile.
     </p>
     <?php
-    $tmp = '"profilbearbeiten"';
-    echo "<div class='container alignit'><button type='submit' name='ep' id='ep' class='btn btn-color' onclick='showcontents($tmp)' >Edit Profile</button>";
+    $tmp = '"changepassword"';
+    echo "<div class='container alignit'><button type='submit' name='ep' id='ep' class='btn btn-color' onclick='showcontents($tmp)' >Passwort ändern</button>";
     echo '<form method="post" action="./utility/LoginAPI.php">';
     echo '<button type="submit" name="logout" id="logout" class="btn btn-color">Logout</button><br>';
     echo '</form></div>';

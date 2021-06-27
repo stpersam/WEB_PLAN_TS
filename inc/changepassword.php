@@ -34,30 +34,25 @@
 
 <div class="container" >
     <div class="form_überschrift">
-        <h2>Register</h2>
+        <h2>Passwort ändern</h2>
     </div>
     <!--Form to get the data of the User and validate it -->
     <div class="formular">
-        <form name = "myForm" action="./utility/regValidate.php" method="post">
-            <div class="Formularfenster" Id="eltern">              
-                
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" name="username" class="form-control" placeholder="User" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Passwort:</label>
+        <form name = "myForm" action="./utility/passwordchangeAPI.php" method="post">
+            <div class="Formularfenster" Id="eltern">    
+            <div class="form-group">
+                    <label for="password">altes Passwort:</label>
                     <input type="password" id="password" name="password" class="form-control" placeholder="password" required>
+                </div>     
+                    <div class="form-group">
+                    <label for="password">neues Passwort:</label>
+                    <input type="password" id="newpassword" name="newpassword" class="form-control" placeholder="password" required>
                 </div>
                 <div class="form-group">
                     <label for="passwordBest">Passwort wiederholen:</label>
                     <input type="password" id="passwordBest" name="passwordBest" class="form-control" onchange="check_pass();" placeholder="Confirm Password" required>
                 </div>
-                <div class="form-group">
-                    <label for="email">E-Mail:</label>
-                    <input type="email" name="email" class="form-control" placeholder="user@mail.com">
-                </div>
-                <button type="submit" name="registrieren" id="registrieren" class="btn btn-color">Register</button>
+                <button type="submit" name="passwordchange" id="passwordchange" class="btn btn-color">Ändern</button>
         </form>
     </div>
     </div>

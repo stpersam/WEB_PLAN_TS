@@ -57,21 +57,15 @@
         <h3>Allgemein:</h3>
         <button class="collapsible">Wie kann ich Plan-ts nutzen?</button>
         <div class="content">
-            <p>The gallery can be found in the upper part of the page.
-                It can be used to view all images that have been made public.
-                You can also manage your own pictures when you are logged in.
-                The images with GEO-data are displayed on a map with clickable markers that show the image as a thumbnail.
+            <p>Registriere dich auf der Website und lade die App herunter.
             </p>
         </div>
-        <button class="collapsible">How do I use the Chat?</button>
+        <button class="collapsible">Wie lade ich Plan-ts herunter?</button>
         <div class="content">
-            <p>The chat is located in the upper part of the page and can
-                only be used by logged in users. With the chat you have the possibility
-                to send messages to all existing users live to ensure a lavish conversation.
-                To chat with a user, simply click on Start Chat and you can send the user messages directly.
+            <p>Download Page
             </p>
         </div>
-        <button class="collapsible">How do I get to the Impressum?</button>
+        <button class="collapsible">Wie gelange ich zum Impressum?</button>
         <div class="content">
             <p>
                 The Impressum can be reached by clicking Impressum in the upper part of the page.
@@ -80,14 +74,14 @@
         </div>
         <br>
         <h3>User:</h3>
-        <button class="collapsible">How do I create an account?</button>
+        <button class="collapsible">Wie erstelle ich einen Account?</button>
         <div class="content">
             <p>To register as a user you have to navigate to the home and click
                 the Register button in the lower part of the page.
                 This means that the data can be entered in order to register successfully
             </p>
         </div>
-        <button class="collapsible">How can I change my password?</button>
+        <button class="collapsible">Wie ändere ich mein Passwort?</button>
         <div class="content">
             <p>
                 To change your password you have to be logged in as a user.
@@ -95,17 +89,23 @@
                 This creates the possibility to edit the Profile data and the password.
             </p>
         </div>
-        <button class="collapsible">How can I edit my profile?</button>
+       
+        <br>
+        <h3>Plan-ts:</h3>
+        <button class="collapsible">Wie füge ich neue Pflanzen hinzu?</button>
         <div class="content">
             <p>
-                To edit your profile you have to be logged in as a user.
-                Then go to profile in the upper part of the page and press the Edit Profile button.
-                This creates the possibility to edit the Profile data and the password.
+                As soon as you are logged in as Admin, the Admin tab appears
+                in the upper part of the page where you can manage users
             </p>
         </div>
-        <br>
-        <h3>Admin:</h3>
-        <button class="collapsible">How can I manage users?</button>
+        <button class="collapsible">Wie füge ich neue Gruppen hinzu?</button>
+        <div class="content">
+            <p>
+                As soon as you are logged in as Admin, the Admin tab appears
+                in the upper part of the page where you can manage users
+            </p>
+        </div><button class="collapsible">Wie suche ich Pflanzen?</button>
         <div class="content">
             <p>
                 As soon as you are logged in as Admin, the Admin tab appears

@@ -4,7 +4,7 @@ session_start();
 // validates the data what came from the registerForm.php
 
 // checks if the passwords are the same
-if ($_POST["password"] == $_POST["passwordBest"]) {
+if ($_POST["newpassword"] == $_POST["passwordBest"]) {
     $password = $_POST['password'];
 } else {
     header("Location: ../index.php");
@@ -15,17 +15,18 @@ if ($_POST["password"] == $_POST["passwordBest"]) {
 
 
 //API Url
-$url = 'https://192.168.179.1:45455/api/Plan_ts/RegisterUser';
+$url = 'https://192.168.179.1:45455/api/Plan_ts/ChangePassword';
 //Initiate cURL.
 $ch = curl_init($url);
 //The JSON data.
 $jsonData1 = array(
-    'user' =>  $_POST["username"],
+    'user' =>  $_SESSION["user"],
     'password' =>  $password
 );
 $jsonData = array(
-    'loginData' =>  $jsonData1,
-    'email' =>  $_POST["email"]
+    'actionstring' =>  $_POST["newpassword"],
+    'loginData' =>  $jsonData1
+    
 );
 
 //Encode the array into JSON.

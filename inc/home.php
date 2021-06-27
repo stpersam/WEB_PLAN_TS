@@ -13,7 +13,11 @@
         /* Green */
         color: white;
     }
-
+    input, button {
+        text-align: center;
+        margin: auto;
+  display: block;
+    }
     p {
         text-align: center;
     }
@@ -28,6 +32,10 @@
 
     .alignit {
         text-align: center;
+        text-align: center;
+        margin: auto;
+  width: 50%;
+  padding: 10px;
     }
 
 
@@ -50,11 +58,11 @@
     </div>
     <div class="row">
         <div class="container">
-            <div id="login" class="col-md-12">
+            <div id="login" class="col-md-12 alignit">
                 <?php
                 if (isset($_SESSION['user'])) {
                     echo '<form method="post" action="./utility/LoginAPI.php">';
-                    echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
+                    echo '<button type="submit" name="logout" id="logout" class="btn btn-color">Logout</button>';
                     echo '</form>';
                 } else {
                     include "loginForm.php";

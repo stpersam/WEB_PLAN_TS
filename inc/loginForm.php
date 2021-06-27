@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <style>
+    label{
+        text-align: center;
+        margin: auto;
+  display: block;
+    }
     p {
         text-align: center;
     }
