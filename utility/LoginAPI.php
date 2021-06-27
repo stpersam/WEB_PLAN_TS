@@ -7,43 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ../index.php");
         die();
     } else {
-        //POST DATA
-
-        //github2
-
-        //session_start();
 
         $_SESSION["user"] = $_POST['username'];
         $password = $_POST['password'];
-        //API Url
-        $url = 'https://192.168.179.1:45456/api/Plan_ts/Login';
 
+
+        //API Url
+        $url = 'https://192.168.179.1:45455/api/Plan_ts/Login';
         //Initiate cURL.
         $ch = curl_init($url);
-
         //The JSON data.
         $jsonData = array(
             'user' =>  $_SESSION["user"],
             'password' =>  $password
         );
-
         //Encode the array into JSON.
         $jsonDataEncoded = json_encode($jsonData);
-
-        curl_setopt($ch, CURLOPT_VERBOSE, true);
-
-
-
-        $certificate_location = "./res/cert/conveyor_root.crt";
-
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $certificate_location);
-        
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $certificate_location);
-
-
-        $verbose = fopen('php://temp', 'w+');
-        curl_setopt($ch, CURLOPT_STDERR, $verbose);
-
         //Tell cURL that we want to send a POST request.
         curl_setopt($ch, CURLOPT_POST, 1);
 
@@ -53,7 +32,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Set the content type to application/json
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        //
+
+
+
+        //SSL certificate options
+        $certificate_location = "./res/cert/conveyor_root.crt";
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $certificate_location);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $certificate_location);
+
+        //debug info
+        curl_setopt($ch, CURLOPT_VERBOSE, true);
+        $verbose = fopen('php://temp', 'w+');
+        curl_setopt($ch, CURLOPT_STDERR, $verbose);
+
+
+        //set return value
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         // Execute the POST request
