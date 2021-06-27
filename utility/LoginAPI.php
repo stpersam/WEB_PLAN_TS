@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         //POST DATA
 
+        //github2
+
         //session_start();
 
         $_SESSION["user"] = $_POST['username'];
