@@ -1,11 +1,12 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     if (filter_has_var(INPUT_POST, "logout")) {
         $_SESSION["user"] = null;
         header("Location: ../index.php");
         die();
     } else {
-
         //POST DATA
 
         //session_start();
@@ -27,6 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Encode the array into JSON.
         $jsonDataEncoded = json_encode($jsonData);
 
+        curl_setopt($ch, CURLOPT_VERBOSE, true);
+
+
+
+        $certificate_location = "./res/cert/conveyor_root.crt";
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $certificate_location);
+        
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $certificate_location);
+
+
+        $verbose = fopen('php://temp', 'w+');
+        curl_setopt($ch, CURLOPT_STDERR, $verbose);
+
         //Tell cURL that we want to send a POST request.
         curl_setopt($ch, CURLOPT_POST, 1);
 
@@ -36,16 +51,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Set the content type to application/json
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        //Execute the request
+        //
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        $_SESSION["ID"] = curl_exec($ch);
+        // Execute the POST request
+        $result = curl_exec($ch);
 
-        if ($_SESSION["ID"] != "0") {
-            header("Location:../home.php");
+        // Close cURL resource
+        curl_close($ch);
+
+        if ($result == false) {
+            printf(
+                "cUrl error (#%d): %s<br>\n",
+                curl_errno($ch),
+                htmlspecialchars(curl_error($ch))
+            );
+            $_SESSION["ID"] = "0";
+
+
+            rewind($verbose);
+            $verboseLog = stream_get_contents($verbose);
+
+            echo "Verbose information:\n<pre>", htmlspecialchars($verboseLog), "</pre>\n";
         } else {
-            header("Location:../index.php");
-            //die();
+            $_SESSION["ID"] = $result;
+
+            if ($_SESSION["ID"] != "0") {
+                //$_SESSION["user"] = $result;
+                header("Location:../index.php");
+            } else {
+                header("Location:../index.php");
+                //die();
+            }
         }
     }
 }
-?>

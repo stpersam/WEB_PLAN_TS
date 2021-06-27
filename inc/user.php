@@ -27,7 +27,7 @@
 <div class="container">
     <?php session_start();
     // User individual content and button to logout and edit profile
-    echo "<h2>Welcome " . $_SESSION["users"]["Username"] . "</h2>";
+    echo "<h2>Welcome " . $_SESSION["user"] . "</h2>";
     ?>
     <p class="alignit">
         Here you can edit your profile.
@@ -35,7 +35,7 @@
     <?php
     $tmp = '"profilbearbeiten"';
     echo "<div class='container alignit'><button type='submit' name='ep' id='ep' class='btn btn-color' onclick='showcontents($tmp)' >Edit Profile</button>";
-    echo '<form method="post" action="utility/login.php">';
+    echo '<form method="post" action="./utility/LoginAPI.php">';
     echo '<button type="submit" name="logout" id="logout" class="btn btn-color">Logout</button><br>';
     echo '</form></div>';
 

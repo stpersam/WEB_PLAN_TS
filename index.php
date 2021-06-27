@@ -52,7 +52,7 @@
     echo "var x = document.getElementById('adminitem');";
     echo "var y = document.getElementById('useritem');";
     if ($currentuser != "") {
-        echo  "x.style.display = '';";    
+        echo  "y.style.display = '';";    
     } else {
         echo "x.style.display = 'none';";
         echo "y.style.display = 'none';";

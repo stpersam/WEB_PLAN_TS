@@ -53,7 +53,7 @@
             <div id="login" class="col-md-12">
                 <?php
                 if (isset($_SESSION['user'])) {
-                    echo '<form method="post" action="utility/LoginAPI.php">';
+                    echo '<form method="post" action="./utility/LoginAPI.php">';
                     echo '<button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>';
                     echo '</form>';
                 } else {
