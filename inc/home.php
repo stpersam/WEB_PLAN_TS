@@ -3,16 +3,7 @@
 <link rel="stylesheet" href="res/assets/css/main.css" />
 <!-- CSS -->
 <style>
-    .btn-color {
-        background-color: #734F6F;
-        color: #FFFFFF;
-    }
-
-    .btn-color:hover {
-        background-color: #56435B;
-        /* Green */
-        color: white;
-    }
+    
     input, button {
         text-align: center;
         margin: auto;

@@ -1,28 +1,9 @@
-<?php include "../utility/DB.php"?>
+<?php session_start(); ?>
 <link rel="stylesheet" href="res/assets/css/main.css" />
-<script>
-    function showStatus(id) {
-        $.post("./ajax/changeStatus.php", {
-            id: id,
-        },
-        function(data) {
-            $("#st-" + id).html(data)
-        });
-    }
-
-    function showPictures(id) {
-        $.post("./ajax/showUserpictures.php", {
-            id: id,
-        },
-        function(data) {
-          $('#divPictures').html(data)
-        });
-    }
-</script>
 <div class="container">
     <br>
     <!--Creates a Table to display the user administration for the admins -->
-    <form method="post" action="utility/login.php">
+    <form method="post" action="utility/LoginAPI.php">
         <button type="submit" name="logout" id="logout" class="btn btn-color" style="float: right">Logout</button>
     </form>
     <h2 style="text-align: center">User Administration</h2>
@@ -30,48 +11,73 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Salutation</th>
-                <th>First Name</th>
-                <th>Second Name</th>
-                <th>Adress</th>
-                <th>PLZ</th>
-                <th>Place</th>
                 <th>Username</th>
                 <th>E-Mail</th>
-                <th>Status</th>
-                <th>Pictures</th>
-                <th>Delete</th>
+                <th>Session ID</th>
+                <th>Role</th>
             </tr>
         </thead>
         <tbody>
 
             <?php
-            // fetsch all Users from the database and display it with a Status, Pictures and Delete button.
-            $bd = new DB();
-            $users = $bd->getUserList();
+
+            //API Url
+            $url = 'https://192.168.179.1:45455/api/Plan_ts/GetUsers';
+            //Initiate cURL.
+            $ch = curl_init($url);
+            //The JSON data.
+            $jsonData = array(
+                'user' =>  $_SESSION["user"],
+                'sessionid' =>  $_SESSION["ID"]
+            );        
+            
+            //Encode the array into JSON.
+            $jsonDataEncoded = json_encode($jsonData);
+            //Tell cURL that we want to send a POST request.
+            curl_setopt($ch, CURLOPT_POST, 1);
+
+            //Attach our encoded JSON string to the POST fields.
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+
+            //Set the content type to application/json
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+            //SSL certificate options
+            $certificate_location = "./res/cert/conveyor_root.crt";
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $certificate_location);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $certificate_location);
+
+            //debug info
+            curl_setopt($ch, CURLOPT_VERBOSE, true);
+            $verbose = fopen('php://temp', 'w+');
+            curl_setopt($ch, CURLOPT_STDERR, $verbose);
+
+
+            //set return value
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            // Execute the POST request
+            $result = curl_exec($ch);   
+           
+            $exploded = explode("|", $result); 
+            $users = array();
+            foreach ($exploded as $u){
+                 array_push($users, json_decode($u));
+            }
+            
+        
 
             foreach ($users as $z) {
-                if ($z->Username != "admin") {
+               
                     echo "<tr>";
-                    echo "<td>$z->ID</td>";
-                    echo "<td>$z->Anrede</td>";
-                    echo "<td>$z->Vorname</td>";
-                    echo "<td>$z->Nachname</td>";
-                    echo "<td>$z->Adresse</td>";
-                    echo "<td>$z->PLZ</td>";
-                    echo "<td>$z->Ort</td>";
                     echo "<td>$z->Username</td>";
-                    echo "<td>$z->Email</td>";
-                    echo "<td><button class='btn btn-color' id='st-$z->ID' onclick='showStatus($z->ID)'>$z->Status</button></td>";
-                    echo "<td><button class='btn btn-color' onclick='showPictures($z->ID)'>Pictures</button></td>";
-                    echo "<td><button class='btn btn-color'><a href='./utility/userAdministration.php?do=del&id=$z->ID'>Delete</a></button></td>";
+                    echo "<td>$z->EMail</td>";
+                    echo "<td>$z->SessionId</td>";
+                    echo "<td>$z->Privileges</td>";                  
                     echo "</tr>";
                 }
-            }
+            
             ?>
         </tbody>
     </table>
-    <!--Displays the pictures when clicked on the Picture button of a specific user -->
-    <div id="divPictures"></div>
 </div>

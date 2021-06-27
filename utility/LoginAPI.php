@@ -70,14 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Verbose information:\n<pre>", htmlspecialchars($verboseLog), "</pre>\n";
         } else {
             $_SESSION["ID"] = $result;
-
-            if ($_SESSION["ID"] != "0") {
-                //$_SESSION["user"] = $result;
-                header("Location:../index.php");
-            } else {
-                header("Location:../index.php");
-                //die();
+            if ($_SESSION["ID"] > 0) {
+                $_SESSION["isadmin"] = true;
             }
+            header("Location:../index.php");
         }
     }
 }

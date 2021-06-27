@@ -31,11 +31,6 @@
 
 <body class="homepage is-preload">
     <?php
-    // Include all needed classes
-    include "model/picture.php";
-    include "utility/DB.php";
-    include "model/User.php";
-
     //initialize currentuser and role Variable for easier use
     if (isset($_SESSION['user'])) {
         $currentuser = $_SESSION['user'];
@@ -51,7 +46,9 @@
     echo "$(document).ready(function(){";
     echo "var x = document.getElementById('adminitem');";
     echo "var y = document.getElementById('useritem');";
-    if ($currentuser != "") {
+    if ($_SESSION['isadmin'] == true) {
+        echo  "x.style.display = '';";
+    } else if ($currentuser != "") {
         echo  "y.style.display = '';";    
     } else {
         echo "x.style.display = 'none';";
