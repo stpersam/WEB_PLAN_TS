@@ -1,5 +1,10 @@
 <?php session_start(); ?>
-<link rel="stylesheet" href="res/assets/css/main.css" />
+
+
+<head>
+    <link rel="stylesheet" href="res/assets/css/main.css" />
+    <script type="text/javascript" src="../utility/showcontents.js"></script>
+</head>
 <div class="container">
     <br>
     <!--Creates a Table to display the user administration for the admins -->
@@ -15,6 +20,7 @@
                 <th>E-Mail</th>
                 <th>Session ID</th>
                 <th>Role</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +35,8 @@
             $jsonData = array(
                 'user' =>  $_SESSION["user"],
                 'sessionid' =>  $_SESSION["ID"]
-            );        
-            
+            );
+
             //Encode the array into JSON.
             $jsonDataEncoded = json_encode($jsonData);
             //Tell cURL that we want to send a POST request.
@@ -57,26 +63,26 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
             // Execute the POST request
-            $result = curl_exec($ch);   
-           
-            $exploded = explode("|", $result); 
+            $result = curl_exec($ch);
+
+            $exploded = explode("|", $result);
             $users = array();
-            foreach ($exploded as $u){
-                 array_push($users, json_decode($u));
+            foreach ($exploded as $u) {
+                array_push($users, json_decode($u));
             }
-            
-        
 
             foreach ($users as $z) {
-               
-                    echo "<tr>";
-                    echo "<td>$z->Username</td>";
-                    echo "<td>$z->EMail</td>";
-                    echo "<td>$z->SessionId</td>";
-                    echo "<td>$z->Privileges</td>";                  
-                    echo "</tr>";
-                }
-            
+                echo "<tr>";
+                echo "<td>$z->Username</td>";
+                echo "<td>$z->EMail</td>";
+                echo "<td>$z->SessionId</td>";
+                echo "<td>$z->Privileges</td>";
+                echo  "<td><a href='?editUser=$z->Username&editEmail=$z->EMail'><button class='btn btn-color'>Edit</button></a></td>";
+                echo "</tr>";
+            }
+
+        
+
             ?>
         </tbody>
     </table>

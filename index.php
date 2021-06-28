@@ -24,7 +24,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <!-- load JS -->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="utility/showcontents.js"></script>
 
 </head>
@@ -40,6 +39,30 @@
         $rolle = "";
     }
     ?>
+    
+    
+    
+    
+    <?php
+        if (isset($_GET['editUser'])) {
+            $_SESSION["editUser"] = $_GET['editUser'];
+            $_SESSION["editEmail"] = $_GET['editEmail'];
+            ?>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#includecontent").load("inc/editUser.php");
+                    });
+                </script><?php
+        } 
+        else { 
+            ?>        
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#includecontent").load("inc/home.php");
+                    });
+                </script><?php
+        }                                
+    ?>
     <!-- Navbar Visibility Checker -->
     <?php
     echo "<script type='text/javascript'>";
@@ -49,7 +72,7 @@
     if ($_SESSION['isadmin'] == true) {
         echo  "x.style.display = '';";
     } else if ($currentuser != "") {
-        echo  "y.style.display = '';";    
+        echo  "y.style.display = '';";
     } else {
         echo "x.style.display = 'none';";
         echo "y.style.display = 'none';";
@@ -57,20 +80,15 @@
     echo " });</script>";
     ?>
 
-    <!-- Default include: home -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#includecontent").load("inc/home.php");
-        });
-    </script>
+
 
     <div id="page-wrapper">
         <!-- Header -->
         <div id="header">
             <!-- Inner -->
             <div class="inner">
-                <header >
-                    
+                <header>
+
                     <h1><a href="index.php" id="logo">Plan-ts</a></h1>
                     <hr />
                     <p>Mobile App für das moderen Zimmerpflanzen Management</p>
@@ -104,6 +122,9 @@
             <a href="#header" class=""><i class="fa fa-arrow-up"></i>To the top</a>
         </footer>
 </body>
+
+
+
 <script src="res/assets/js/jquery.min.js"></script>
 <script src="res/assets/js/jquery.dropotron.min.js"></script>
 <script src="res/assets/js/jquery.scrolly.min.js"></script>
@@ -112,4 +133,5 @@
 <script src="res/assets/js/breakpoints.min.js"></script>
 <script src="res/assets/js/util.js"></script>
 <script src="res/assets/js/main.js"></script>
+
 </html>

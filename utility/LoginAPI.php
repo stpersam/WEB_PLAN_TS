@@ -4,6 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (filter_has_var(INPUT_POST, "logout")) {
         $_SESSION["user"] = null;
+        $_SESSION["isadmin"] = null;
+        session_destroy();
         header("Location: ../index.php");
         die();
     } else {
@@ -55,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Close cURL resource
         curl_close($ch);
 
-        if ($result == false) {
+        if ($result == false | $result == "0") {
             printf(
                 "cUrl error (#%d): %s<br>\n",
                 curl_errno($ch),
